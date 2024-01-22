@@ -17,6 +17,11 @@ namespace AutoPrintModel {
     public:
         List<String^>^ record;
 
+        property List<String^>^ Record {
+            List<String^>^ get() { return record; }
+            void set(List<String^>^ value) { record = value; }
+        }
+
         void BuyPrint();
 
         void Reload();
