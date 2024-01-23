@@ -11,22 +11,11 @@ using namespace System;
 namespace AutoPrintModel {
     public ref class Location {
     public:
-        int loca_id;
-        String^ place_printer;
-        array<Byte>^ image;
+        property int loca_id;
+        property String^ place_printer;
+        property  array<Byte>^ image;
     
-        property int Loca_id {
-            int get() { return loca_id; }
-            void set(int value) { loca_id = value; }
-        }
-        property String^ Place_printer {
-            String^ get() { return place_printer; }
-            void set(String^ value) { place_printer = value; }
-        }
-        property array<Byte>^ Image {
-            array<Byte>^ get() { return image; }
-            void set(array<Byte>^ value) { image = value; }
-        }
+       
     
     };
 }

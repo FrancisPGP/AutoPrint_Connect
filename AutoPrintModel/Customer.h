@@ -15,13 +15,9 @@ using namespace System::Collections::Generic;
 namespace AutoPrintModel {
     public ref class Customer : public User {
     public:
-        List<String^>^ record;
+        property List<String^>^ record;
 
-        property List<String^>^ Record {
-            List<String^>^ get() { return record; }
-            void set(List<String^>^ value) { record = value; }
-        }
-
+     
         void BuyPrint();
 
         void Reload();
