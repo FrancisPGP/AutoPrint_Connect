@@ -37,9 +37,12 @@ namespace AutoPrintView {
 	private: System::Windows::Forms::Label^ label1;
 	protected:
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::TextBox^ txtDNI;
+	private: System::Windows::Forms::TextBox^ txtPassword;
+	private: System::Windows::Forms::Button^ btnEntrar;
+
+
+
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
@@ -61,9 +64,9 @@ namespace AutoPrintView {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(LoginForm::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->txtDNI = (gcnew System::Windows::Forms::TextBox());
+			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
+			this->btnEntrar = (gcnew System::Windows::Forms::Button());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
@@ -95,34 +98,34 @@ namespace AutoPrintView {
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Contraseña: ";
 			// 
-			// textBox1
+			// txtDNI
 			// 
-			this->textBox1->Location = System::Drawing::Point(321, 296);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(158, 20);
-			this->textBox1->TabIndex = 3;
+			this->txtDNI->Location = System::Drawing::Point(321, 296);
+			this->txtDNI->Name = L"txtDNI";
+			this->txtDNI->Size = System::Drawing::Size(158, 20);
+			this->txtDNI->TabIndex = 3;
 			// 
-			// textBox2
+			// txtPassword
 			// 
-			this->textBox2->Location = System::Drawing::Point(321, 403);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(158, 20);
-			this->textBox2->TabIndex = 4;
-			this->textBox2->TextChanged += gcnew System::EventHandler(this, &LoginForm::textBox2_TextChanged);
+			this->txtPassword->Location = System::Drawing::Point(321, 403);
+			this->txtPassword->Name = L"txtPassword";
+			this->txtPassword->Size = System::Drawing::Size(158, 20);
+			this->txtPassword->TabIndex = 4;
+			this->txtPassword->TextChanged += gcnew System::EventHandler(this, &LoginForm::textBox2_TextChanged);
 			// 
-			// button1
+			// btnEntrar
 			// 
-			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+			this->btnEntrar->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnEntrar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(323, 454);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(142, 66);
-			this->button1->TabIndex = 5;
-			this->button1->Text = L"ENTRAR";
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &LoginForm::button1_Click);
+			this->btnEntrar->Location = System::Drawing::Point(323, 454);
+			this->btnEntrar->Name = L"btnEntrar";
+			this->btnEntrar->Size = System::Drawing::Size(142, 66);
+			this->btnEntrar->TabIndex = 5;
+			this->btnEntrar->Text = L"ENTRAR";
+			this->btnEntrar->UseVisualStyleBackColor = false;
+			this->btnEntrar->Click += gcnew System::EventHandler(this, &LoginForm::button1_Click);
 			// 
 			// label3
 			// 
@@ -180,9 +183,9 @@ namespace AutoPrintView {
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->btnEntrar);
+			this->Controls->Add(this->txtPassword);
+			this->Controls->Add(this->txtDNI);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->IsMdiContainer = true;

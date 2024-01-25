@@ -32,6 +32,10 @@ namespace AutoPrintModel {
             int get() { return user_Id; }
             void set(int value) { user_Id = value; }
         }
+        property String^ Name {//------------------------------------------MODIFICACIONES DE LUIS------------------
+            String^ get() { return name; }
+            void set(String^ value) { name = value; }
+        }//--------------------------------------------------------------------------------------------------------
         property String^ LastName {
             String^ get() { return lastName; }
             void set(String^ value) { lastName = value; }
