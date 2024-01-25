@@ -16,7 +16,7 @@ namespace AutoPrintModel {
         property int num_spooler;
         property int num_copies;
         property String^ status_order;
-        property  double price;
+        property  double price; //fuiste usado
 
         
         void PrintDocument();
