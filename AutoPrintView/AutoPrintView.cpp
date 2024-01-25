@@ -6,7 +6,7 @@ using namespace System;
 using namespace System::Windows::Forms;
 
 
-int Main(array<System::String ^> ^args)
+int Main(array<System::String^>^ args)
 {
     Application::EnableVisualStyles(); //Application nos lo da "System::Windows::Forms" y ahora habilitaremos los estilos visuales
     Application::SetCompatibleTextRenderingDefault(false); //Ponemos false para que el renderizado sea automático
