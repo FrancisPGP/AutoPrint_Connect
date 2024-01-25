@@ -6,12 +6,10 @@
 #ifndef _CARD_H
 #define _CARD_H
 
-#include "Payment_Methods.h"
-
 using namespace System;
 
 namespace AutoPrintModel {
-    public ref class Card : public Payment_Methods {
+    public ref class Card {
     public:
         property String^ account_number;
         property String^ cvv;
