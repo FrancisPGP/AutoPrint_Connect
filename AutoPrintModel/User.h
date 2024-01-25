@@ -27,6 +27,7 @@ namespace AutoPrintModel {
         int birthdate;
         array<Byte>^ photo;
 
+    public: 
         property int User_Id {
             int get() { return user_Id; }
             void set(int value) { user_Id = value; }
