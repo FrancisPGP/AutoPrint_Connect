@@ -45,16 +45,10 @@
     <ClInclude Include="Order.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Payment_Methods.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Printer.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="User.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Wallet.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -89,16 +83,10 @@
     <ClCompile Include="Order.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Payment_Methods.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="Printer.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="User.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Wallet.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

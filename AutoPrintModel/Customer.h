@@ -16,6 +16,7 @@ namespace AutoPrintModel {
     public ref class Customer : public User {
     public:
         property List<String^>^ record;
+        property  double money_page;
 
      
         void BuyPrint();
