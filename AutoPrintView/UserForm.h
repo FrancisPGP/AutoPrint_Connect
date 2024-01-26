@@ -362,7 +362,7 @@ namespace AutoPrintView {
 			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(700, 127);
+			this->pictureBox1->Location = System::Drawing::Point(698, 126);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(433, 475);
@@ -383,7 +383,8 @@ namespace AutoPrintView {
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(303, 98);
 			this->label11->TabIndex = 23;
-			this->label11->Text = L"AUTOPRINT\r\n  CONNECT";
+			this->label11->Text = L"AUTOPRINT\r\nCONNECT";
+			this->label11->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// UserForm
 			// 
