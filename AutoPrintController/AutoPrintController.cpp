@@ -2,50 +2,38 @@
 
 #include "AutoPrintController.h"
 
-using namespace System::IO;
-
+using namespace AutoPrintPersistance;
 
 int AutoPrintController::Controller::AddCustomer(User^ user)
 {
-    CustomerListDB->Add(user);
-    return 1;
+    return ::Persistance::AddCustomer(user);
+
 }
 
 void AutoPrintController::Controller::UpdateCustomer(User^ user)
 {
-    for (int i = 0; i < CustomerListDB->Count; i++) {
-        if (CustomerListDB[i]->User_Id == user->User_Id) {
-            CustomerListDB[i] == user;
-        }
-    }
+    return ::Persistance::UpdateCustomer(user);
 }
 
 void AutoPrintController::Controller::DeleteCustomer(int CustomerId)
 {
-    for (int i = 0; i < CustomerListDB->Count; i++) {
-        if (CustomerListDB[i]->User_Id == CustomerId) {
-            CustomerListDB->RemoveAt(i);
-            return;
-        }
-    }
+    return ::Persistance::DeleteCustomer(CustomerId);
+
 }
 
 User^ AutoPrintController::Controller::QueryCustomerById(int CustomerId)
 {
-    
-    User^ user = nullptr;
-    for (int i = 0; i < CustomerListDB->Count; i++) {
-        if (CustomerListDB[i]->User_Id == CustomerId) {
-            user = CustomerListDB[i];
-            return user;
+    return Persistance::QueryCustomerById(CustomerId);
 
-        }
-        return user;
-
-    }
 }
 
 List<User^>^ AutoPrintController::Controller::QueryAllCustomers()
 {
-    return CustomerListDB;
+    return Persistance::QueryAllCustomers();
+}
+
+//intento para login
+bool AutoPrintController::Controller::Login(String^ dni, String^ password)
+{
+    return Persistance::Login(dni,password);
 }
