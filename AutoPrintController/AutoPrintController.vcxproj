@@ -148,6 +148,9 @@
     <ProjectReference Include="..\AutoPrintModel\AutoPrintModel.vcxproj">
       <Project>{41d62ade-f56d-4ec2-8639-9de3e2bfee7f}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\AutoPrintPersistance\AutoPrintPersistance.vcxproj">
+      <Project>{6a162326-dbeb-4ade-a2ec-7f9ce3805a1d}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

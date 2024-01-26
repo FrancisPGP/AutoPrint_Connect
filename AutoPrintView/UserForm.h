@@ -220,7 +220,7 @@ namespace AutoPrintView {
 			// 
 			this->txtName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->txtName->ForeColor = System::Drawing::SystemColors::Window;
+			this->txtName->ForeColor = System::Drawing::SystemColors::MenuText;
 			this->txtName->Location = System::Drawing::Point(60, 158);
 			this->txtName->Name = L"txtName";
 			this->txtName->Size = System::Drawing::Size(130, 20);

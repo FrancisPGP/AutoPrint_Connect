@@ -9,6 +9,10 @@ namespace AutoPrintView {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+	//nuevos 
+	using namespace AutoPrintModel;
+	using namespace AutoPrintController;
+
 	/// <summary>
 	/// Resumen de LoginForm
 	/// </summary>
@@ -205,8 +209,29 @@ namespace AutoPrintView {
 	}
 	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
+
+//INTENTO DE LOGIN
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ enteredDni = txtDNI->Text;
+	String^ enteredPassword = txtPassword->Text;
+	if (enteredDni == "admin" && enteredPassword == "admin") {
+
+		Close();//Aqui seria para la interfaz de admin borrar Close() y poner Nombreinterza^ nombre = gcnew Nombreintewrfaz();
+		                                                                      //nombre->Show();
+	}
+
+
+	bool valid = Controller::Login(enteredDni, enteredPassword);
+	
+	if (valid == true) {
+		Close(); //Aqui seria para la interfaz de admin borrar Close() y poner Nombreinterza^ nombre = gcnew Nombreintewrfaz();
+		                                                                      //nombre->Show();
+	}
+	
+
 }
+	   //
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
