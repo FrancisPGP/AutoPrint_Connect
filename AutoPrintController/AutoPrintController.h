@@ -22,7 +22,7 @@ namespace AutoPrintController {
         /*Francis*/
         static void AddOrder(Order^);
         static List<Order^>^ QueryAllFiles();
-        static List<Order^>^ QueryFileById(int orderId);
+        static Order^ QueryFileById(int orderId);
 
         
         /*Cesar*/
