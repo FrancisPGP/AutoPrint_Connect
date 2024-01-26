@@ -166,6 +166,11 @@ namespace AutoPrintView {
 		UserTableForm^ usertableForm = gcnew UserTableForm();
 		usertableForm->MdiParent = this;
 		usertableForm->Show();
+		
+		
+		//RefreshGrid();  posible funcion para actualizar el grid
+
+
 	}
 	private: System::Void billeteraToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		WalletForm^ walletForm = gcnew WalletForm();
