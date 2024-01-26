@@ -49,8 +49,9 @@ namespace AutoPrintView {
 
 	private: System::Windows::Forms::Label^ label3;
 
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 	private:
 		/// <summary>
@@ -84,7 +85,7 @@ namespace AutoPrintView {
 			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(368, 213);
+			this->label1->Location = System::Drawing::Point(333, 178);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(200, 29);
@@ -98,7 +99,7 @@ namespace AutoPrintView {
 			this->label2->BackColor = System::Drawing::Color::Transparent;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(368, 347);
+			this->label2->Location = System::Drawing::Point(333, 308);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(160, 29);
@@ -107,18 +108,22 @@ namespace AutoPrintView {
 			// 
 			// txtDNI
 			// 
-			this->txtDNI->Location = System::Drawing::Point(371, 289);
+			this->txtDNI->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtDNI->Location = System::Drawing::Point(338, 238);
 			this->txtDNI->Margin = System::Windows::Forms::Padding(4);
 			this->txtDNI->Name = L"txtDNI";
-			this->txtDNI->Size = System::Drawing::Size(209, 22);
+			this->txtDNI->Size = System::Drawing::Size(209, 28);
 			this->txtDNI->TabIndex = 3;
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(371, 421);
+			this->txtPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtPassword->Location = System::Drawing::Point(338, 368);
 			this->txtPassword->Margin = System::Windows::Forms::Padding(4);
 			this->txtPassword->Name = L"txtPassword";
-			this->txtPassword->Size = System::Drawing::Size(209, 22);
+			this->txtPassword->Size = System::Drawing::Size(209, 28);
 			this->txtPassword->TabIndex = 4;
 			this->txtPassword->TextChanged += gcnew System::EventHandler(this, &LoginForm::textBox2_TextChanged);
 			// 
@@ -128,7 +133,7 @@ namespace AutoPrintView {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->btnEntrar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnEntrar->Location = System::Drawing::Point(374, 484);
+			this->btnEntrar->Location = System::Drawing::Point(344, 448);
 			this->btnEntrar->Margin = System::Windows::Forms::Padding(4);
 			this->btnEntrar->Name = L"btnEntrar";
 			this->btnEntrar->Size = System::Drawing::Size(189, 81);
@@ -145,7 +150,7 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(327, 21);
+			this->label3->Location = System::Drawing::Point(293, 22);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(303, 98);
@@ -154,11 +159,13 @@ namespace AutoPrintView {
 			// 
 			// pictureBox1
 			// 
+			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(32, 213);
+			this->pictureBox1->Location = System::Drawing::Point(50, 196);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(205, 212);
+			this->pictureBox1->Size = System::Drawing::Size(182, 212);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 8;
 			this->pictureBox1->TabStop = false;
@@ -166,11 +173,13 @@ namespace AutoPrintView {
 			// 
 			// pictureBox2
 			// 
+			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(686, 235);
+			this->pictureBox2->Location = System::Drawing::Point(637, 236);
 			this->pictureBox2->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(267, 155);
+			this->pictureBox2->Size = System::Drawing::Size(240, 155);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox2->TabIndex = 9;
 			this->pictureBox2->TabStop = false;
@@ -179,7 +188,8 @@ namespace AutoPrintView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1003, 591);
+			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->ClientSize = System::Drawing::Size(923, 559);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label3);

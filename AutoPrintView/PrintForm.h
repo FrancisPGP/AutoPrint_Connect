@@ -166,9 +166,11 @@ namespace AutoPrintView {
 			// 
 			// PB_imagePDF
 			// 
+			this->PB_imagePDF->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->PB_imagePDF->Location = System::Drawing::Point(33, 66);
 			this->PB_imagePDF->Name = L"PB_imagePDF";
 			this->PB_imagePDF->Size = System::Drawing::Size(284, 356);
+			this->PB_imagePDF->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->PB_imagePDF->TabIndex = 28;
 			this->PB_imagePDF->TabStop = false;
 			this->PB_imagePDF->Click += gcnew System::EventHandler(this, &PrintForm::PB_imagePDF_Click);
