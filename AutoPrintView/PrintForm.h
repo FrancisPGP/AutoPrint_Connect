@@ -73,9 +73,10 @@ namespace AutoPrintView {
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::PictureBox^ PB_PDF_historial;
+	private: System::Windows::Forms::DataGridView^ dgvHistorial_Files;
 
 
-	private: System::Windows::Forms::DataGridView^ dgvTransport;
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_Id;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_Tipo;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_Empresa;
@@ -150,7 +151,8 @@ namespace AutoPrintView {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->TPage_historial = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->dgvTransport = (gcnew System::Windows::Forms::DataGridView());
+			this->PB_PDF_historial = (gcnew System::Windows::Forms::PictureBox());
+			this->dgvHistorial_Files = (gcnew System::Windows::Forms::DataGridView());
 			this->Transp_Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Transp_Tipo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Transp_Empresa = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -159,13 +161,12 @@ namespace AutoPrintView {
 			this->Transp_SpeedMax = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Transp_StartTime = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Transp_FinishTime = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->PB_PDF_historial = (gcnew System::Windows::Forms::PictureBox());
 			this->tabControl1->SuspendLayout();
 			this->TPage_impre->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_imprimir))->BeginInit();
 			this->tabPage1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvTransport))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_historial))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvHistorial_Files))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -425,7 +426,7 @@ namespace AutoPrintView {
 			// tabPage1
 			// 
 			this->tabPage1->Controls->Add(this->PB_PDF_historial);
-			this->tabPage1->Controls->Add(this->dgvTransport);
+			this->tabPage1->Controls->Add(this->dgvHistorial_Files);
 			this->tabPage1->Location = System::Drawing::Point(4, 25);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
@@ -434,20 +435,31 @@ namespace AutoPrintView {
 			this->tabPage1->Text = L"Historial";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
-			// dgvTransport
+			// PB_PDF_historial
 			// 
-			this->dgvTransport->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvTransport->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
+			this->PB_PDF_historial->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->PB_PDF_historial->Location = System::Drawing::Point(574, 54);
+			this->PB_PDF_historial->Name = L"PB_PDF_historial";
+			this->PB_PDF_historial->Size = System::Drawing::Size(284, 356);
+			this->PB_PDF_historial->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->PB_PDF_historial->TabIndex = 29;
+			this->PB_PDF_historial->TabStop = false;
+			// 
+			// dgvHistorial_Files
+			// 
+			this->dgvHistorial_Files->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvHistorial_Files->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
 				this->Transp_Id,
 					this->Transp_Tipo, this->Transp_Empresa, this->Transp_Matricula, this->Transp_Asientos, this->Transp_SpeedMax, this->Transp_StartTime,
 					this->Transp_FinishTime
 			});
-			this->dgvTransport->Location = System::Drawing::Point(6, 66);
-			this->dgvTransport->Name = L"dgvTransport";
-			this->dgvTransport->RowHeadersWidth = 51;
-			this->dgvTransport->RowTemplate->Height = 24;
-			this->dgvTransport->Size = System::Drawing::Size(562, 330);
-			this->dgvTransport->TabIndex = 2;
+			this->dgvHistorial_Files->Location = System::Drawing::Point(6, 66);
+			this->dgvHistorial_Files->Name = L"dgvHistorial_Files";
+			this->dgvHistorial_Files->RowHeadersWidth = 51;
+			this->dgvHistorial_Files->RowTemplate->Height = 24;
+			this->dgvHistorial_Files->Size = System::Drawing::Size(562, 330);
+			this->dgvHistorial_Files->TabIndex = 2;
+			this->dgvHistorial_Files->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PrintForm::dgvHistorial_Files_CellClick);
 			// 
 			// Transp_Id
 			// 
@@ -509,16 +521,6 @@ namespace AutoPrintView {
 			this->Transp_FinishTime->Name = L"Transp_FinishTime";
 			this->Transp_FinishTime->Width = 125;
 			// 
-			// PB_PDF_historial
-			// 
-			this->PB_PDF_historial->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->PB_PDF_historial->Location = System::Drawing::Point(574, 54);
-			this->PB_PDF_historial->Name = L"PB_PDF_historial";
-			this->PB_PDF_historial->Size = System::Drawing::Size(284, 356);
-			this->PB_PDF_historial->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->PB_PDF_historial->TabIndex = 29;
-			this->PB_PDF_historial->TabStop = false;
-			// 
 			// PrintForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -527,13 +529,14 @@ namespace AutoPrintView {
 			this->Controls->Add(this->tabControl1);
 			this->Name = L"PrintForm";
 			this->Text = L"Documentos";
+			this->Load += gcnew System::EventHandler(this, &PrintForm::PrintForm_Load);
 			this->tabControl1->ResumeLayout(false);
 			this->TPage_impre->ResumeLayout(false);
 			this->TPage_impre->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_imprimir))->EndInit();
 			this->tabPage1->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvTransport))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_historial))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvHistorial_Files))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -549,53 +552,72 @@ namespace AutoPrintView {
 	}
 	private: System::Void BT_pagarTARJ_Click(System::Object^ sender, System::EventArgs^ e) {
 		CardVISAForm^ cardVISAForm = gcnew CardVISAForm();
-		cardVISAForm->MdiParent = this;
+		//cardVISAForm->MdiParent = this;
 		cardVISAForm->Show();
 	}
 	private: System::Void BT_pagarBILL_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ File_Tipo = LB_tipoHOJA->Text;
-		String^ File_tamaño = LB_tamañoHOJA->Text;
-		String^ File_tinta = LB_tinta->Text;
+		//if(el usuario paga)
+		
+		String^ file_Tipo = LB_tipoHOJA->Text;
+		String^ file_tamaño = LB_tamañoHOJA->Text;
+		String^ file_tinta = LB_tinta->Text;
 		//int File_copia = TB_NUMcopias->Text; No hacemos eso porque lo queremos convertir en texto (caracteres)
-		int File_copia = Int32::Parse(TB_NUMcopias->Text);
-		String^ File_local = LB_local->Text;
+		int file_copia = Int32::Parse(TB_NUMcopias->Text);
+		String^ file_local = LB_local->Text;
 
 
 		//Contenidos de dgvs (No entendí lo que dijo el profe)
 		//AGREGUÉ using namespace AutoPrintModel; para poder usar la clase Order
-		Order^ File = gcnew Order();
+		Order^ File_order = gcnew Order();
 		//Atributos de Vehicule: Id,Type,Company,License_Plate
-		File->sheet_type = File_Tipo;
-		File->sheet_size = File_tamaño;
-		File->color_page = File_tinta;
-		File->num_copies = File_copia;
-		File->Location = File_local;
+		File_order->sheet_type = file_Tipo;
+		File_order->sheet_size = file_tamaño;
+		File_order->color_page = file_tinta;
+		File_order->num_copies = file_copia;
+		File_order->Location = file_local;
 
 		if (PB_PDF_imprimir != nullptr && PB_PDF_imprimir->Image != nullptr) {
 			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
 			PB_PDF_imprimir->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
-			File->File = ms->ToArray();
+			File_order->File = ms->ToArray();
 		}
 
-		//if(el usuario paga)
 		/*File=robot*/
-		Controller::AddFile(File);
-		ShowFiles();
+		Controller::AddOrder(File_order);
+		ShowOrderFiles();
 	}
-		   void ShowFiles() {
-			   List<Order^>^ transports = Controller::QueryAllFiles();
-			   dgvTransport->Rows->Clear();
-			   for (int i = 0; i < transports->Count; i++) {
-				   Vehicule^ Transporte = transports[i];
-				   //dgvTransport es el nombre de nuestra tabla
-				   dgvTransport->Rows->Add(gcnew array<String^>{
-					   "" + Transporte->Id,
-						   Transporte->Type,
-						   Transporte->Company,
-						   Transporte->License_Plate
+		   void ShowOrderFiles() {
+			   List<Order^>^ orderfiles = Controller::QueryAllFiles();
+			   dgvHistorial_Files->Rows->Clear();
+			   for (int i = 0; i < orderfiles->Count; i++) {
+				   Order^ OrderFile = orderfiles[i];
+				   //dgvHistorial_Files es el nombre de la tabla de historial
+				   dgvHistorial_Files->Rows->Add(gcnew array<String^>{
+						OrderFile->sheet_type,
+						OrderFile->sheet_size,
+						OrderFile->color_page,
+						"" + OrderFile->num_copies,
+						OrderFile->Location
 				   });
 				   //"" + Transporte->Id, porque no es de tipo String
 			   }
 		   }
+	private: System::Void PrintForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		ShowOrderFiles();
+	}
+	private: System::Void dgvHistorial_Files_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		int transportId = Int32::Parse(dgvTransport->Rows[dgvTransport->SelectedCells[0]->RowIndex]
+			->Cells[0]->Value->ToString());
+		Order^ Archivo_PDF = Controller::QueryTransportByName(transportId);
+		
+		if (Transporte->Photo != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(Transporte->Photo);
+			PictureBox1->Image = Image::FromStream(ms);
+		}
+		else {
+			PictureBox1->Image = nullptr;
+			PictureBox1->Invalidate();
+		}
+	}
 };
 }

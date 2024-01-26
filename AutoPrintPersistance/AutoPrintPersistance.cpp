@@ -3,6 +3,9 @@
 #include "AutoPrintPersistance.h"
 
 using namespace System::IO;
+using namespace AutoPrintPersistance;
+using namespace System::Xml::Serialization;
+using namespace System::Runtime::Serialization::Formatters::Binary;
 
 /*Ricardo y Luis*/
 
@@ -122,6 +125,55 @@ bool AutoPrintPersistance::Persistance::Login(String^ dni, String^ password) {
 
 /*Francis*/
 
+void Persistance::PersistBinaryFile(String^ fileName, Object^ persistObject) {
+    FileStream^ file;
+    BinaryFormatter^ formatter = gcnew BinaryFormatter();
+    try {
+        file = gcnew FileStream(fileName, FileMode::Create, FileAccess::Write);
+        formatter->Serialize(file, persistObject);
+    }
+    catch (Exception^ ex) { //Si ocurre algo distinto entra aquí
+        //Todo error puede se considerado como una Exception, no al revés
+        throw ex;
+    }
+    finally { //El más importante: serán las instrucciones que se vana ejecutar si o si
+        if (file != nullptr) file->Close();
+    }
+}
+
+Object^ Persistance::LoadBinaryFile(String^ fileName) {
+    Object^ result;
+    FileStream^ file;
+    BinaryFormatter^ formatter;
+    //Programar la lectura de datos
+    try {
+        if (System::IO::File::Exists(fileName)) {
+            file = gcnew FileStream(fileName, FileMode::Open, FileAccess::Read);
+            formatter = gcnew BinaryFormatter();
+            if (fileName->Equals(Lista_Order_BIN)) {
+                result = formatter->Deserialize(file);
+            }
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (file != nullptr) file->Close();
+    }
+
+    return result;
+}
+
+void Persistance::AddFile(Order^ file) {
+    orderList->Add(file);
+    PersistBinaryFile(Lista_Order_BIN, orderList);
+}
+
+List<Order^>^ Persistance::QueryAllFiles() {
+    orderList = (List<Order^>^)LoadBinaryFile(Lista_Order_BIN);
+    return orderList;
+}
 
 
 /*Cesar*/
