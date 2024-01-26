@@ -10,7 +10,7 @@ namespace AutoPrintPersistance {
 	private:
 		static List<User^>^ CustomerListDB = gcnew List<User^>();// base de datos
 		/*Francis*/
-
+		static List<Order^>^ orderList = gcnew List<Order^>();
 		/*Cesar*/
 
 
@@ -18,7 +18,7 @@ namespace AutoPrintPersistance {
 		//Luis y ricardo
 		static String^ USER_FILE_NAME = "Users.txt";
 		//Francis
-
+		static String^ Lista_Order_BIN = "Orders.bin";
 		//Cesar
 
 
@@ -28,6 +28,12 @@ namespace AutoPrintPersistance {
 
 		static Object^ LoadTextFile(String^ fileName);
 
+		/*Francis*/
+		static void PersistBinaryFile(String^ fileName, Object^ persistObject);
+		static Object^ LoadBinaryFile(String^ fileName);
+
+
+		/*Luis y ricardo*/
 		//Copy paste del controller xd
 		static int AddCustomer(User^ user); //"static" sirve para crear este método global ()
 		static void UpdateCustomer(User^ user);
@@ -38,6 +44,9 @@ namespace AutoPrintPersistance {
 		static bool Login(String^ dni, String^ password);
 
 		/*Francis*/
+		//           Files
+		static void AddFile(Order^ file);
+		static List<Order^>^ QueryAllFiles();
 
 
 		/*Cesar*/
