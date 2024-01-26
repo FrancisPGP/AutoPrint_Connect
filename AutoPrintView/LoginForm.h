@@ -1,4 +1,5 @@
 #pragma once
+#include "PrintMainForm.h"
 
 namespace AutoPrintView {
 
@@ -223,6 +224,12 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	String^ enteredDni = txtDNI->Text;
 	String^ enteredPassword = txtPassword->Text;
 	if (enteredDni == "admin" && enteredPassword == "admin") {
+	
+
+		//CAMBIO PARA QUE DE LOGIN VAYA AL AUTOPRINT
+
+		PrintMainForm^ base = gcnew PrintMainForm();
+		base->Show();
 
 		Close();//Aqui seria para la interfaz de admin borrar Close() y poner Nombreinterza^ nombre = gcnew Nombreintewrfaz();
 		                                                                      //nombre->Show();
@@ -232,8 +239,15 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	bool valid = Controller::Login(enteredDni, enteredPassword);
 	
 	if (valid == true) {
-		Close(); //Aqui seria para la interfaz de admin borrar Close() y poner Nombreinterza^ nombre = gcnew Nombreintewrfaz();
-		                                                                      //nombre->Show();
+	
+		
+		
+		//CAMBIO PARA QUE DE LOGIN VAYA AL AUTOPRINT
+
+		
+		PrintMainForm^ base = gcnew PrintMainForm();
+		base->Show();
+		Close(); 
 	}
 	
 
