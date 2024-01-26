@@ -120,12 +120,13 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(214, 24);
+			this->label3->Location = System::Drawing::Point(219, 24);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(303, 98);
 			this->label3->TabIndex = 8;
-			this->label3->Text = L"AUTOPRINT\r\n  CONNECT";
+			this->label3->Text = L"AUTOPRINT\r\nCONNECT";
+			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// Inicio
 			// 
