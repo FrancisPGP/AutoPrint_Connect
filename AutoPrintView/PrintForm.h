@@ -73,17 +73,24 @@ namespace AutoPrintView {
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::PictureBox^ PB_PDF_historial;
 	private: System::Windows::Forms::DataGridView^ dgvHistorial_Files;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_orderId;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ gdv_hojatipo;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_tamano;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_tinta;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_copias;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_local;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_precio;
 
 
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_Id;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_Tipo;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_Empresa;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_Matricula;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_Asientos;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_SpeedMax;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_StartTime;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_FinishTime;
+
+
+
+
+
+
+
+
 
 
 
@@ -153,14 +160,13 @@ namespace AutoPrintView {
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->PB_PDF_historial = (gcnew System::Windows::Forms::PictureBox());
 			this->dgvHistorial_Files = (gcnew System::Windows::Forms::DataGridView());
-			this->Transp_Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Transp_Tipo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Transp_Empresa = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Transp_Matricula = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Transp_Asientos = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Transp_SpeedMax = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Transp_StartTime = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Transp_FinishTime = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgv_orderId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->gdv_hojatipo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgv_tamano = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgv_tinta = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgv_copias = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgv_local = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgv_precio = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabControl1->SuspendLayout();
 			this->TPage_impre->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_imprimir))->BeginInit();
@@ -450,10 +456,9 @@ namespace AutoPrintView {
 			// dgvHistorial_Files
 			// 
 			this->dgvHistorial_Files->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvHistorial_Files->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
-				this->Transp_Id,
-					this->Transp_Tipo, this->Transp_Empresa, this->Transp_Matricula, this->Transp_Asientos, this->Transp_SpeedMax, this->Transp_StartTime,
-					this->Transp_FinishTime
+			this->dgvHistorial_Files->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
+				this->dgv_orderId,
+					this->gdv_hojatipo, this->dgv_tamano, this->dgv_tinta, this->dgv_copias, this->dgv_local, this->dgv_precio
 			});
 			this->dgvHistorial_Files->Location = System::Drawing::Point(6, 66);
 			this->dgvHistorial_Files->Name = L"dgvHistorial_Files";
@@ -463,65 +468,58 @@ namespace AutoPrintView {
 			this->dgvHistorial_Files->TabIndex = 2;
 			this->dgvHistorial_Files->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PrintForm::dgvHistorial_Files_CellClick);
 			// 
-			// Transp_Id
+			// dgv_orderId
 			// 
-			this->Transp_Id->FillWeight = 59.57447F;
-			this->Transp_Id->HeaderText = L"ID";
-			this->Transp_Id->MinimumWidth = 6;
-			this->Transp_Id->Name = L"Transp_Id";
-			this->Transp_Id->Width = 35;
+			this->dgv_orderId->FillWeight = 59.57447F;
+			this->dgv_orderId->HeaderText = L"ID";
+			this->dgv_orderId->MinimumWidth = 6;
+			this->dgv_orderId->Name = L"dgv_orderId";
+			this->dgv_orderId->Width = 35;
 			// 
-			// Transp_Tipo
+			// gdv_hojatipo
 			// 
-			this->Transp_Tipo->FillWeight = 87.38197F;
-			this->Transp_Tipo->HeaderText = L"Tipo";
-			this->Transp_Tipo->MinimumWidth = 6;
-			this->Transp_Tipo->Name = L"Transp_Tipo";
-			this->Transp_Tipo->Width = 60;
+			this->gdv_hojatipo->FillWeight = 87.38197F;
+			this->gdv_hojatipo->HeaderText = L"Tipo de Hoja";
+			this->gdv_hojatipo->MinimumWidth = 6;
+			this->gdv_hojatipo->Name = L"gdv_hojatipo";
+			this->gdv_hojatipo->Width = 60;
 			// 
-			// Transp_Empresa
+			// dgv_tamano
 			// 
-			this->Transp_Empresa->FillWeight = 130.1627F;
-			this->Transp_Empresa->HeaderText = L"Empresa";
-			this->Transp_Empresa->MinimumWidth = 6;
-			this->Transp_Empresa->Name = L"Transp_Empresa";
-			this->Transp_Empresa->Width = 125;
+			this->dgv_tamano->FillWeight = 130.1627F;
+			this->dgv_tamano->HeaderText = L"Tamaño";
+			this->dgv_tamano->MinimumWidth = 6;
+			this->dgv_tamano->Name = L"dgv_tamano";
+			this->dgv_tamano->Width = 125;
 			// 
-			// Transp_Matricula
+			// dgv_tinta
 			// 
-			this->Transp_Matricula->FillWeight = 122.8809F;
-			this->Transp_Matricula->HeaderText = L"Matrícula";
-			this->Transp_Matricula->MinimumWidth = 6;
-			this->Transp_Matricula->Name = L"Transp_Matricula";
-			this->Transp_Matricula->Width = 65;
+			this->dgv_tinta->FillWeight = 122.8809F;
+			this->dgv_tinta->HeaderText = L"Tinta";
+			this->dgv_tinta->MinimumWidth = 6;
+			this->dgv_tinta->Name = L"dgv_tinta";
+			this->dgv_tinta->Width = 65;
 			// 
-			// Transp_Asientos
+			// dgv_copias
 			// 
-			this->Transp_Asientos->HeaderText = L"Número de Asientos";
-			this->Transp_Asientos->MinimumWidth = 6;
-			this->Transp_Asientos->Name = L"Transp_Asientos";
-			this->Transp_Asientos->Width = 125;
+			this->dgv_copias->HeaderText = L"Número de Copias";
+			this->dgv_copias->MinimumWidth = 6;
+			this->dgv_copias->Name = L"dgv_copias";
+			this->dgv_copias->Width = 125;
 			// 
-			// Transp_SpeedMax
+			// dgv_local
 			// 
-			this->Transp_SpeedMax->HeaderText = L"Velocidad Máxima";
-			this->Transp_SpeedMax->MinimumWidth = 6;
-			this->Transp_SpeedMax->Name = L"Transp_SpeedMax";
-			this->Transp_SpeedMax->Width = 125;
+			this->dgv_local->HeaderText = L"Local de recojo";
+			this->dgv_local->MinimumWidth = 6;
+			this->dgv_local->Name = L"dgv_local";
+			this->dgv_local->Width = 125;
 			// 
-			// Transp_StartTime
+			// dgv_precio
 			// 
-			this->Transp_StartTime->HeaderText = L"Inicio Laboral";
-			this->Transp_StartTime->MinimumWidth = 6;
-			this->Transp_StartTime->Name = L"Transp_StartTime";
-			this->Transp_StartTime->Width = 125;
-			// 
-			// Transp_FinishTime
-			// 
-			this->Transp_FinishTime->HeaderText = L"Fin Laboral";
-			this->Transp_FinishTime->MinimumWidth = 6;
-			this->Transp_FinishTime->Name = L"Transp_FinishTime";
-			this->Transp_FinishTime->Width = 125;
+			this->dgv_precio->HeaderText = L"Precio";
+			this->dgv_precio->MinimumWidth = 6;
+			this->dgv_precio->Name = L"dgv_precio";
+			this->dgv_precio->Width = 125;
 			// 
 			// PrintForm
 			// 
@@ -560,23 +558,24 @@ namespace AutoPrintView {
 	private: System::Void BT_pagarBILL_Click(System::Object^ sender, System::EventArgs^ e) {
 		//if(el usuario paga)
 		
-		String^ file_Tipo = LB_tipoHOJA->Text;
-		String^ file_tamaño = LB_tamañoHOJA->Text;
-		String^ file_tinta = LB_tinta->Text;
+		String^ gdv_hojatipo = LB_tipoHOJA->Text;
+		String^ dgv_tamano = LB_tamañoHOJA->Text;
+		String^ dgv_tinta = LB_tinta->Text;
 		//int File_copia = TB_NUMcopias->Text; No hacemos eso porque lo queremos convertir en texto (caracteres)
-		int file_copia = Int32::Parse(TB_NUMcopias->Text);
-		String^ file_local = LB_local->Text;
+		int dgv_copias = Int32::Parse(TB_NUMcopias->Text);
+		String^ dgv_local = LB_local->Text;
 
 
 		//Contenidos de dgvs (No entendí lo que dijo el profe)
 		//AGREGUÉ using namespace AutoPrintModel; para poder usar la clase Order
 		Order^ File_order = gcnew Order();
 		//Atributos de Vehicule: Id,Type,Company,License_Plate
-		File_order->sheet_type = file_Tipo;
-		File_order->sheet_size = file_tamaño;
-		File_order->color_page = file_tinta;
-		File_order->num_copies = file_copia;
-		File_order->Location = file_local;
+		//Estos datos son del dgv
+		File_order->sheet_type = gdv_hojatipo;
+		File_order->sheet_size = dgv_tamano;
+		File_order->color_page = dgv_tinta;
+		File_order->num_copies = dgv_copias;
+		File_order->Location = dgv_local;
 
 		if (PB_PDF_imprimir != nullptr && PB_PDF_imprimir->Image != nullptr) {
 			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
@@ -584,7 +583,7 @@ namespace AutoPrintView {
 			File_order->File = ms->ToArray();
 		}
 
-		/*File=robot*/
+		/*File_order=robot*/
 		Controller::AddOrder(File_order);
 		ShowOrderFiles();
 	}
@@ -592,20 +591,20 @@ namespace AutoPrintView {
 			   List<Order^>^ orderfiles = Controller::QueryAllFiles();
 			   dgvHistorial_Files->Rows->Clear();
 			   for (int i = 0; i < orderfiles->Count; i++) {
-				   Order^ OrderFile = orderfiles[i];
+				   Order^ File_order = orderfiles[i];
 				   //dgvHistorial_Files es el nombre de la tabla de historial
 				   dgvHistorial_Files->Rows->Add(gcnew array<String^>{
-						OrderFile->sheet_type,
-						OrderFile->sheet_size,
-						OrderFile->color_page,
-						"" + OrderFile->num_copies,
-						OrderFile->Location
+						File_order->sheet_type,
+						File_order->sheet_size,
+						File_order->color_page,
+						"" + File_order->num_copies,
+						File_order->Location
 				   });
-				   //"" + Transporte->Id, porque no es de tipo String
 			   }
 		   }
+
 	private: System::Void PrintForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		ShowOrderFiles();
+		//ShowOrderFiles();
 	}
 	private: System::Void dgvHistorial_Files_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		int orderId = Int32::Parse(dgvHistorial_Files->Rows[dgvHistorial_Files->SelectedCells[0]->RowIndex]
