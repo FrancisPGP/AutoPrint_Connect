@@ -45,4 +45,8 @@ List<Order^>^ Controller::QueryAllFiles() {
     return Persistance::QueryAllFiles();
 }
 
+List<Order^>^ Controller::QueryFileById(int orderId) {
+    return Persistance::QueryFileById(orderId);
+}
+
 /*Cesar*/

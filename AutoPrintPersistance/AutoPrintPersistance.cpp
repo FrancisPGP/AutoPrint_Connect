@@ -175,6 +175,14 @@ List<Order^>^ Persistance::QueryAllFiles() {
     return orderList;
 }
 
+Order^ Persistance::QueryFileById(int orderId) {
+    orderList = (List<Order^>^)LoadBinaryFile(Lista_Order_BIN);
+    for (int i = 0; i < orderList->Count; i++) {
+        if (orderList[i]->order_id == orderId)
+            return orderList[i];
+    }
+    return nullptr;
+}
 
 /*Cesar*/
 

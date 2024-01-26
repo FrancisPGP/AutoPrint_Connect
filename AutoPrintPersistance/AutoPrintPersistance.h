@@ -47,6 +47,7 @@ namespace AutoPrintPersistance {
 		//           Files
 		static void AddFile(Order^ file);
 		static List<Order^>^ QueryAllFiles();
+		static Order^ QueryFileById(int orderId);
 
 
 		/*Cesar*/
