@@ -12,11 +12,16 @@ namespace AutoPrintModel {
     public ref class Order {
     public:
         property int order_id;
-        property bool color_page;
+        property String^ color_page;
         property int num_spooler;
         property int num_copies;
+        property String^ sheet_type;
+        property String^ sheet_size;
         property String^ status_order;
         property  double price; //fuiste usado
+
+        property String^ Location;
+        property array<Byte>^ File;
 
         
         void PrintDocument();

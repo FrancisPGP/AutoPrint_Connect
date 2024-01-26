@@ -416,7 +416,7 @@ namespace AutoPrintView {
 			this->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"UserForm";
-			this->Text = L"UserForm";
+			this->Text = L"Crear cuenta";
 			this->Load += gcnew System::EventHandler(this, &UserForm::UserForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);

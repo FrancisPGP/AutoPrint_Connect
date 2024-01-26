@@ -140,7 +140,7 @@ namespace AutoPrintView {
 			this->Controls->Add(this->btnLog);
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Inicio";
-			this->Text = L"Inicio";
+			this->Text = L"AutoPrint Connect";
 			this->Load += gcnew System::EventHandler(this, &Inicio::Inicio_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);

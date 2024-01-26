@@ -4,6 +4,8 @@
 
 using namespace System::IO;
 
+/*Ricardo y Luis*/
+
 void AutoPrintPersistance::Persistance::PersistTextFile(String^ fileName, Object^ persistObject)
 {
     FileStream^ file;
@@ -117,3 +119,10 @@ bool AutoPrintPersistance::Persistance::Login(String^ dni, String^ password) {
     }
     return false;
 }
+
+/*Francis*/
+
+
+
+/*Cesar*/
+

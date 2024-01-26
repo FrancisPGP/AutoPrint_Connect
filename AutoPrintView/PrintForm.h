@@ -1,4 +1,5 @@
 #pragma once
+#include "CardVISAForm.h"
 
 namespace AutoPrintView {
 
@@ -8,6 +9,10 @@ namespace AutoPrintView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+
+	using namespace AutoPrintModel;
+	using namespace AutoPrintController;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Resumen de PrintForm
@@ -36,9 +41,10 @@ namespace AutoPrintView {
 		}
 	private: System::Windows::Forms::TabControl^ tabControl1;
 	private: System::Windows::Forms::TabPage^ TPage_impre;
+	private: System::Windows::Forms::PictureBox^ PB_PDF_imprimir;
 	protected:
 
-	private: System::Windows::Forms::PictureBox^ PB_imagePDF;
+
 	private: System::Windows::Forms::Button^ BT_pagarBILL;
 
 
@@ -62,6 +68,22 @@ namespace AutoPrintView {
 
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::TabPage^ tabPage1;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::PictureBox^ PB_PDF_historial;
+
+
+	private: System::Windows::Forms::DataGridView^ dgvTransport;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_Id;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_Tipo;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_Empresa;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_Matricula;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_Asientos;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_SpeedMax;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_StartTime;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Transp_FinishTime;
 
 
 
@@ -108,7 +130,11 @@ namespace AutoPrintView {
 		{
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->TPage_impre = (gcnew System::Windows::Forms::TabPage());
-			this->PB_imagePDF = (gcnew System::Windows::Forms::PictureBox());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->PB_PDF_imprimir = (gcnew System::Windows::Forms::PictureBox());
 			this->BT_pagarTARJ = (gcnew System::Windows::Forms::Button());
 			this->BT_pagarBILL = (gcnew System::Windows::Forms::Button());
 			this->TB_NUMcopias = (gcnew System::Windows::Forms::TextBox());
@@ -124,9 +150,22 @@ namespace AutoPrintView {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->TPage_historial = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->dgvTransport = (gcnew System::Windows::Forms::DataGridView());
+			this->Transp_Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Transp_Tipo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Transp_Empresa = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Transp_Matricula = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Transp_Asientos = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Transp_SpeedMax = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Transp_StartTime = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Transp_FinishTime = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->PB_PDF_historial = (gcnew System::Windows::Forms::PictureBox());
 			this->tabControl1->SuspendLayout();
 			this->TPage_impre->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_imagePDF))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_imprimir))->BeginInit();
+			this->tabPage1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvTransport))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_historial))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -142,7 +181,11 @@ namespace AutoPrintView {
 			// 
 			// TPage_impre
 			// 
-			this->TPage_impre->Controls->Add(this->PB_imagePDF);
+			this->TPage_impre->Controls->Add(this->label10);
+			this->TPage_impre->Controls->Add(this->label9);
+			this->TPage_impre->Controls->Add(this->label8);
+			this->TPage_impre->Controls->Add(this->label7);
+			this->TPage_impre->Controls->Add(this->PB_PDF_imprimir);
 			this->TPage_impre->Controls->Add(this->BT_pagarTARJ);
 			this->TPage_impre->Controls->Add(this->BT_pagarBILL);
 			this->TPage_impre->Controls->Add(this->TB_NUMcopias);
@@ -164,16 +207,63 @@ namespace AutoPrintView {
 			this->TPage_impre->Text = L"Imprimir";
 			this->TPage_impre->UseVisualStyleBackColor = true;
 			// 
-			// PB_imagePDF
+			// label10
 			// 
-			this->PB_imagePDF->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->PB_imagePDF->Location = System::Drawing::Point(33, 66);
-			this->PB_imagePDF->Name = L"PB_imagePDF";
-			this->PB_imagePDF->Size = System::Drawing::Size(284, 356);
-			this->PB_imagePDF->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->PB_imagePDF->TabIndex = 28;
-			this->PB_imagePDF->TabStop = false;
-			this->PB_imagePDF->Click += gcnew System::EventHandler(this, &PrintForm::PB_imagePDF_Click);
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label10->Location = System::Drawing::Point(624, 296);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(32, 25);
+			this->label10->TabIndex = 32;
+			this->label10->Text = L"S/";
+			this->label10->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label9->Location = System::Drawing::Point(664, 296);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(69, 27);
+			this->label9->TabIndex = 31;
+			this->label9->Text = L"Monto";
+			this->label9->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->Location = System::Drawing::Point(86, 425);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(168, 36);
+			this->label8->TabIndex = 30;
+			this->label8->Text = L"Color:   S/0.50\r\nBlanco y Negro:   S/0.30";
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label7->Location = System::Drawing::Point(619, 250);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(189, 29);
+			this->label7->TabIndex = 29;
+			this->label7->Text = L"Monto a Pagar:";
+			// 
+			// PB_PDF_imprimir
+			// 
+			this->PB_PDF_imprimir->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->PB_PDF_imprimir->Location = System::Drawing::Point(33, 66);
+			this->PB_PDF_imprimir->Name = L"PB_PDF_imprimir";
+			this->PB_PDF_imprimir->Size = System::Drawing::Size(284, 356);
+			this->PB_PDF_imprimir->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->PB_PDF_imprimir->TabIndex = 28;
+			this->PB_PDF_imprimir->TabStop = false;
+			this->PB_PDF_imprimir->Click += gcnew System::EventHandler(this, &PrintForm::PB_imagePDF_Click);
 			// 
 			// BT_pagarTARJ
 			// 
@@ -185,6 +275,7 @@ namespace AutoPrintView {
 			this->BT_pagarTARJ->TabIndex = 27;
 			this->BT_pagarTARJ->Text = L"Pagar con Tarjeta";
 			this->BT_pagarTARJ->UseVisualStyleBackColor = true;
+			this->BT_pagarTARJ->Click += gcnew System::EventHandler(this, &PrintForm::BT_pagarTARJ_Click);
 			// 
 			// BT_pagarBILL
 			// 
@@ -196,6 +287,7 @@ namespace AutoPrintView {
 			this->BT_pagarBILL->TabIndex = 26;
 			this->BT_pagarBILL->Text = L"Pagar con Billetera";
 			this->BT_pagarBILL->UseVisualStyleBackColor = true;
+			this->BT_pagarBILL->Click += gcnew System::EventHandler(this, &PrintForm::BT_pagarBILL_Click);
 			// 
 			// TB_NUMcopias
 			// 
@@ -332,6 +424,8 @@ namespace AutoPrintView {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->PB_PDF_historial);
+			this->tabPage1->Controls->Add(this->dgvTransport);
 			this->tabPage1->Location = System::Drawing::Point(4, 25);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
@@ -339,6 +433,91 @@ namespace AutoPrintView {
 			this->tabPage1->TabIndex = 2;
 			this->tabPage1->Text = L"Historial";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// dgvTransport
+			// 
+			this->dgvTransport->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvTransport->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
+				this->Transp_Id,
+					this->Transp_Tipo, this->Transp_Empresa, this->Transp_Matricula, this->Transp_Asientos, this->Transp_SpeedMax, this->Transp_StartTime,
+					this->Transp_FinishTime
+			});
+			this->dgvTransport->Location = System::Drawing::Point(6, 66);
+			this->dgvTransport->Name = L"dgvTransport";
+			this->dgvTransport->RowHeadersWidth = 51;
+			this->dgvTransport->RowTemplate->Height = 24;
+			this->dgvTransport->Size = System::Drawing::Size(562, 330);
+			this->dgvTransport->TabIndex = 2;
+			// 
+			// Transp_Id
+			// 
+			this->Transp_Id->FillWeight = 59.57447F;
+			this->Transp_Id->HeaderText = L"ID";
+			this->Transp_Id->MinimumWidth = 6;
+			this->Transp_Id->Name = L"Transp_Id";
+			this->Transp_Id->Width = 35;
+			// 
+			// Transp_Tipo
+			// 
+			this->Transp_Tipo->FillWeight = 87.38197F;
+			this->Transp_Tipo->HeaderText = L"Tipo";
+			this->Transp_Tipo->MinimumWidth = 6;
+			this->Transp_Tipo->Name = L"Transp_Tipo";
+			this->Transp_Tipo->Width = 60;
+			// 
+			// Transp_Empresa
+			// 
+			this->Transp_Empresa->FillWeight = 130.1627F;
+			this->Transp_Empresa->HeaderText = L"Empresa";
+			this->Transp_Empresa->MinimumWidth = 6;
+			this->Transp_Empresa->Name = L"Transp_Empresa";
+			this->Transp_Empresa->Width = 125;
+			// 
+			// Transp_Matricula
+			// 
+			this->Transp_Matricula->FillWeight = 122.8809F;
+			this->Transp_Matricula->HeaderText = L"Matrícula";
+			this->Transp_Matricula->MinimumWidth = 6;
+			this->Transp_Matricula->Name = L"Transp_Matricula";
+			this->Transp_Matricula->Width = 65;
+			// 
+			// Transp_Asientos
+			// 
+			this->Transp_Asientos->HeaderText = L"Número de Asientos";
+			this->Transp_Asientos->MinimumWidth = 6;
+			this->Transp_Asientos->Name = L"Transp_Asientos";
+			this->Transp_Asientos->Width = 125;
+			// 
+			// Transp_SpeedMax
+			// 
+			this->Transp_SpeedMax->HeaderText = L"Velocidad Máxima";
+			this->Transp_SpeedMax->MinimumWidth = 6;
+			this->Transp_SpeedMax->Name = L"Transp_SpeedMax";
+			this->Transp_SpeedMax->Width = 125;
+			// 
+			// Transp_StartTime
+			// 
+			this->Transp_StartTime->HeaderText = L"Inicio Laboral";
+			this->Transp_StartTime->MinimumWidth = 6;
+			this->Transp_StartTime->Name = L"Transp_StartTime";
+			this->Transp_StartTime->Width = 125;
+			// 
+			// Transp_FinishTime
+			// 
+			this->Transp_FinishTime->HeaderText = L"Fin Laboral";
+			this->Transp_FinishTime->MinimumWidth = 6;
+			this->Transp_FinishTime->Name = L"Transp_FinishTime";
+			this->Transp_FinishTime->Width = 125;
+			// 
+			// PB_PDF_historial
+			// 
+			this->PB_PDF_historial->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->PB_PDF_historial->Location = System::Drawing::Point(574, 54);
+			this->PB_PDF_historial->Name = L"PB_PDF_historial";
+			this->PB_PDF_historial->Size = System::Drawing::Size(284, 356);
+			this->PB_PDF_historial->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->PB_PDF_historial->TabIndex = 29;
+			this->PB_PDF_historial->TabStop = false;
 			// 
 			// PrintForm
 			// 
@@ -351,12 +530,72 @@ namespace AutoPrintView {
 			this->tabControl1->ResumeLayout(false);
 			this->TPage_impre->ResumeLayout(false);
 			this->TPage_impre->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_imagePDF))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_imprimir))->EndInit();
+			this->tabPage1->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvTransport))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_historial))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void PB_imagePDF_Click(System::Object^ sender, System::EventArgs^ e) {
+		//Precargado
+		OpenFileDialog^ opfd = gcnew OpenFileDialog();
+		opfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
+		if (opfd->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			/*PB_PDF_imprimir == PictureBox1*/
+			PB_PDF_imprimir->Image = gcnew Bitmap(opfd->FileName);
+		}
 	}
+	private: System::Void BT_pagarTARJ_Click(System::Object^ sender, System::EventArgs^ e) {
+		CardVISAForm^ cardVISAForm = gcnew CardVISAForm();
+		cardVISAForm->MdiParent = this;
+		cardVISAForm->Show();
+	}
+	private: System::Void BT_pagarBILL_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ File_Tipo = LB_tipoHOJA->Text;
+		String^ File_tamaño = LB_tamañoHOJA->Text;
+		String^ File_tinta = LB_tinta->Text;
+		//int File_copia = TB_NUMcopias->Text; No hacemos eso porque lo queremos convertir en texto (caracteres)
+		int File_copia = Int32::Parse(TB_NUMcopias->Text);
+		String^ File_local = LB_local->Text;
+
+
+		//Contenidos de dgvs (No entendí lo que dijo el profe)
+		//AGREGUÉ using namespace AutoPrintModel; para poder usar la clase Order
+		Order^ File = gcnew Order();
+		//Atributos de Vehicule: Id,Type,Company,License_Plate
+		File->sheet_type = File_Tipo;
+		File->sheet_size = File_tamaño;
+		File->color_page = File_tinta;
+		File->num_copies = File_copia;
+		File->Location = File_local;
+
+		if (PB_PDF_imprimir != nullptr && PB_PDF_imprimir->Image != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+			PB_PDF_imprimir->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+			File->File = ms->ToArray();
+		}
+
+		//if(el usuario paga)
+		/*File=robot*/
+		Controller::AddFile(File);
+		ShowFiles();
+	}
+		   void ShowFiles() {
+			   List<Order^>^ transports = Controller::QueryAllFiles();
+			   dgvTransport->Rows->Clear();
+			   for (int i = 0; i < transports->Count; i++) {
+				   Vehicule^ Transporte = transports[i];
+				   //dgvTransport es el nombre de nuestra tabla
+				   dgvTransport->Rows->Add(gcnew array<String^>{
+					   "" + Transporte->Id,
+						   Transporte->Type,
+						   Transporte->Company,
+						   Transporte->License_Plate
+				   });
+				   //"" + Transporte->Id, porque no es de tipo String
+			   }
+		   }
 };
 }

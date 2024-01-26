@@ -9,11 +9,21 @@ namespace AutoPrintPersistance {
 	{
 	private:
 		static List<User^>^ CustomerListDB = gcnew List<User^>();// base de datos
+		/*Francis*/
+
+		/*Cesar*/
+
 
 	public:
+		//Luis y ricardo
 		static String^ USER_FILE_NAME = "Users.txt";
+		//Francis
+
+		//Cesar
 
 
+
+		/*Luis y ricardo*/
 		static void PersistTextFile(String^ fileName, Object^ persistObject);
 
 		static Object^ LoadTextFile(String^ fileName);
@@ -24,8 +34,14 @@ namespace AutoPrintPersistance {
 		static void DeleteCustomer(int CustomerId);
 		static User^ QueryCustomerById(int CustomerId); // Buscar el id del custome
 		static List<User^>^ QueryAllCustomers();//Tener la lista de usuarios
-//intento para login
+		//intento para login
 		static bool Login(String^ dni, String^ password);
+
+		/*Francis*/
+
+
+		/*Cesar*/
+
 
 	};
 }
