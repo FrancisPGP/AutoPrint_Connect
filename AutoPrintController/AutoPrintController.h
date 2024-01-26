@@ -10,6 +10,7 @@ namespace AutoPrintController {
     {
       
     public:
+        //Ricardo y Luis
         static int AddCustomer(User^ user); //"static" sirve para crear este método global ()
         static void UpdateCustomer(User^ user);
         static void DeleteCustomer(int CustomerId);
@@ -17,5 +18,11 @@ namespace AutoPrintController {
         static List<User^>^ QueryAllCustomers();//Tener la lista de usuarios
         //intento para login
         static bool Login(String^ dni, String^ password);
+
+        /*Francis*/
+
+
+        /*Cesar*/
+
     };
 }

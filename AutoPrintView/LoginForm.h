@@ -201,7 +201,7 @@ namespace AutoPrintView {
 			this->Controls->Add(this->label1);
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"LoginForm";
-			this->Text = L"LoginForm";
+			this->Text = L"Inicia sesión";
 			this->Load += gcnew System::EventHandler(this, &LoginForm::LoginForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
