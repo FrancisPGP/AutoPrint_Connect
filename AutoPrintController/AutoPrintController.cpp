@@ -38,14 +38,14 @@ bool AutoPrintController::Controller::Login(String^ dni, String^ password) {
 /*Francis*/
 void Controller::AddOrder(Order^ file) {
     //using namespace|Clase|Metodo || Los nombres son diferentes
-    Persistance::AddFile(file);
+     Persistance::AddFile(file);
 }
 
 List<Order^>^ Controller::QueryAllFiles() {
     return Persistance::QueryAllFiles();
 }
 
-List<Order^>^ Controller::QueryFileById(int orderId) {
+Order^ Controller::QueryFileById(int orderId) {
     return Persistance::QueryFileById(orderId);
 }
 

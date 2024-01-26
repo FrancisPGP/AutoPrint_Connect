@@ -23,6 +23,8 @@ namespace AutoPrintView {
 		UserTableForm(void)
 		{
 			InitializeComponent();
+			RefreshGrid();
+
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -56,8 +58,9 @@ namespace AutoPrintView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ UT_apellido;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ UT_dni;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ UT_correo;
-	private: System::Windows::Forms::Button^ BT_deleteUSER;
-	private: System::Windows::Forms::Button^ BT_modUSER;
+
+
+
 	private: System::Windows::Forms::TextBox^ TB_dni;
 	private: System::Windows::Forms::TextBox^ TB_lastname;
 	private: System::Windows::Forms::TextBox^ TB_name;
@@ -72,7 +75,7 @@ namespace AutoPrintView {
 
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::TextBox^ TB_userID_reg;
-	private: System::Windows::Forms::Button^ BT_registrar_reg;
+
 
 
 
@@ -91,6 +94,11 @@ namespace AutoPrintView {
 	private: System::Windows::Forms::TextBox^ TB_contraseña_reg;
 
 	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::Button^ bregistro;
+	private: System::Windows::Forms::Button^ beliminar;
+	private: System::Windows::Forms::Button^ bmodificar;
+
+
 
 
 
@@ -150,6 +158,7 @@ namespace AutoPrintView {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(UserTableForm::typeid));
 			this->PB_imageREGIS = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->beliminar = (gcnew System::Windows::Forms::Button());
 			this->TB_correo = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->TB_userID = (gcnew System::Windows::Forms::TextBox());
@@ -160,8 +169,6 @@ namespace AutoPrintView {
 			this->UT_apellido = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->UT_dni = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->UT_correo = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->BT_deleteUSER = (gcnew System::Windows::Forms::Button());
-			this->BT_modUSER = (gcnew System::Windows::Forms::Button());
 			this->TB_dni = (gcnew System::Windows::Forms::TextBox());
 			this->TB_lastname = (gcnew System::Windows::Forms::TextBox());
 			this->TB_name = (gcnew System::Windows::Forms::TextBox());
@@ -170,12 +177,12 @@ namespace AutoPrintView {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->bregistro = (gcnew System::Windows::Forms::Button());
 			this->TB_contraseña_reg = (gcnew System::Windows::Forms::TextBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->TB_correo_reg = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->TB_userID_reg = (gcnew System::Windows::Forms::TextBox());
-			this->BT_registrar_reg = (gcnew System::Windows::Forms::Button());
 			this->TB_dni_reg = (gcnew System::Windows::Forms::TextBox());
 			this->TB_lastname_reg = (gcnew System::Windows::Forms::TextBox());
 			this->TB_name_reg = (gcnew System::Windows::Forms::TextBox());
@@ -183,6 +190,7 @@ namespace AutoPrintView {
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->bmodificar = (gcnew System::Windows::Forms::Button());
 			this->PB_imageREGIS->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_imageUSER))->BeginInit();
@@ -203,13 +211,13 @@ namespace AutoPrintView {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->bmodificar);
+			this->tabPage1->Controls->Add(this->beliminar);
 			this->tabPage1->Controls->Add(this->TB_correo);
 			this->tabPage1->Controls->Add(this->label5);
 			this->tabPage1->Controls->Add(this->TB_userID);
 			this->tabPage1->Controls->Add(this->PB_imageUSER);
 			this->tabPage1->Controls->Add(this->dgvUserTable);
-			this->tabPage1->Controls->Add(this->BT_deleteUSER);
-			this->tabPage1->Controls->Add(this->BT_modUSER);
 			this->tabPage1->Controls->Add(this->TB_dni);
 			this->tabPage1->Controls->Add(this->TB_lastname);
 			this->tabPage1->Controls->Add(this->TB_name);
@@ -225,6 +233,16 @@ namespace AutoPrintView {
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Usuarios";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// beliminar
+			// 
+			this->beliminar->Location = System::Drawing::Point(218, 154);
+			this->beliminar->Name = L"beliminar";
+			this->beliminar->Size = System::Drawing::Size(75, 23);
+			this->beliminar->TabIndex = 46;
+			this->beliminar->Text = L"Eliminar";
+			this->beliminar->UseVisualStyleBackColor = true;
+			this->beliminar->Click += gcnew System::EventHandler(this, &UserTableForm::beliminar_Click);
 			// 
 			// TB_correo
 			// 
@@ -323,34 +341,6 @@ namespace AutoPrintView {
 			this->UT_correo->Name = L"UT_correo";
 			this->UT_correo->Width = 300;
 			// 
-			// BT_deleteUSER
-			// 
-			this->BT_deleteUSER->Enabled = false;
-			this->BT_deleteUSER->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->BT_deleteUSER->Location = System::Drawing::Point(176, 155);
-			this->BT_deleteUSER->Margin = System::Windows::Forms::Padding(2);
-			this->BT_deleteUSER->Name = L"BT_deleteUSER";
-			this->BT_deleteUSER->Size = System::Drawing::Size(83, 22);
-			this->BT_deleteUSER->TabIndex = 40;
-			this->BT_deleteUSER->Text = L"Eliminar";
-			this->BT_deleteUSER->UseVisualStyleBackColor = true;
-			this->BT_deleteUSER->Click += gcnew System::EventHandler(this, &UserTableForm::BT_deleteUSER_Click_1);
-			// 
-			// BT_modUSER
-			// 
-			this->BT_modUSER->Enabled = false;
-			this->BT_modUSER->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->BT_modUSER->Location = System::Drawing::Point(42, 155);
-			this->BT_modUSER->Margin = System::Windows::Forms::Padding(2);
-			this->BT_modUSER->Name = L"BT_modUSER";
-			this->BT_modUSER->Size = System::Drawing::Size(91, 22);
-			this->BT_modUSER->TabIndex = 39;
-			this->BT_modUSER->Text = L"Modificar";
-			this->BT_modUSER->UseVisualStyleBackColor = true;
-			this->BT_modUSER->Click += gcnew System::EventHandler(this, &UserTableForm::BT_modUSER_Click_1);
-			// 
 			// TB_dni
 			// 
 			this->TB_dni->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -431,12 +421,12 @@ namespace AutoPrintView {
 			// 
 			// tabPage2
 			// 
+			this->tabPage2->Controls->Add(this->bregistro);
 			this->tabPage2->Controls->Add(this->TB_contraseña_reg);
 			this->tabPage2->Controls->Add(this->label11);
 			this->tabPage2->Controls->Add(this->TB_correo_reg);
 			this->tabPage2->Controls->Add(this->label6);
 			this->tabPage2->Controls->Add(this->TB_userID_reg);
-			this->tabPage2->Controls->Add(this->BT_registrar_reg);
 			this->tabPage2->Controls->Add(this->TB_dni_reg);
 			this->tabPage2->Controls->Add(this->TB_lastname_reg);
 			this->tabPage2->Controls->Add(this->TB_name_reg);
@@ -452,6 +442,16 @@ namespace AutoPrintView {
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Registrar";
 			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
+			// bregistro
+			// 
+			this->bregistro->Location = System::Drawing::Point(242, 284);
+			this->bregistro->Name = L"bregistro";
+			this->bregistro->Size = System::Drawing::Size(75, 23);
+			this->bregistro->TabIndex = 61;
+			this->bregistro->Text = L"registro";
+			this->bregistro->UseVisualStyleBackColor = true;
+			this->bregistro->Click += gcnew System::EventHandler(this, &UserTableForm::bregistro_Click);
 			// 
 			// TB_contraseña_reg
 			// 
@@ -506,20 +506,6 @@ namespace AutoPrintView {
 			this->TB_userID_reg->Name = L"TB_userID_reg";
 			this->TB_userID_reg->Size = System::Drawing::Size(52, 23);
 			this->TB_userID_reg->TabIndex = 56;
-			// 
-			// BT_registrar_reg
-			// 
-			this->BT_registrar_reg->Enabled = false;
-			this->BT_registrar_reg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->BT_registrar_reg->Location = System::Drawing::Point(223, 256);
-			this->BT_registrar_reg->Margin = System::Windows::Forms::Padding(2);
-			this->BT_registrar_reg->Name = L"BT_registrar_reg";
-			this->BT_registrar_reg->Size = System::Drawing::Size(91, 28);
-			this->BT_registrar_reg->TabIndex = 53;
-			this->BT_registrar_reg->Text = L"Registrar";
-			this->BT_registrar_reg->UseVisualStyleBackColor = true;
-			this->BT_registrar_reg->Click += gcnew System::EventHandler(this, &UserTableForm::BT_registrar_reg_Click);
 			// 
 			// TB_dni_reg
 			// 
@@ -599,6 +585,16 @@ namespace AutoPrintView {
 			this->label10->TabIndex = 46;
 			this->label10->Text = L"Id";
 			// 
+			// bmodificar
+			// 
+			this->bmodificar->Location = System::Drawing::Point(50, 156);
+			this->bmodificar->Name = L"bmodificar";
+			this->bmodificar->Size = System::Drawing::Size(90, 21);
+			this->bmodificar->TabIndex = 47;
+			this->bmodificar->Text = L"Modificar";
+			this->bmodificar->UseVisualStyleBackColor = true;
+			this->bmodificar->Click += gcnew System::EventHandler(this, &UserTableForm::bmodificar_Click);
+			// 
 			// UserTableForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -620,22 +616,6 @@ namespace AutoPrintView {
 		}
 #pragma endregion
 
-	private: System::Void BT_registrar_reg_Click(System::Object^ sender, System::EventArgs^ e) {
-
-		User^ newUser = gcnew User(); //instanciamos al nuevo usuario
-		newUser->User_Id = Int32::Parse(TB_userID_reg->Text);
-		newUser->Name = TB_name_reg->Text;
-		newUser->LastName = TB_lastname_reg->Text;
-		newUser->Dni = TB_dni_reg->Text;
-		newUser->Email = TB_correo_reg->Text;
-		newUser->Password = TB_contraseña_reg->Text;
-
-		//Ya cargados los datos, lo pasamos como parámetro al método AddCustomer
-		Controller::AddCustomer(newUser); //Añadimos al usuario
-
-		RefreshGrid();
-
-	}
 
 		   void RefreshGrid() {
 			   List<User^>^ userList = Controller::QueryAllCustomers(); ///
@@ -643,38 +623,14 @@ namespace AutoPrintView {
 			   dgvUserTable->Rows->Clear();
 			   for (int i = 0; i < userList->Count; i++) {
 				   User^ user = userList[i];
-				   dgvUserTable->Rows->Add(gcnew array<String^> {"" + user->User_Id + "," + user->Name + ","
-					   + user->LastName + "," + user->Dni + "," + user->Email });
+				   dgvUserTable->Rows->Add(gcnew array<String^> {"" + user->User_Id, user->Name,
+					   user->LastName,user->Dni,user->Email });
 			   
 			   }
 
 		   }
 
-	 private: System::Void BT_deleteUSER_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	 
-		 int id = Int32::Parse(TB_userID_reg->Text);
-		 Controller::DeleteCustomer(id);
-		 RefreshGrid();
-	
-	 
-	 }
-     private: System::Void BT_modUSER_Click_1(System::Object^ sender, System::EventArgs^ e) {
-     
-	 
-		 User^ u = gcnew User();
-		 u->User_Id = Int32::Parse(TB_userID_reg->Text);
-		 u->Name = TB_name_reg->Text;
-		 u->LastName = TB_lastname_reg->Text;
-		 u->Dni = TB_dni_reg->Text;
-		 u->Email = TB_correo_reg->Text;
 
-
-		 Controller::UpdateCustomer(u);
-		 RefreshGrid();
-	 
-	 
-	 
-	 }
     private: System::Void dgvUserTable_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		int UserId = Int32::Parse(dgvUserTable->Rows[dgvUserTable->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
 		User^ u = Controller::QueryCustomerById(UserId);
@@ -689,5 +645,46 @@ namespace AutoPrintView {
 
 
 
+private: System::Void bregistro_Click(System::Object^ sender, System::EventArgs^ e) {
+	User^ newUser = gcnew User(); //instanciamos al nuevo usuario
+	newUser->User_Id = Int32::Parse(TB_userID_reg->Text);
+	newUser->Name = TB_name_reg->Text;
+	newUser->LastName = TB_lastname_reg->Text;
+	newUser->Dni = TB_dni_reg->Text;
+	newUser->Email = TB_correo_reg->Text;
+	newUser->Password = TB_contraseña_reg->Text;
+
+	//Ya cargados los datos, lo pasamos como parámetro al método AddCustomer
+	Controller::AddCustomer(newUser); //Añadimos al usuario
+
+	RefreshGrid();
+
+}
+
+private: System::Void beliminar_Click(System::Object^ sender, System::EventArgs^ e) {
+	int id = Int32::Parse(TB_userID_reg->Text);
+	Controller::DeleteCustomer(id);
+	RefreshGrid();
+}
+
+
+
+
+
+
+
+private: System::Void bmodificar_Click(System::Object^ sender, System::EventArgs^ e) {
+	User^ u = gcnew User();
+	u->User_Id = Int32::Parse(TB_userID_reg->Text);
+	u->Name = TB_name_reg->Text;
+	u->LastName = TB_lastname_reg->Text;
+	u->Dni = TB_dni_reg->Text;
+	u->Email = TB_correo_reg->Text;
+
+
+	Controller::UpdateCustomer(u);
+	RefreshGrid();
+
+}
 };
 }
