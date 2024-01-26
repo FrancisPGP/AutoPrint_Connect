@@ -127,6 +127,9 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CardVISAForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Inicio.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -147,10 +150,14 @@
     <ClInclude Include="UserTableForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="WalletForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="AutoPrintView.cpp" />
+    <ClCompile Include="CardVISAForm.cpp" />
     <ClCompile Include="Inicio.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="pch.cpp">
@@ -163,6 +170,7 @@
     <ClCompile Include="PrintMainForm.cpp" />
     <ClCompile Include="UserForm.cpp" />
     <ClCompile Include="UserTableForm.cpp" />
+    <ClCompile Include="WalletForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
@@ -200,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserTableForm.resx">
       <DependentUpon>UserTableForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WalletForm.resx">
+      <DependentUpon>WalletForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
