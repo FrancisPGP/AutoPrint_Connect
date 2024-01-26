@@ -1,6 +1,7 @@
 #pragma once
 #include "PrintForm.h"
 #include "UserTableForm.h"
+#include "WalletForm.h"
 
 namespace AutoPrintView {
 
@@ -122,6 +123,7 @@ namespace AutoPrintView {
 			this->billeteraToolStripMenuItem->Name = L"billeteraToolStripMenuItem";
 			this->billeteraToolStripMenuItem->Size = System::Drawing::Size(78, 24);
 			this->billeteraToolStripMenuItem->Text = L"Billetera";
+			this->billeteraToolStripMenuItem->Click += gcnew System::EventHandler(this, &PrintMainForm::billeteraToolStripMenuItem_Click);
 			// 
 			// ordenesToolStripMenuItem
 			// 
@@ -164,6 +166,11 @@ namespace AutoPrintView {
 		UserTableForm^ usertableForm = gcnew UserTableForm();
 		usertableForm->MdiParent = this;
 		usertableForm->Show();
+	}
+	private: System::Void billeteraToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		WalletForm^ walletForm = gcnew WalletForm();
+		walletForm->MdiParent = this;
+		walletForm->Show();
 	}
 };
 }
