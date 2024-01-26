@@ -169,8 +169,6 @@ namespace AutoPrintView {
 		usertableForm->Show();
 		
 		
-		//RefreshGrid();  posible funcion para actualizar el grid
-
 
 	}
 	private: System::Void billeteraToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
