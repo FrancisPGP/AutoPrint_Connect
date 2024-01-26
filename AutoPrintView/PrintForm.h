@@ -9,7 +9,6 @@ namespace AutoPrintView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
 	using namespace AutoPrintModel;
 	using namespace AutoPrintController;
 	using namespace System::Collections::Generic;
@@ -129,6 +128,7 @@ namespace AutoPrintView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(PrintForm::typeid));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->TPage_impre = (gcnew System::Windows::Forms::TabPage());
 			this->label10 = (gcnew System::Windows::Forms::Label());
@@ -257,7 +257,9 @@ namespace AutoPrintView {
 			// 
 			// PB_PDF_imprimir
 			// 
+			this->PB_PDF_imprimir->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->PB_PDF_imprimir->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->PB_PDF_imprimir->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"PB_PDF_imprimir.Image")));
 			this->PB_PDF_imprimir->Location = System::Drawing::Point(33, 66);
 			this->PB_PDF_imprimir->Name = L"PB_PDF_imprimir";
 			this->PB_PDF_imprimir->Size = System::Drawing::Size(284, 356);
@@ -606,17 +608,17 @@ namespace AutoPrintView {
 		ShowOrderFiles();
 	}
 	private: System::Void dgvHistorial_Files_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-		int transportId = Int32::Parse(dgvTransport->Rows[dgvTransport->SelectedCells[0]->RowIndex]
+		int orderId = Int32::Parse(dgvHistorial_Files->Rows[dgvHistorial_Files->SelectedCells[0]->RowIndex]
 			->Cells[0]->Value->ToString());
-		Order^ Archivo_PDF = Controller::QueryTransportByName(transportId);
+		Order^ Archivo_PDF = Controller::QueryFileById(orderId);
 		
-		if (Transporte->Photo != nullptr) {
-			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(Transporte->Photo);
-			PictureBox1->Image = Image::FromStream(ms);
+		if (Archivo_PDF->File != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(Archivo_PDF->File);
+			PB_PDF_historial->Image = Image::FromStream(ms);
 		}
 		else {
-			PictureBox1->Image = nullptr;
-			PictureBox1->Invalidate();
+			PB_PDF_historial->Image = nullptr;
+			PB_PDF_historial->Invalidate();
 		}
 	}
 };
