@@ -9,6 +9,7 @@
 using namespace System;
 
 namespace AutoPrintModel {
+    [Serializable]
     public ref class Order {
     public:
         property int order_id;
