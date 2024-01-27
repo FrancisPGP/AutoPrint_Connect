@@ -81,7 +81,7 @@ namespace AutoPrintView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_copias;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_local;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_precio;
-	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+
 
 
 
@@ -169,7 +169,6 @@ namespace AutoPrintView {
 			this->dgv_copias = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgv_local = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgv_precio = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->tabControl1->SuspendLayout();
 			this->TPage_impre->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_imprimir))->BeginInit();
@@ -524,24 +523,12 @@ namespace AutoPrintView {
 			this->dgv_precio->Name = L"dgv_precio";
 			this->dgv_precio->Width = 125;
 			// 
-			// menuStrip1
-			// 
-			this->menuStrip1->AllowMerge = false;
-			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
-			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(877, 24);
-			this->menuStrip1->TabIndex = 0;
-			this->menuStrip1->Text = L"menuStrip1";
-			// 
 			// PrintForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(877, 499);
 			this->Controls->Add(this->tabControl1);
-			this->Controls->Add(this->menuStrip1);
-			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"PrintForm";
 			this->Text = L"Documentos";
 			this->Load += gcnew System::EventHandler(this, &PrintForm::PrintForm_Load);
@@ -553,7 +540,6 @@ namespace AutoPrintView {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_historial))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvHistorial_Files))->EndInit();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
