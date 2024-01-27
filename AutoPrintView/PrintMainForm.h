@@ -11,6 +11,7 @@ namespace AutoPrintView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Threading;
 
 	/// <summary>
 	/// Resumen de PrintMainForm
@@ -18,12 +19,16 @@ namespace AutoPrintView {
 	public ref class PrintMainForm : public System::Windows::Forms::Form
 	{
 	public:
+
+		Thread^ myThread;
+
 		PrintMainForm(void)
 		{
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			this->IsMdiContainer = true;
 		}
 
 	protected:

@@ -51,7 +51,8 @@ namespace AutoPrintView {
 
 	private: System::Windows::Forms::TextBox^ TB_NUMcopias;
 	private: System::Windows::Forms::ListBox^ LB_local;
-	private: System::Windows::Forms::ListBox^ LB_tamañoHOJA;
+	private: System::Windows::Forms::ListBox^ LB_tamanoHOJA;
+
 	private: System::Windows::Forms::ListBox^ LB_tinta;
 	private: System::Windows::Forms::ListBox^ LB_tipoHOJA;
 
@@ -80,6 +81,7 @@ namespace AutoPrintView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_copias;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_local;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_precio;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 
 
 
@@ -147,7 +149,7 @@ namespace AutoPrintView {
 			this->BT_pagarBILL = (gcnew System::Windows::Forms::Button());
 			this->TB_NUMcopias = (gcnew System::Windows::Forms::TextBox());
 			this->LB_local = (gcnew System::Windows::Forms::ListBox());
-			this->LB_tamañoHOJA = (gcnew System::Windows::Forms::ListBox());
+			this->LB_tamanoHOJA = (gcnew System::Windows::Forms::ListBox());
 			this->LB_tinta = (gcnew System::Windows::Forms::ListBox());
 			this->LB_tipoHOJA = (gcnew System::Windows::Forms::ListBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
@@ -167,6 +169,7 @@ namespace AutoPrintView {
 			this->dgv_copias = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgv_local = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgv_precio = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->tabControl1->SuspendLayout();
 			this->TPage_impre->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_imprimir))->BeginInit();
@@ -197,7 +200,7 @@ namespace AutoPrintView {
 			this->TPage_impre->Controls->Add(this->BT_pagarBILL);
 			this->TPage_impre->Controls->Add(this->TB_NUMcopias);
 			this->TPage_impre->Controls->Add(this->LB_local);
-			this->TPage_impre->Controls->Add(this->LB_tamañoHOJA);
+			this->TPage_impre->Controls->Add(this->LB_tamanoHOJA);
 			this->TPage_impre->Controls->Add(this->LB_tinta);
 			this->TPage_impre->Controls->Add(this->LB_tipoHOJA);
 			this->TPage_impre->Controls->Add(this->label6);
@@ -319,17 +322,17 @@ namespace AutoPrintView {
 			this->LB_local->Size = System::Drawing::Size(163, 29);
 			this->LB_local->TabIndex = 24;
 			// 
-			// LB_tamañoHOJA
+			// LB_tamanoHOJA
 			// 
-			this->LB_tamañoHOJA->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->LB_tamanoHOJA->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->LB_tamañoHOJA->FormattingEnabled = true;
-			this->LB_tamañoHOJA->ItemHeight = 25;
-			this->LB_tamañoHOJA->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"A4", L"A3", L"A2", L"Carta" });
-			this->LB_tamañoHOJA->Location = System::Drawing::Point(624, 82);
-			this->LB_tamañoHOJA->Name = L"LB_tamañoHOJA";
-			this->LB_tamañoHOJA->Size = System::Drawing::Size(163, 29);
-			this->LB_tamañoHOJA->TabIndex = 23;
+			this->LB_tamanoHOJA->FormattingEnabled = true;
+			this->LB_tamanoHOJA->ItemHeight = 25;
+			this->LB_tamanoHOJA->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"A4", L"A3", L"A2", L"Carta" });
+			this->LB_tamanoHOJA->Location = System::Drawing::Point(624, 82);
+			this->LB_tamanoHOJA->Name = L"LB_tamanoHOJA";
+			this->LB_tamanoHOJA->Size = System::Drawing::Size(163, 29);
+			this->LB_tamanoHOJA->TabIndex = 23;
 			// 
 			// LB_tinta
 			// 
@@ -521,12 +524,24 @@ namespace AutoPrintView {
 			this->dgv_precio->Name = L"dgv_precio";
 			this->dgv_precio->Width = 125;
 			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->AllowMerge = false;
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(877, 24);
+			this->menuStrip1->TabIndex = 0;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
 			// PrintForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(877, 499);
 			this->Controls->Add(this->tabControl1);
+			this->Controls->Add(this->menuStrip1);
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"PrintForm";
 			this->Text = L"Documentos";
 			this->Load += gcnew System::EventHandler(this, &PrintForm::PrintForm_Load);
@@ -538,6 +553,7 @@ namespace AutoPrintView {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_historial))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvHistorial_Files))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -546,7 +562,6 @@ namespace AutoPrintView {
 		OpenFileDialog^ opfd = gcnew OpenFileDialog();
 		opfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
 		if (opfd->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
-			/*PB_PDF_imprimir == PictureBox1*/
 			PB_PDF_imprimir->Image = gcnew Bitmap(opfd->FileName);
 		}
 	}
@@ -559,7 +574,7 @@ namespace AutoPrintView {
 		//if(el usuario paga)
 		
 		String^ gdv_hojatipo = LB_tipoHOJA->Text;
-		String^ dgv_tamano = LB_tamañoHOJA->Text;
+		String^ dgv_tamano = LB_tamanoHOJA->Text;
 		String^ dgv_tinta = LB_tinta->Text;
 		//int File_copia = TB_NUMcopias->Text; No hacemos eso porque lo queremos convertir en texto (caracteres)
 		int dgv_copias = Int32::Parse(TB_NUMcopias->Text);
