@@ -1,5 +1,6 @@
 #pragma once
 #include "CardVISAForm.h"
+#include "WalletForm.h"
 
 namespace AutoPrintView {
 
@@ -12,6 +13,7 @@ namespace AutoPrintView {
 	using namespace AutoPrintModel;
 	using namespace AutoPrintController;
 	using namespace System::Collections::Generic;
+	using namespace AutoPrintModel;
 
 	/// <summary>
 	/// Resumen de PrintForm
@@ -197,6 +199,7 @@ namespace AutoPrintView {
 			this->tabControl1->SelectedIndex = 0;
 			this->tabControl1->Size = System::Drawing::Size(873, 495);
 			this->tabControl1->TabIndex = 0;
+			this->tabControl1->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &PrintForm::tabControl1_MouseMove);
 			// 
 			// TPage_impre
 			// 
@@ -343,7 +346,7 @@ namespace AutoPrintView {
 			this->PB_PDF_imprimir->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->PB_PDF_imprimir->TabIndex = 28;
 			this->PB_PDF_imprimir->TabStop = false;
-			this->PB_PDF_imprimir->Click += gcnew System::EventHandler(this, &PrintForm::PB_imagePDF_Click);
+			this->PB_PDF_imprimir->Click += gcnew System::EventHandler(this, &PrintForm::PB_PDF_imprimir_Click);
 			// 
 			// BT_pagarTARJ
 			// 
@@ -461,7 +464,8 @@ namespace AutoPrintView {
 			// 
 			// PB_PDF_historial
 			// 
-			this->PB_PDF_historial->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->PB_PDF_historial->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->PB_PDF_historial->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->PB_PDF_historial->Location = System::Drawing::Point(574, 54);
 			this->PB_PDF_historial->Name = L"PB_PDF_historial";
 			this->PB_PDF_historial->Size = System::Drawing::Size(284, 356);
@@ -548,6 +552,7 @@ namespace AutoPrintView {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"Documentos";
 			this->Load += gcnew System::EventHandler(this, &PrintForm::PrintForm_Load);
+			this->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &PrintForm::TPage_impre_MouseMove);
 			this->tabControl1->ResumeLayout(false);
 			this->TPage_impre->ResumeLayout(false);
 			this->TPage_impre->PerformLayout();
@@ -561,17 +566,9 @@ namespace AutoPrintView {
 #pragma endregion
 		double monto = 0;
 		double numpage = 1;
-	private: System::Void PB_imagePDF_Click(System::Object^ sender, System::EventArgs^ e) {
-		//Precargado
-		OpenFileDialog^ opfd = gcnew OpenFileDialog();
-		opfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
-		if (opfd->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
-			PB_PDF_imprimir->Image = gcnew Bitmap(opfd->FileName);
-		}
-	}
+
 	private: System::Void BT_pagarTARJ_Click(System::Object^ sender, System::EventArgs^ e) {
 		CardVISAForm^ cardVISAForm = gcnew CardVISAForm();
-		//cardVISAForm->MdiParent = this;
 		cardVISAForm->Show();
 	}
 	private: System::Void BT_pagarBILL_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -586,7 +583,7 @@ namespace AutoPrintView {
 				   return;
 			   }
 
-			   int ordenId = 4;
+			   int ordenId = 6;
 
 			   if (cmbTinta->Text == "Color") {
 				   monto = 0.5 * numpage * (Int32::Parse(cmbNUMcopias->Text));
@@ -614,7 +611,7 @@ namespace AutoPrintView {
 				   File_order->File = ms->ToArray();
 			   }
 
-			   Controller::AddOrder(File_order);
+			   AutoPrintController::Controller::AddOrder(File_order);
 		   }
 		   void ShowOrderFiles() {
 			   List<Order^>^ orderfiles = Controller::QueryAllFiles();
@@ -650,15 +647,16 @@ namespace AutoPrintView {
 		   }
 
 	private: System::Void PrintForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		//ShowOrderFiles();
+		ShowOrderFiles();
 	}
 	private: System::Void dgvHistorial_Files_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		int orderId = Int32::Parse(dgvHistorial_Files->Rows[dgvHistorial_Files->SelectedCells[0]->RowIndex]
 			->Cells[0]->Value->ToString());
-		Order^ Archivo_PDF = Controller::QueryFileById(orderId);
+
+		Order^ File_order = Controller::QueryFileById(orderId);
 		
-		if (Archivo_PDF->File != nullptr) {
-			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(Archivo_PDF->File);
+		if (File_order->Order::File != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(File_order->Order::File);
 			PB_PDF_historial->Image = Image::FromStream(ms);
 		}
 		else {
@@ -669,9 +667,25 @@ namespace AutoPrintView {
 
 
 
+
+
+
+
+
 	private: System::Void TPage_impre_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 		//Actualiza el monto
 		ShowPrice();
+	}
+	private: System::Void tabControl1_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		ShowOrderFiles();
+	}
+	private: System::Void PB_PDF_imprimir_Click(System::Object^ sender, System::EventArgs^ e) {
+		//Precargado
+		OpenFileDialog^ opfd = gcnew OpenFileDialog();
+		opfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
+		if (opfd->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			PB_PDF_imprimir->Image = gcnew Bitmap(opfd->FileName);
+		}
 	}
 };
 }

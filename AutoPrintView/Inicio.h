@@ -91,7 +91,6 @@ namespace AutoPrintView {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(267, 145);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
