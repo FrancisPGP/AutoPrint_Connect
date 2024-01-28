@@ -160,7 +160,6 @@ namespace AutoPrintView {
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Inicio";
 			this->Text = L"AutoPrint Connect";
-			this->Load += gcnew System::EventHandler(this, &Inicio::Inicio_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -172,13 +171,6 @@ namespace AutoPrintView {
 		loginForm->ControlBox = false;
 		loginForm->ShowDialog();
 		this->Close();
-	}
-	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	}
-	private: System::Void Inicio_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		UserForm^ userForm = gcnew UserForm();
