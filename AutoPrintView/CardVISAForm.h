@@ -205,6 +205,7 @@ namespace AutoPrintView {
 			this->Controls->Add(this->lblCardExpiration);
 			this->Controls->Add(this->lblCardNumber);
 			this->Name = L"CardVISAForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"CardVISAForm";
 			this->ResumeLayout(false);
 			this->PerformLayout();

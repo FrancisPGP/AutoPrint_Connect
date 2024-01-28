@@ -217,6 +217,7 @@ namespace AutoPrintView {
 			// 
 			// WalletForm
 			// 
+			this->AcceptButton = this->btnRecharge;
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
@@ -237,6 +238,7 @@ namespace AutoPrintView {
 			this->Controls->Add(this->lblOpctionBalance);
 			this->Controls->Add(this->lblBalanceUser);
 			this->Name = L"WalletForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"Billetera";
 			this->ResumeLayout(false);
 			this->PerformLayout();

@@ -85,7 +85,7 @@ namespace AutoPrintView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(780, 28);
+			this->menuStrip1->Size = System::Drawing::Size(932, 28);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -145,11 +145,12 @@ namespace AutoPrintView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(780, 506);
+			this->ClientSize = System::Drawing::Size(932, 653);
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"PrintMainForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Bienvenido a AutoPrint Connect";
 			this->Load += gcnew System::EventHandler(this, &PrintMainForm::PrintMainForm_Load);
 			this->menuStrip1->ResumeLayout(false);

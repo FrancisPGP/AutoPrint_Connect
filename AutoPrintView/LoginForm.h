@@ -191,6 +191,7 @@ namespace AutoPrintView {
 			// btnRegresar_log
 			// 
 			this->btnRegresar_log->BackColor = System::Drawing::Color::LimeGreen;
+			this->btnRegresar_log->DialogResult = System::Windows::Forms::DialogResult::Cancel;
 			this->btnRegresar_log->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnRegresar_log->Location = System::Drawing::Point(467, 440);
@@ -204,9 +205,11 @@ namespace AutoPrintView {
 			// 
 			// LoginForm
 			// 
+			this->AcceptButton = this->btnEntrar;
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->CancelButton = this->btnRegresar_log;
 			this->ClientSize = System::Drawing::Size(923, 539);
 			this->Controls->Add(this->btnRegresar_log);
 			this->Controls->Add(this->pictureBox2);
@@ -217,8 +220,11 @@ namespace AutoPrintView {
 			this->Controls->Add(this->txtDNI);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Margin = System::Windows::Forms::Padding(4);
+			this->MaximizeBox = false;
 			this->Name = L"LoginForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Inicia sesión";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
@@ -240,11 +246,11 @@ namespace AutoPrintView {
 
 		if (enteredDni == "admin" && enteredPassword == "admin") {
 			//CAMBIO PARA QUE DE LOGIN VAYA AL AUTOPRINT
-			this->Close();
+			Close();
 		}
 		else if ((Controller::Login(enteredDni, enteredPassword)) == true) {
 			//CAMBIO PARA QUE DE LOGIN VAYA AL AUTOPRINT
-			this->Close();
+			Close();
 		}
 		else {
 			MessageBox::Show("Usuario o contraseña incorrectos.");
