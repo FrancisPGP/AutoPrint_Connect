@@ -529,7 +529,9 @@ namespace AutoPrintView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(877, 499);
 			this->Controls->Add(this->tabControl1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"PrintForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"Documentos";
 			this->Load += gcnew System::EventHandler(this, &PrintForm::PrintForm_Load);
 			this->tabControl1->ResumeLayout(false);

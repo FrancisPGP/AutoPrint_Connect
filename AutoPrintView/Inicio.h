@@ -157,8 +157,11 @@ namespace AutoPrintView {
 			this->Controls->Add(this->btnReg);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->btnLog);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Margin = System::Windows::Forms::Padding(4);
+			this->MaximizeBox = false;
 			this->Name = L"Inicio";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"AutoPrint Connect";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
@@ -167,10 +170,10 @@ namespace AutoPrintView {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		Close();
 		LoginForm^ loginForm = gcnew LoginForm();
 		loginForm->ControlBox = false;
 		loginForm->ShowDialog();
-		this->Close();
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		UserForm^ userForm = gcnew UserForm();
