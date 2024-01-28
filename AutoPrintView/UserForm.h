@@ -426,14 +426,21 @@ namespace AutoPrintView {
 #pragma endregion
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void UserForm_Load(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void UserForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
 //-----------------------------------------------------------------------------------------------------------------CAMBIOS DE LUIS-----------------------------------------------------------------------
 	private: System::Void btnContinue_Click(System::Object^ sender, System::EventArgs^ e) { //FUNCIONALIDAD DEL BOTÓN PARA TERMINAR DE REGISTRARSE
 		User^ newUser = gcnew User(); //instanciamos al nuevo usuario
-		
+
+		//Antes debemos ver si los items están llenos:
+		if ((txtName->Text == "") || (txtCellphoneNumber->Text == "") || (txtSurname->Text == "") || (txtDNI->Text == "") || (txtGender->Text == "")
+			|| (txtPassword->Text == "") || (txtDateOfBirth->Text == "") || (txtConfirmPassword->Text == "") || (txtMail->Text == "") ) {
+			MessageBox::Show("Falta colocar algunos datos");
+			return;
+		}
+
 		newUser->Name = txtName->Text;
 		newUser->LastName = txtSurname->Text;
 		newUser->Gender = txtGender->Text;
@@ -448,6 +455,7 @@ private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e)
 		Controller::AddCustomer(newUser); //Añadimos al usuario
 		Close(); //Una vez añadido el nuevo usario, cerramos esa pestaña
 
-	}//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	}
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 };
 }

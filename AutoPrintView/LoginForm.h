@@ -1,5 +1,4 @@
 #pragma once
-#include "PrintMainForm.h"
 
 namespace AutoPrintView {
 
@@ -53,6 +52,8 @@ namespace AutoPrintView {
 
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Button^ btnSalir_log;
+
 
 	private:
 		/// <summary>
@@ -76,6 +77,7 @@ namespace AutoPrintView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->btnSalir_log = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
@@ -124,9 +126,10 @@ namespace AutoPrintView {
 			this->txtPassword->Location = System::Drawing::Point(339, 360);
 			this->txtPassword->Margin = System::Windows::Forms::Padding(4);
 			this->txtPassword->Name = L"txtPassword";
+			this->txtPassword->PasswordChar = '*';
 			this->txtPassword->Size = System::Drawing::Size(209, 28);
 			this->txtPassword->TabIndex = 4;
-			this->txtPassword->TextChanged += gcnew System::EventHandler(this, &LoginForm::textBox2_TextChanged);
+			this->txtPassword->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &LoginForm::txtPassword_KeyDown);
 			// 
 			// btnEntrar
 			// 
@@ -134,10 +137,10 @@ namespace AutoPrintView {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->btnEntrar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnEntrar->Location = System::Drawing::Point(345, 440);
+			this->btnEntrar->Location = System::Drawing::Point(214, 440);
 			this->btnEntrar->Margin = System::Windows::Forms::Padding(4);
 			this->btnEntrar->Name = L"btnEntrar";
-			this->btnEntrar->Size = System::Drawing::Size(189, 81);
+			this->btnEntrar->Size = System::Drawing::Size(216, 69);
 			this->btnEntrar->TabIndex = 5;
 			this->btnEntrar->Text = L"ENTRAR";
 			this->btnEntrar->UseVisualStyleBackColor = false;
@@ -186,12 +189,27 @@ namespace AutoPrintView {
 			this->pictureBox2->TabIndex = 9;
 			this->pictureBox2->TabStop = false;
 			// 
+			// btnSalir_log
+			// 
+			this->btnSalir_log->BackColor = System::Drawing::Color::LimeGreen;
+			this->btnSalir_log->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnSalir_log->Location = System::Drawing::Point(467, 440);
+			this->btnSalir_log->Margin = System::Windows::Forms::Padding(4);
+			this->btnSalir_log->Name = L"btnSalir_log";
+			this->btnSalir_log->Size = System::Drawing::Size(225, 69);
+			this->btnSalir_log->TabIndex = 10;
+			this->btnSalir_log->Text = L"REGRESAR";
+			this->btnSalir_log->UseVisualStyleBackColor = false;
+			this->btnSalir_log->Click += gcnew System::EventHandler(this, &LoginForm::btnSalir_log_Click);
+			// 
 			// LoginForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->ClientSize = System::Drawing::Size(923, 559);
+			this->ClientSize = System::Drawing::Size(923, 539);
+			this->Controls->Add(this->btnSalir_log);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label3);
@@ -203,7 +221,6 @@ namespace AutoPrintView {
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"LoginForm";
 			this->Text = L"Inicia sesión";
-			this->Load += gcnew System::EventHandler(this, &LoginForm::LoginForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
@@ -211,49 +228,40 @@ namespace AutoPrintView {
 
 		}
 #pragma endregion
-	private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+
+    //INTENTO DE LOGIN
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		//Antes debemos ver si los items están llenos:
+		if ( (txtDNI->Text == "") && (txtPassword->Text == "") ) {
+			MessageBox::Show("No ingreso Usuario o contraseña");
+			return;
+		}
+
+		String^ enteredDni = txtDNI->Text;
+		String^ enteredPassword = txtPassword->Text;
+
+		if (enteredDni == "admin" && enteredPassword == "admin") {
+			//CAMBIO PARA QUE DE LOGIN VAYA AL AUTOPRINT
+			this->Close();
+		}
+		else if ((Controller::Login(enteredDni, enteredPassword)) == true) {
+			//CAMBIO PARA QUE DE LOGIN VAYA AL AUTOPRINT
+			this->Close();
+		}
+		else {
+			MessageBox::Show("Usuario o contraseña incorrectos.");
+		}
 	}
-
-//INTENTO DE LOGIN
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	String^ enteredDni = txtDNI->Text;
-	String^ enteredPassword = txtPassword->Text;
-	if (enteredDni == "admin" && enteredPassword == "admin") {
-	
-
-		//CAMBIO PARA QUE DE LOGIN VAYA AL AUTOPRINT
-
-		PrintMainForm^ base = gcnew PrintMainForm();
-		base->Show();
-
-		Close();//Aqui seria para la interfaz de admin borrar Close() y poner Nombreinterza^ nombre = gcnew Nombreintewrfaz();
-		                                                                      //nombre->Show();
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-
-
-	bool valid = Controller::Login(enteredDni, enteredPassword);
-	
-	if (valid == true) {
-	
-		
-		
-		//CAMBIO PARA QUE DE LOGIN VAYA AL AUTOPRINT
-
-		
-		PrintMainForm^ base = gcnew PrintMainForm();
-		base->Show();
-		Close(); 
+	private: System::Void txtPassword_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if(e->KeyData == Keys::Enter)
+			btnEntrar->PerformClick();
 	}
-	
-
-}
-	   //
-private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void btnSalir_log_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Restart();
+	}
 };
 }
