@@ -100,7 +100,7 @@ namespace AutoPrintView {
 			// lblCardNumber
 			// 
 			this->lblCardNumber->AutoSize = true;
-			this->lblCardNumber->Location = System::Drawing::Point(114, 112);
+			this->lblCardNumber->Location = System::Drawing::Point(58, 51);
 			this->lblCardNumber->Name = L"lblCardNumber";
 			this->lblCardNumber->Size = System::Drawing::Size(114, 16);
 			this->lblCardNumber->TabIndex = 0;
@@ -109,7 +109,7 @@ namespace AutoPrintView {
 			// lblCardExpiration
 			// 
 			this->lblCardExpiration->AutoSize = true;
-			this->lblCardExpiration->Location = System::Drawing::Point(421, 112);
+			this->lblCardExpiration->Location = System::Drawing::Point(365, 51);
 			this->lblCardExpiration->Name = L"lblCardExpiration";
 			this->lblCardExpiration->Size = System::Drawing::Size(51, 16);
 			this->lblCardExpiration->TabIndex = 1;
@@ -118,7 +118,7 @@ namespace AutoPrintView {
 			// lblCardCVV
 			// 
 			this->lblCardCVV->AutoSize = true;
-			this->lblCardCVV->Location = System::Drawing::Point(114, 205);
+			this->lblCardCVV->Location = System::Drawing::Point(58, 144);
 			this->lblCardCVV->Name = L"lblCardCVV";
 			this->lblCardCVV->Size = System::Drawing::Size(34, 16);
 			this->lblCardCVV->TabIndex = 2;
@@ -126,7 +126,7 @@ namespace AutoPrintView {
 			// 
 			// btnPrintCardVisa
 			// 
-			this->btnPrintCardVisa->Location = System::Drawing::Point(424, 353);
+			this->btnPrintCardVisa->Location = System::Drawing::Point(368, 292);
 			this->btnPrintCardVisa->Name = L"btnPrintCardVisa";
 			this->btnPrintCardVisa->Size = System::Drawing::Size(138, 40);
 			this->btnPrintCardVisa->TabIndex = 5;
@@ -136,21 +136,21 @@ namespace AutoPrintView {
 			// 
 			// txtCardNumberVisa
 			// 
-			this->txtCardNumberVisa->Location = System::Drawing::Point(117, 149);
+			this->txtCardNumberVisa->Location = System::Drawing::Point(61, 88);
 			this->txtCardNumberVisa->Name = L"txtCardNumberVisa";
 			this->txtCardNumberVisa->Size = System::Drawing::Size(190, 22);
 			this->txtCardNumberVisa->TabIndex = 6;
 			// 
 			// txtCardExpirationVisa
 			// 
-			this->txtCardExpirationVisa->Location = System::Drawing::Point(424, 149);
+			this->txtCardExpirationVisa->Location = System::Drawing::Point(368, 88);
 			this->txtCardExpirationVisa->Name = L"txtCardExpirationVisa";
 			this->txtCardExpirationVisa->Size = System::Drawing::Size(100, 22);
 			this->txtCardExpirationVisa->TabIndex = 7;
 			// 
 			// txtCardCVVVisa
 			// 
-			this->txtCardCVVVisa->Location = System::Drawing::Point(117, 242);
+			this->txtCardCVVVisa->Location = System::Drawing::Point(61, 181);
 			this->txtCardCVVVisa->Name = L"txtCardCVVVisa";
 			this->txtCardCVVVisa->Size = System::Drawing::Size(92, 22);
 			this->txtCardCVVVisa->TabIndex = 8;
@@ -158,7 +158,7 @@ namespace AutoPrintView {
 			// lblCardName
 			// 
 			this->lblCardName->AutoSize = true;
-			this->lblCardName->Location = System::Drawing::Point(421, 205);
+			this->lblCardName->Location = System::Drawing::Point(365, 144);
 			this->lblCardName->Name = L"lblCardName";
 			this->lblCardName->Size = System::Drawing::Size(56, 16);
 			this->lblCardName->TabIndex = 9;
@@ -167,7 +167,7 @@ namespace AutoPrintView {
 			// lblCardLastName
 			// 
 			this->lblCardLastName->AutoSize = true;
-			this->lblCardLastName->Location = System::Drawing::Point(114, 323);
+			this->lblCardLastName->Location = System::Drawing::Point(58, 262);
 			this->lblCardLastName->Name = L"lblCardLastName";
 			this->lblCardLastName->Size = System::Drawing::Size(64, 16);
 			this->lblCardLastName->TabIndex = 10;
@@ -175,14 +175,14 @@ namespace AutoPrintView {
 			// 
 			// txtCardNameVisa
 			// 
-			this->txtCardNameVisa->Location = System::Drawing::Point(424, 242);
+			this->txtCardNameVisa->Location = System::Drawing::Point(368, 181);
 			this->txtCardNameVisa->Name = L"txtCardNameVisa";
 			this->txtCardNameVisa->Size = System::Drawing::Size(190, 22);
 			this->txtCardNameVisa->TabIndex = 11;
 			// 
 			// txtCardLastNameVisa
 			// 
-			this->txtCardLastNameVisa->Location = System::Drawing::Point(117, 353);
+			this->txtCardLastNameVisa->Location = System::Drawing::Point(61, 292);
 			this->txtCardLastNameVisa->Name = L"txtCardLastNameVisa";
 			this->txtCardLastNameVisa->Size = System::Drawing::Size(190, 22);
 			this->txtCardLastNameVisa->TabIndex = 12;
@@ -192,7 +192,7 @@ namespace AutoPrintView {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->ClientSize = System::Drawing::Size(791, 537);
+			this->ClientSize = System::Drawing::Size(620, 425);
 			this->Controls->Add(this->txtCardLastNameVisa);
 			this->Controls->Add(this->txtCardNameVisa);
 			this->Controls->Add(this->lblCardLastName);
