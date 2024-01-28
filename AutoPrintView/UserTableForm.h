@@ -645,46 +645,40 @@ namespace AutoPrintView {
 
 
 
-private: System::Void bregistro_Click(System::Object^ sender, System::EventArgs^ e) {
-	User^ newUser = gcnew User(); //instanciamos al nuevo usuario
-	newUser->User_Id = Int32::Parse(TB_userID_reg->Text);
-	newUser->Name = TB_name_reg->Text;
-	newUser->LastName = TB_lastname_reg->Text;
-	newUser->Dni = TB_dni_reg->Text;
-	newUser->Email = TB_correo_reg->Text;
-	newUser->Password = TB_contraseña_reg->Text;
+	private: System::Void bregistro_Click(System::Object^ sender, System::EventArgs^ e) {
+		User^ newUser = gcnew User(); //instanciamos al nuevo usuario
+		newUser->User_Id = Int32::Parse(TB_userID_reg->Text);
+		newUser->Name = TB_name_reg->Text;
+		newUser->LastName = TB_lastname_reg->Text;
+		newUser->Dni = TB_dni_reg->Text;
+		newUser->Email = TB_correo_reg->Text;
+		newUser->Password = TB_contraseña_reg->Text;
 
-	//Ya cargados los datos, lo pasamos como parámetro al método AddCustomer
-	Controller::AddCustomer(newUser); //Añadimos al usuario
+		//Ya cargados los datos, lo pasamos como parámetro al método AddCustomer
+		Controller::AddCustomer(newUser); //Añadimos al usuario
 
-	RefreshGrid();
+		RefreshGrid();
 
-}
+	}
 
-private: System::Void beliminar_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(TB_userID_reg->Text);
-	Controller::DeleteCustomer(id);
-	RefreshGrid();
-}
+	private: System::Void beliminar_Click(System::Object^ sender, System::EventArgs^ e) {
+		int id = Int32::Parse(TB_userID_reg->Text);
+		Controller::DeleteCustomer(id);
+		RefreshGrid();
+	}
 
-
-
-
-
-
-
-private: System::Void bmodificar_Click(System::Object^ sender, System::EventArgs^ e) {
-	User^ u = gcnew User();
-	u->User_Id = Int32::Parse(TB_userID_reg->Text);
-	u->Name = TB_name_reg->Text;
-	u->LastName = TB_lastname_reg->Text;
-	u->Dni = TB_dni_reg->Text;
-	u->Email = TB_correo_reg->Text;
+	private: System::Void bmodificar_Click(System::Object^ sender, System::EventArgs^ e) {
+		User^ u = gcnew User();
+		u->User_Id = Int32::Parse(TB_userID_reg->Text);
+		u->Name = TB_name_reg->Text;
+		u->LastName = TB_lastname_reg->Text;
+		u->Dni = TB_dni_reg->Text;
+		u->Email = TB_correo_reg->Text;
 
 
-	Controller::UpdateCustomer(u);
-	RefreshGrid();
+		Controller::UpdateCustomer(u);
+		RefreshGrid();
 
-}
+	}
 };
 }

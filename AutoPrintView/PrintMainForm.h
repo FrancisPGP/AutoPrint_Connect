@@ -1,4 +1,6 @@
 #pragma once
+#include "Inicio.h"
+
 #include "PrintForm.h"
 #include "UserTableForm.h"
 #include "WalletForm.h"
@@ -11,7 +13,6 @@ namespace AutoPrintView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace System::Threading;
 
 	/// <summary>
 	/// Resumen de PrintMainForm
@@ -19,9 +20,6 @@ namespace AutoPrintView {
 	public ref class PrintMainForm : public System::Windows::Forms::Form
 	{
 	public:
-
-		Thread^ myThread;
-
 		PrintMainForm(void)
 		{
 			InitializeComponent();
@@ -87,7 +85,7 @@ namespace AutoPrintView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(780, 30);
+			this->menuStrip1->Size = System::Drawing::Size(780, 28);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -98,7 +96,7 @@ namespace AutoPrintView {
 					this->cerrarSesiónToolStripMenuItem
 			});
 			this->miCuentaToolStripMenuItem->Name = L"miCuentaToolStripMenuItem";
-			this->miCuentaToolStripMenuItem->Size = System::Drawing::Size(88, 26);
+			this->miCuentaToolStripMenuItem->Size = System::Drawing::Size(88, 24);
 			this->miCuentaToolStripMenuItem->Text = L"Mi cuenta";
 			// 
 			// actualizarDatosToolStripMenuItem
@@ -119,27 +117,27 @@ namespace AutoPrintView {
 			this->impresiónToolStripMenuItem->Checked = true;
 			this->impresiónToolStripMenuItem->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->impresiónToolStripMenuItem->Name = L"impresiónToolStripMenuItem";
-			this->impresiónToolStripMenuItem->Size = System::Drawing::Size(107, 26);
+			this->impresiónToolStripMenuItem->Size = System::Drawing::Size(107, 24);
 			this->impresiónToolStripMenuItem->Text = L"Documentos";
 			this->impresiónToolStripMenuItem->Click += gcnew System::EventHandler(this, &PrintMainForm::impresiónToolStripMenuItem_Click);
 			// 
 			// billeteraToolStripMenuItem
 			// 
 			this->billeteraToolStripMenuItem->Name = L"billeteraToolStripMenuItem";
-			this->billeteraToolStripMenuItem->Size = System::Drawing::Size(78, 26);
+			this->billeteraToolStripMenuItem->Size = System::Drawing::Size(78, 24);
 			this->billeteraToolStripMenuItem->Text = L"Billetera";
 			this->billeteraToolStripMenuItem->Click += gcnew System::EventHandler(this, &PrintMainForm::billeteraToolStripMenuItem_Click);
 			// 
 			// ordenesToolStripMenuItem
 			// 
 			this->ordenesToolStripMenuItem->Name = L"ordenesToolStripMenuItem";
-			this->ordenesToolStripMenuItem->Size = System::Drawing::Size(78, 26);
+			this->ordenesToolStripMenuItem->Size = System::Drawing::Size(78, 24);
 			this->ordenesToolStripMenuItem->Text = L"Ordenes";
 			// 
 			// usuariosToolStripMenuItem
 			// 
 			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
-			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(79, 26);
+			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(79, 24);
 			this->usuariosToolStripMenuItem->Text = L"Usuarios";
 			this->usuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &PrintMainForm::usuariosToolStripMenuItem_Click);
 			// 
@@ -153,6 +151,7 @@ namespace AutoPrintView {
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"PrintMainForm";
 			this->Text = L"Bienvenido a AutoPrint Connect";
+			this->Load += gcnew System::EventHandler(this, &PrintMainForm::PrintMainForm_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
@@ -160,6 +159,11 @@ namespace AutoPrintView {
 
 		}
 #pragma endregion
+	private: System::Void PrintMainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		Inicio^ inicio = gcnew Inicio();
+		inicio->ControlBox = false;
+		inicio->ShowDialog(); //Se muestra como un diálogo.
+	}
 	private: System::Void cerrarSesiónToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
 	}
@@ -172,9 +176,6 @@ namespace AutoPrintView {
 		UserTableForm^ usertableForm = gcnew UserTableForm();
 		usertableForm->MdiParent = this;
 		usertableForm->Show();
-		
-		
-
 	}
 	private: System::Void billeteraToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		WalletForm^ walletForm = gcnew WalletForm();

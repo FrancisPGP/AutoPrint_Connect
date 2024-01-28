@@ -1,6 +1,6 @@
 #pragma once
-#include "UserForm.h"
 #include "LoginForm.h"
+#include "UserForm.h"
 
 namespace AutoPrintView {
 
@@ -10,6 +10,7 @@ namespace AutoPrintView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace AutoPrintPersistance;
 
 	/// <summary>
 	/// Resumen de Inicio
@@ -46,6 +47,8 @@ namespace AutoPrintView {
 
 	private: System::Windows::Forms::Button^ btnReg;
 	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Button^ btnSalir;
+
 
 
 
@@ -67,6 +70,7 @@ namespace AutoPrintView {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->btnReg = (gcnew System::Windows::Forms::Button());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->btnSalir = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -76,10 +80,10 @@ namespace AutoPrintView {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->btnLog->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnLog->Location = System::Drawing::Point(87, 398);
+			this->btnLog->Location = System::Drawing::Point(103, 362);
 			this->btnLog->Margin = System::Windows::Forms::Padding(4);
 			this->btnLog->Name = L"btnLog";
-			this->btnLog->Size = System::Drawing::Size(203, 108);
+			this->btnLog->Size = System::Drawing::Size(203, 94);
 			this->btnLog->TabIndex = 1;
 			this->btnLog->Text = L"INICIAR SESION";
 			this->btnLog->UseVisualStyleBackColor = false;
@@ -89,10 +93,10 @@ namespace AutoPrintView {
 			// 
 			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(270, 162);
+			this->pictureBox1->Location = System::Drawing::Point(267, 145);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(192, 184);
+			this->pictureBox1->Size = System::Drawing::Size(203, 189);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 3;
 			this->pictureBox1->TabStop = false;
@@ -103,10 +107,10 @@ namespace AutoPrintView {
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
 			this->btnReg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnReg->Location = System::Drawing::Point(434, 398);
+			this->btnReg->Location = System::Drawing::Point(438, 362);
 			this->btnReg->Margin = System::Windows::Forms::Padding(4);
 			this->btnReg->Name = L"btnReg";
-			this->btnReg->Size = System::Drawing::Size(203, 108);
+			this->btnReg->Size = System::Drawing::Size(203, 94);
 			this->btnReg->TabIndex = 7;
 			this->btnReg->Text = L"CREAR CUENTA";
 			this->btnReg->UseVisualStyleBackColor = false;
@@ -128,12 +132,27 @@ namespace AutoPrintView {
 			this->label3->Text = L"AUTOPRINT\r\nCONNECT";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
+			// btnSalir
+			// 
+			this->btnSalir->BackColor = System::Drawing::Color::Firebrick;
+			this->btnSalir->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnSalir->Location = System::Drawing::Point(267, 481);
+			this->btnSalir->Margin = System::Windows::Forms::Padding(4);
+			this->btnSalir->Name = L"btnSalir";
+			this->btnSalir->Size = System::Drawing::Size(203, 69);
+			this->btnSalir->TabIndex = 9;
+			this->btnSalir->Text = L"SALIR";
+			this->btnSalir->UseVisualStyleBackColor = false;
+			this->btnSalir->Click += gcnew System::EventHandler(this, &Inicio::button1_Click_1);
+			// 
 			// Inicio
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->ClientSize = System::Drawing::Size(751, 557);
+			this->ClientSize = System::Drawing::Size(751, 566);
+			this->Controls->Add(this->btnSalir);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->btnReg);
 			this->Controls->Add(this->pictureBox1);
@@ -150,19 +169,23 @@ namespace AutoPrintView {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		LoginForm^ loginForm = gcnew LoginForm();
-		loginForm->Show();
-		
+		loginForm->ControlBox = false;
+		loginForm->ShowDialog();
+		this->Close();
 	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	}
-private: System::Void Inicio_Load(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	UserForm^ userForm = gcnew UserForm();
-	userForm->Show();
-}
+	private: System::Void Inicio_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		UserForm^ userForm = gcnew UserForm();
+		userForm->ShowDialog();
+	}
+	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
+	}
 };
 }
