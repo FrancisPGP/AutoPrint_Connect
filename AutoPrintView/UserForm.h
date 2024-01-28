@@ -124,7 +124,6 @@ namespace AutoPrintView {
 			this->label1->Size = System::Drawing::Size(114, 29);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Nombre:";
-			this->label1->Click += gcnew System::EventHandler(this, &UserForm::label1_Click);
 			// 
 			// label2
 			// 
@@ -138,7 +137,6 @@ namespace AutoPrintView {
 			this->label2->Size = System::Drawing::Size(130, 29);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Apellidos:";
-			this->label2->Click += gcnew System::EventHandler(this, &UserForm::label2_Click);
 			// 
 			// label3
 			// 
@@ -417,19 +415,12 @@ namespace AutoPrintView {
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"UserForm";
 			this->Text = L"Crear cuenta";
-			this->Load += gcnew System::EventHandler(this, &UserForm::UserForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void UserForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
 //-----------------------------------------------------------------------------------------------------------------CAMBIOS DE LUIS-----------------------------------------------------------------------
 	private: System::Void btnContinue_Click(System::Object^ sender, System::EventArgs^ e) { //FUNCIONALIDAD DEL BOTÓN PARA TERMINAR DE REGISTRARSE
 		User^ newUser = gcnew User(); //instanciamos al nuevo usuario

@@ -52,7 +52,8 @@ namespace AutoPrintView {
 
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Button^ btnSalir_log;
+	private: System::Windows::Forms::Button^ btnRegresar_log;
+
 
 
 	private:
@@ -77,7 +78,7 @@ namespace AutoPrintView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->btnSalir_log = (gcnew System::Windows::Forms::Button());
+			this->btnRegresar_log = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
@@ -94,7 +95,6 @@ namespace AutoPrintView {
 			this->label1->Size = System::Drawing::Size(200, 29);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Ingrese su DNI: ";
-			this->label1->Click += gcnew System::EventHandler(this, &LoginForm::label1_Click);
 			// 
 			// label2
 			// 
@@ -174,7 +174,6 @@ namespace AutoPrintView {
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 8;
 			this->pictureBox1->TabStop = false;
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &LoginForm::pictureBox1_Click);
 			// 
 			// pictureBox2
 			// 
@@ -189,19 +188,19 @@ namespace AutoPrintView {
 			this->pictureBox2->TabIndex = 9;
 			this->pictureBox2->TabStop = false;
 			// 
-			// btnSalir_log
+			// btnRegresar_log
 			// 
-			this->btnSalir_log->BackColor = System::Drawing::Color::LimeGreen;
-			this->btnSalir_log->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnRegresar_log->BackColor = System::Drawing::Color::LimeGreen;
+			this->btnRegresar_log->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnSalir_log->Location = System::Drawing::Point(467, 440);
-			this->btnSalir_log->Margin = System::Windows::Forms::Padding(4);
-			this->btnSalir_log->Name = L"btnSalir_log";
-			this->btnSalir_log->Size = System::Drawing::Size(225, 69);
-			this->btnSalir_log->TabIndex = 10;
-			this->btnSalir_log->Text = L"REGRESAR";
-			this->btnSalir_log->UseVisualStyleBackColor = false;
-			this->btnSalir_log->Click += gcnew System::EventHandler(this, &LoginForm::btnSalir_log_Click);
+			this->btnRegresar_log->Location = System::Drawing::Point(467, 440);
+			this->btnRegresar_log->Margin = System::Windows::Forms::Padding(4);
+			this->btnRegresar_log->Name = L"btnRegresar_log";
+			this->btnRegresar_log->Size = System::Drawing::Size(225, 69);
+			this->btnRegresar_log->TabIndex = 10;
+			this->btnRegresar_log->Text = L"REGRESAR";
+			this->btnRegresar_log->UseVisualStyleBackColor = false;
+			this->btnRegresar_log->Click += gcnew System::EventHandler(this, &LoginForm::btnSalir_log_Click);
 			// 
 			// LoginForm
 			// 
@@ -209,7 +208,7 @@ namespace AutoPrintView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(923, 539);
-			this->Controls->Add(this->btnSalir_log);
+			this->Controls->Add(this->btnRegresar_log);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label3);
@@ -228,9 +227,6 @@ namespace AutoPrintView {
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-
     //INTENTO DE LOGIN
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Antes debemos ver si los items están llenos:
@@ -253,8 +249,6 @@ namespace AutoPrintView {
 		else {
 			MessageBox::Show("Usuario o contraseña incorrectos.");
 		}
-	}
-	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void txtPassword_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		if(e->KeyData == Keys::Enter)
