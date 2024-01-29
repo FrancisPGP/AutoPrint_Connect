@@ -253,17 +253,19 @@ namespace AutoPrintView {
 			// 
 			// cmbNUMcopias
 			// 
+			this->cmbNUMcopias->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->cmbNUMcopias->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->cmbNUMcopias->FormattingEnabled = true;
 			this->cmbNUMcopias->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L"1", L"2", L"3", L"4", L"5" });
-			this->cmbNUMcopias->Location = System::Drawing::Point(629, 179);
+			this->cmbNUMcopias->Location = System::Drawing::Point(624, 179);
 			this->cmbNUMcopias->Name = L"cmbNUMcopias";
 			this->cmbNUMcopias->Size = System::Drawing::Size(163, 33);
 			this->cmbNUMcopias->TabIndex = 37;
 			// 
 			// cmbLocal
 			// 
+			this->cmbLocal->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->cmbLocal->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->cmbLocal->FormattingEnabled = true;
@@ -275,6 +277,7 @@ namespace AutoPrintView {
 			// 
 			// cmbTinta
 			// 
+			this->cmbTinta->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->cmbTinta->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->cmbTinta->FormattingEnabled = true;
@@ -286,6 +289,7 @@ namespace AutoPrintView {
 			// 
 			// cmbTamaHoja
 			// 
+			this->cmbTamaHoja->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->cmbTamaHoja->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->cmbTamaHoja->FormattingEnabled = true;
@@ -297,6 +301,8 @@ namespace AutoPrintView {
 			// 
 			// cmbTipoHoja
 			// 
+			this->cmbTipoHoja->BackColor = System::Drawing::Color::White;
+			this->cmbTipoHoja->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->cmbTipoHoja->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->cmbTipoHoja->FormattingEnabled = true;
