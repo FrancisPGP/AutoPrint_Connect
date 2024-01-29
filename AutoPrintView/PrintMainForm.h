@@ -166,7 +166,8 @@ namespace AutoPrintView {
 		inicio->ShowDialog(); //Se muestra como un diálogo.
 	}
 	private: System::Void cerrarSesiónToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		Application::Exit();
+		//Application::Exit();
+		Application::Restart();
 	}
 	private: System::Void impresiónToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		PrintForm^ printForm = gcnew PrintForm();
