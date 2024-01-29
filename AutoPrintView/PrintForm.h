@@ -678,7 +678,13 @@ namespace AutoPrintView {
 			   }
 		   }
 		   void UpOrder() {
-			   int ordenId = 3;
+			   //valor inicial
+			   int ordenId = 1;
+			   //QueryFileById
+			   List<Order^>^ orderfiles = Controller::QueryAllFiles();
+			   if (orderfiles != nullptr && orderfiles->Count > 0) {
+				   ordenId = 1 + orderfiles->Count;
+			   }
 
 			   if (cmbTinta->Text == "Color") {
 				   monto = 0.5 * numpage * (Int32::Parse(cmbNUMcopias->Text));
