@@ -1,4 +1,5 @@
 #pragma once
+
 #include "CardVISAForm.h"
 #include "WalletForm.h"
 
@@ -183,6 +184,27 @@ namespace AutoPrintView {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	protected:
 
 	private:
@@ -198,7 +220,6 @@ namespace AutoPrintView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(PrintForm::typeid));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->TPage_impre = (gcnew System::Windows::Forms::TabPage());
 			this->cmbNUMcopias = (gcnew System::Windows::Forms::ComboBox());
@@ -286,7 +307,7 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->cmbNUMcopias->FormattingEnabled = true;
 			this->cmbNUMcopias->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L"1", L"2", L"3", L"4", L"5" });
-			this->cmbNUMcopias->Location = System::Drawing::Point(624, 179);
+			this->cmbNUMcopias->Location = System::Drawing::Point(608, 179);
 			this->cmbNUMcopias->Name = L"cmbNUMcopias";
 			this->cmbNUMcopias->Size = System::Drawing::Size(163, 33);
 			this->cmbNUMcopias->TabIndex = 37;
@@ -298,7 +319,7 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->cmbLocal->FormattingEnabled = true;
 			this->cmbLocal->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Ciencias Sociales", L"E.E.G.G.L.L." });
-			this->cmbLocal->Location = System::Drawing::Point(395, 289);
+			this->cmbLocal->Location = System::Drawing::Point(379, 289);
 			this->cmbLocal->Name = L"cmbLocal";
 			this->cmbLocal->Size = System::Drawing::Size(163, 33);
 			this->cmbLocal->TabIndex = 36;
@@ -310,7 +331,7 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->cmbTinta->FormattingEnabled = true;
 			this->cmbTinta->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Color", L"Blanco y negro" });
-			this->cmbTinta->Location = System::Drawing::Point(395, 179);
+			this->cmbTinta->Location = System::Drawing::Point(379, 179);
 			this->cmbTinta->Name = L"cmbTinta";
 			this->cmbTinta->Size = System::Drawing::Size(163, 33);
 			this->cmbTinta->TabIndex = 35;
@@ -322,7 +343,7 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->cmbTamaHoja->FormattingEnabled = true;
 			this->cmbTamaHoja->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"A4", L"A3", L"A2", L"Carta" });
-			this->cmbTamaHoja->Location = System::Drawing::Point(624, 69);
+			this->cmbTamaHoja->Location = System::Drawing::Point(608, 69);
 			this->cmbTamaHoja->Name = L"cmbTamaHoja";
 			this->cmbTamaHoja->Size = System::Drawing::Size(163, 33);
 			this->cmbTamaHoja->TabIndex = 34;
@@ -335,7 +356,7 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->cmbTipoHoja->FormattingEnabled = true;
 			this->cmbTipoHoja->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Hoja Bond", L"Papel Fotográfico" });
-			this->cmbTipoHoja->Location = System::Drawing::Point(395, 69);
+			this->cmbTipoHoja->Location = System::Drawing::Point(379, 69);
 			this->cmbTipoHoja->Name = L"cmbTipoHoja";
 			this->cmbTipoHoja->Size = System::Drawing::Size(163, 33);
 			this->cmbTipoHoja->TabIndex = 33;
@@ -345,7 +366,7 @@ namespace AutoPrintView {
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(624, 292);
+			this->label10->Location = System::Drawing::Point(608, 292);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(32, 25);
 			this->label10->TabIndex = 32;
@@ -359,7 +380,7 @@ namespace AutoPrintView {
 			this->MontoPago->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->MontoPago->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MontoPago->Location = System::Drawing::Point(662, 292);
+			this->MontoPago->Location = System::Drawing::Point(646, 292);
 			this->MontoPago->Name = L"MontoPago";
 			this->MontoPago->Size = System::Drawing::Size(58, 27);
 			this->MontoPago->TabIndex = 31;
@@ -383,7 +404,7 @@ namespace AutoPrintView {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(619, 244);
+			this->label7->Location = System::Drawing::Point(603, 244);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(189, 29);
 			this->label7->TabIndex = 29;
@@ -392,12 +413,13 @@ namespace AutoPrintView {
 			// 
 			// PB_PDF_imprimir
 			// 
+			this->PB_PDF_imprimir->BackColor = System::Drawing::Color::Transparent;
+			this->PB_PDF_imprimir->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->PB_PDF_imprimir->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->PB_PDF_imprimir->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->PB_PDF_imprimir->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"PB_PDF_imprimir.Image")));
-			this->PB_PDF_imprimir->Location = System::Drawing::Point(33, 59);
+			this->PB_PDF_imprimir->Location = System::Drawing::Point(49, 59);
 			this->PB_PDF_imprimir->Name = L"PB_PDF_imprimir";
-			this->PB_PDF_imprimir->Size = System::Drawing::Size(284, 356);
+			this->PB_PDF_imprimir->Size = System::Drawing::Size(252, 356);
 			this->PB_PDF_imprimir->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->PB_PDF_imprimir->TabIndex = 28;
 			this->PB_PDF_imprimir->TabStop = false;
@@ -407,7 +429,7 @@ namespace AutoPrintView {
 			// 
 			this->BT_pagarTARJ->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->BT_pagarTARJ->Location = System::Drawing::Point(404, 367);
+			this->BT_pagarTARJ->Location = System::Drawing::Point(388, 367);
 			this->BT_pagarTARJ->Name = L"BT_pagarTARJ";
 			this->BT_pagarTARJ->Size = System::Drawing::Size(154, 74);
 			this->BT_pagarTARJ->TabIndex = 27;
@@ -419,7 +441,7 @@ namespace AutoPrintView {
 			// 
 			this->BT_pagarBILL->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->BT_pagarBILL->Location = System::Drawing::Point(624, 367);
+			this->BT_pagarBILL->Location = System::Drawing::Point(608, 367);
 			this->BT_pagarBILL->Name = L"BT_pagarBILL";
 			this->BT_pagarBILL->Size = System::Drawing::Size(154, 74);
 			this->BT_pagarBILL->TabIndex = 26;
@@ -444,7 +466,7 @@ namespace AutoPrintView {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(390, 244);
+			this->label5->Location = System::Drawing::Point(374, 244);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(201, 29);
 			this->label5->TabIndex = 19;
@@ -456,7 +478,7 @@ namespace AutoPrintView {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(619, 134);
+			this->label4->Location = System::Drawing::Point(603, 134);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(234, 29);
 			this->label4->TabIndex = 18;
@@ -467,7 +489,7 @@ namespace AutoPrintView {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(619, 24);
+			this->label3->Location = System::Drawing::Point(603, 24);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(209, 29);
 			this->label3->TabIndex = 17;
@@ -478,7 +500,7 @@ namespace AutoPrintView {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(390, 134);
+			this->label2->Location = System::Drawing::Point(374, 134);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(79, 29);
 			this->label2->TabIndex = 16;
@@ -489,7 +511,7 @@ namespace AutoPrintView {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(390, 24);
+			this->label1->Location = System::Drawing::Point(374, 24);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(168, 29);
 			this->label1->TabIndex = 15;
@@ -552,7 +574,7 @@ namespace AutoPrintView {
 			// 
 			this->dgv_orderId->FillWeight = 59.57447F;
 			this->dgv_orderId->HeaderText = L"Código";
-			this->dgv_orderId->MinimumWidth = 6;
+			this->dgv_orderId->MinimumWidth = 8;
 			this->dgv_orderId->Name = L"dgv_orderId";
 			this->dgv_orderId->Width = 50;
 			// 
@@ -560,7 +582,7 @@ namespace AutoPrintView {
 			// 
 			this->gdv_hojatipo->FillWeight = 87.38197F;
 			this->gdv_hojatipo->HeaderText = L"Tipo de Hoja";
-			this->gdv_hojatipo->MinimumWidth = 6;
+			this->gdv_hojatipo->MinimumWidth = 8;
 			this->gdv_hojatipo->Name = L"gdv_hojatipo";
 			this->gdv_hojatipo->Width = 70;
 			// 
@@ -568,7 +590,7 @@ namespace AutoPrintView {
 			// 
 			this->dgv_tamano->FillWeight = 130.1627F;
 			this->dgv_tamano->HeaderText = L"Tamaño";
-			this->dgv_tamano->MinimumWidth = 6;
+			this->dgv_tamano->MinimumWidth = 8;
 			this->dgv_tamano->Name = L"dgv_tamano";
 			this->dgv_tamano->Width = 65;
 			// 
@@ -576,30 +598,30 @@ namespace AutoPrintView {
 			// 
 			this->dgv_tinta->FillWeight = 122.8809F;
 			this->dgv_tinta->HeaderText = L"Tinta";
-			this->dgv_tinta->MinimumWidth = 6;
+			this->dgv_tinta->MinimumWidth = 8;
 			this->dgv_tinta->Name = L"dgv_tinta";
 			this->dgv_tinta->Width = 65;
 			// 
 			// dgv_copias
 			// 
 			this->dgv_copias->HeaderText = L"Número de Copias";
-			this->dgv_copias->MinimumWidth = 6;
+			this->dgv_copias->MinimumWidth = 8;
 			this->dgv_copias->Name = L"dgv_copias";
 			this->dgv_copias->Width = 60;
 			// 
 			// dgv_local
 			// 
 			this->dgv_local->HeaderText = L"Local de recojo";
-			this->dgv_local->MinimumWidth = 6;
+			this->dgv_local->MinimumWidth = 8;
 			this->dgv_local->Name = L"dgv_local";
 			this->dgv_local->Width = 125;
 			// 
 			// dgv_precio
 			// 
-			this->dgv_precio->HeaderText = L"Precio";
-			this->dgv_precio->MinimumWidth = 6;
+			this->dgv_precio->HeaderText = L"Precio (S/)";
+			this->dgv_precio->MinimumWidth = 8;
 			this->dgv_precio->Name = L"dgv_precio";
-			this->dgv_precio->Width = 60;
+			this->dgv_precio->Width = 50;
 			// 
 			// PrintForm
 			// 
@@ -627,22 +649,36 @@ namespace AutoPrintView {
 		double numpage = 1;
 
 	private: System::Void BT_pagarTARJ_Click(System::Object^ sender, System::EventArgs^ e) {
-		CardVISAForm^ cardVISAForm = gcnew CardVISAForm();
-		cardVISAForm->Show();
+		if (NotEmpty()) {
+			UpOrder();
+			ShowOrderFiles();
+			//if(el usuario paga)
+			CardVISAForm^ cardVISAForm = gcnew CardVISAForm();
+			cardVISAForm->Show();
+		}
+		
 	}
 	private: System::Void BT_pagarBILL_Click(System::Object^ sender, System::EventArgs^ e) {
-		//if(el usuario paga)
-		UpOrder();
-		ShowOrderFiles();
+		if (NotEmpty()) {
+			//if(billetera con dinero suficiente)
+			UpOrder();
+			ShowOrderFiles();
+		}
 	}
 
-		   void UpOrder() {
+		   bool NotEmpty() {
+			   //siempre dara true, excepto si:
+			   if (PB_PDF_imprimir == nullptr || PB_PDF_imprimir->Image == nullptr) {
+				   MessageBox::Show("Suba su PDF");
+				   return false;
+			   }
 			   if ((cmbTipoHoja->Text == "") || (cmbTamaHoja->Text == "") || (cmbTinta->Text == "") || (cmbNUMcopias->Text == "") || (cmbLocal->Text == "")) {
 				   MessageBox::Show("Debe llenar todas las casillas");
-				   return;
+				   return false;
 			   }
-
-			   int ordenId = 2;
+		   }
+		   void UpOrder() {
+			   int ordenId = 3;
 
 			   if (cmbTinta->Text == "Color") {
 				   monto = 0.5 * numpage * (Int32::Parse(cmbNUMcopias->Text));

@@ -309,7 +309,6 @@ namespace AutoPrintView {
 				this->UT_id, this->UT_nombre,
 					this->UT_apellido, this->UT_dni, this->UT_correo
 			});
-			this->dgvUserTable->GridColor = System::Drawing::Color::Black;
 			this->dgvUserTable->Location = System::Drawing::Point(19, 242);
 			this->dgvUserTable->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->dgvUserTable->Name = L"dgvUserTable";
