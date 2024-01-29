@@ -8,6 +8,7 @@ namespace AutoPrintPersistance {
 	public ref class Persistance
 	{
 	private:
+		/*Luis y ricardo*/
 		static List<User^>^ CustomerListDB = gcnew List<User^>();// base de datos
 		/*Francis*/
 		static List<Order^>^ orderList = gcnew List<Order^>();
