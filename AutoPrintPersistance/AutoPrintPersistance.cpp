@@ -166,10 +166,14 @@ Object^ Persistance::LoadBinaryFile(String^ fileName) {
 }
 
 void Persistance::AddFile(Order^ file) {
+    // Asegúrate de que orderList está inicializado
+    if (orderList == nullptr) {
+        // Inicializar orderList si es nulo
+        orderList = gcnew List<Order^>();
+    }
     orderList->Add(file);
     PersistBinaryFile(Lista_Order_BIN, orderList);
 }
-
 List<Order^>^ Persistance::QueryAllFiles() {
     orderList = (List<Order^>^)LoadBinaryFile(Lista_Order_BIN);
     return orderList;

@@ -77,13 +77,13 @@ namespace AutoPrintView {
 
 	private: System::Windows::Forms::PictureBox^ PB_PDF_historial;
 	private: System::Windows::Forms::DataGridView^ dgvHistorial_Files;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_orderId;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ gdv_hojatipo;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_tamano;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_tinta;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_copias;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_local;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_precio;
+
+
+
+
+
+
+
 	private: System::Windows::Forms::ComboBox^ cmbTipoHoja;
 	private: System::Windows::Forms::ComboBox^ cmbTamaHoja;
 
@@ -91,6 +91,27 @@ namespace AutoPrintView {
 
 	private: System::Windows::Forms::ComboBox^ cmbTinta;
 	private: System::Windows::Forms::ComboBox^ cmbNUMcopias;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_orderId;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ gdv_hojatipo;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_tamano;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_tinta;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_copias;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_local;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgv_precio;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -475,6 +496,7 @@ namespace AutoPrintView {
 			// 
 			// dgvHistorial_Files
 			// 
+			this->dgvHistorial_Files->BackgroundColor = System::Drawing::SystemColors::ActiveCaption;
 			this->dgvHistorial_Files->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgvHistorial_Files->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
 				this->dgv_orderId,
@@ -491,7 +513,7 @@ namespace AutoPrintView {
 			// dgv_orderId
 			// 
 			this->dgv_orderId->FillWeight = 59.57447F;
-			this->dgv_orderId->HeaderText = L"ID";
+			this->dgv_orderId->HeaderText = L"Código";
 			this->dgv_orderId->MinimumWidth = 6;
 			this->dgv_orderId->Name = L"dgv_orderId";
 			this->dgv_orderId->Width = 35;
@@ -551,7 +573,6 @@ namespace AutoPrintView {
 			this->Name = L"PrintForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"Documentos";
-			this->Load += gcnew System::EventHandler(this, &PrintForm::PrintForm_Load);
 			this->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &PrintForm::TPage_impre_MouseMove);
 			this->tabControl1->ResumeLayout(false);
 			this->TPage_impre->ResumeLayout(false);
@@ -574,7 +595,7 @@ namespace AutoPrintView {
 	private: System::Void BT_pagarBILL_Click(System::Object^ sender, System::EventArgs^ e) {
 		//if(el usuario paga)
 		UpOrder();
-		//ShowOrderFiles();
+		ShowOrderFiles();
 	}
 
 		   void UpOrder() {
@@ -583,7 +604,7 @@ namespace AutoPrintView {
 				   return;
 			   }
 
-			   int ordenId = 6;
+			   int ordenId = 2;
 
 			   if (cmbTinta->Text == "Color") {
 				   monto = 0.5 * numpage * (Int32::Parse(cmbNUMcopias->Text));
@@ -615,19 +636,21 @@ namespace AutoPrintView {
 		   }
 		   void ShowOrderFiles() {
 			   List<Order^>^ orderfiles = Controller::QueryAllFiles();
-			   dgvHistorial_Files->Rows->Clear();
-			   for (int i = 0; i < orderfiles->Count; i++) {
-				   Order^ File_order = orderfiles[i];
-				   //dgvHistorial_Files es el nombre de la tabla de historial
-				   dgvHistorial_Files->Rows->Add(gcnew array<String^>{
-					   "" + File_order->order_id,
-					    File_order->sheet_type,
-						File_order->sheet_size,
-						File_order->color_page,
-						"" + File_order->num_copies,
-						File_order->Location,
-						"" + File_order->price
-				   });
+			   if (orderfiles != nullptr && orderfiles->Count > 0) {
+				   dgvHistorial_Files->Rows->Clear();
+				   for (int i = 0; i < orderfiles->Count; i++) {
+					   Order^ File_order = orderfiles[i];
+					   //dgvHistorial_Files es el nombre de la tabla de historial
+					   dgvHistorial_Files->Rows->Add(gcnew array<String^>{
+						   "" + File_order->order_id,
+							   File_order->sheet_type,
+							   File_order->sheet_size,
+							   File_order->color_page,
+							   "" + File_order->num_copies,
+							   File_order->Location,
+							   "" + File_order->price
+					   });
+				   }
 			   }
 		   }
 		   Void ShowPrice() {
@@ -646,29 +669,31 @@ namespace AutoPrintView {
 			   }
 		   }
 
-	private: System::Void PrintForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		ShowOrderFiles();
-	}
 	private: System::Void dgvHistorial_Files_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-		int orderId = Int32::Parse(dgvHistorial_Files->Rows[dgvHistorial_Files->SelectedCells[0]->RowIndex]
-			->Cells[0]->Value->ToString());
+		if (dgvHistorial_Files->SelectedCells->Count > 0 &&
+			dgvHistorial_Files->Rows[dgvHistorial_Files->SelectedCells[0]->RowIndex]->Cells[0]->Value != nullptr &&
+			!String::IsNullOrEmpty(dgvHistorial_Files->Rows[dgvHistorial_Files->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString())) {
 
-		Order^ File_order = Controller::QueryFileById(orderId);
-		
-		if (File_order->Order::File != nullptr) {
-			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(File_order->Order::File);
-			PB_PDF_historial->Image = Image::FromStream(ms);
+			// Solo ejecutar si hay una celda seleccionada y el valor no es nulo o vacío
+			int orderId = Int32::Parse(dgvHistorial_Files->Rows[dgvHistorial_Files->SelectedCells[0]->RowIndex]
+				->Cells[0]->Value->ToString());
+
+			Order^ File_order = Controller::QueryFileById(orderId);
+
+			if (File_order->Order::File != nullptr) {
+				System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(File_order->Order::File);
+				PB_PDF_historial->Image = Image::FromStream(ms);
+			}
+			else {
+				PB_PDF_historial->Image = nullptr;
+				PB_PDF_historial->Invalidate();
+			}
 		}
 		else {
-			PB_PDF_historial->Image = nullptr;
-			PB_PDF_historial->Invalidate();
+			//Si el valor es nulo/vacío
+			MessageBox::Show("Seleccione una fila con un código existente");
 		}
 	}
-
-
-
-
-
 
 
 
