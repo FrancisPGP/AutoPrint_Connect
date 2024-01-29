@@ -496,6 +496,7 @@ namespace AutoPrintView {
 			// 
 			// dgvHistorial_Files
 			// 
+			this->dgvHistorial_Files->AllowUserToAddRows = false;
 			this->dgvHistorial_Files->BackgroundColor = System::Drawing::SystemColors::ActiveCaption;
 			this->dgvHistorial_Files->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgvHistorial_Files->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
@@ -504,6 +505,8 @@ namespace AutoPrintView {
 			});
 			this->dgvHistorial_Files->Location = System::Drawing::Point(6, 66);
 			this->dgvHistorial_Files->Name = L"dgvHistorial_Files";
+			this->dgvHistorial_Files->RightToLeft = System::Windows::Forms::RightToLeft::No;
+			this->dgvHistorial_Files->RowHeadersVisible = false;
 			this->dgvHistorial_Files->RowHeadersWidth = 51;
 			this->dgvHistorial_Files->RowTemplate->Height = 24;
 			this->dgvHistorial_Files->Size = System::Drawing::Size(562, 330);
