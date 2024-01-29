@@ -237,7 +237,7 @@ namespace AutoPrintView {
 			// bmodificar
 			// 
 			this->bmodificar->Location = System::Drawing::Point(67, 192);
-			this->bmodificar->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->bmodificar->Margin = System::Windows::Forms::Padding(4);
 			this->bmodificar->Name = L"bmodificar";
 			this->bmodificar->Size = System::Drawing::Size(120, 26);
 			this->bmodificar->TabIndex = 47;
@@ -248,7 +248,7 @@ namespace AutoPrintView {
 			// beliminar
 			// 
 			this->beliminar->Location = System::Drawing::Point(291, 190);
-			this->beliminar->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->beliminar->Margin = System::Windows::Forms::Padding(4);
 			this->beliminar->Name = L"beliminar";
 			this->beliminar->Size = System::Drawing::Size(100, 28);
 			this->beliminar->TabIndex = 46;
@@ -302,6 +302,7 @@ namespace AutoPrintView {
 			// 
 			// dgvUserTable
 			// 
+			this->dgvUserTable->AllowUserToAddRows = false;
 			this->dgvUserTable->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgvUserTable->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->UT_id, this->UT_nombre,
@@ -311,6 +312,7 @@ namespace AutoPrintView {
 			this->dgvUserTable->Location = System::Drawing::Point(19, 242);
 			this->dgvUserTable->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->dgvUserTable->Name = L"dgvUserTable";
+			this->dgvUserTable->RowHeadersVisible = false;
 			this->dgvUserTable->RowHeadersWidth = 82;
 			this->dgvUserTable->RowTemplate->Height = 33;
 			this->dgvUserTable->Size = System::Drawing::Size(737, 254);
@@ -445,7 +447,7 @@ namespace AutoPrintView {
 			this->tabPage2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->tabPage2->Size = System::Drawing::Size(779, 478);
+			this->tabPage2->Size = System::Drawing::Size(779, 517);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Registrar";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -453,7 +455,7 @@ namespace AutoPrintView {
 			// bregistro
 			// 
 			this->bregistro->Location = System::Drawing::Point(323, 350);
-			this->bregistro->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->bregistro->Margin = System::Windows::Forms::Padding(4);
 			this->bregistro->Name = L"bregistro";
 			this->bregistro->Size = System::Drawing::Size(100, 28);
 			this->bregistro->TabIndex = 61;
