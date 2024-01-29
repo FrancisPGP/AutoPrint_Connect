@@ -303,6 +303,7 @@ namespace AutoPrintView {
 			// dgvUserTable
 			// 
 			this->dgvUserTable->AllowUserToAddRows = false;
+			this->dgvUserTable->AllowUserToResizeRows = false;
 			this->dgvUserTable->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgvUserTable->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->UT_id, this->UT_nombre,

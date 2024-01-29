@@ -155,6 +155,34 @@ namespace AutoPrintView {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	protected:
 
 	private:
@@ -497,6 +525,7 @@ namespace AutoPrintView {
 			// dgvHistorial_Files
 			// 
 			this->dgvHistorial_Files->AllowUserToAddRows = false;
+			this->dgvHistorial_Files->AllowUserToResizeRows = false;
 			this->dgvHistorial_Files->BackgroundColor = System::Drawing::SystemColors::ActiveCaption;
 			this->dgvHistorial_Files->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgvHistorial_Files->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
@@ -519,7 +548,7 @@ namespace AutoPrintView {
 			this->dgv_orderId->HeaderText = L"Código";
 			this->dgv_orderId->MinimumWidth = 6;
 			this->dgv_orderId->Name = L"dgv_orderId";
-			this->dgv_orderId->Width = 35;
+			this->dgv_orderId->Width = 50;
 			// 
 			// gdv_hojatipo
 			// 
@@ -527,7 +556,7 @@ namespace AutoPrintView {
 			this->gdv_hojatipo->HeaderText = L"Tipo de Hoja";
 			this->gdv_hojatipo->MinimumWidth = 6;
 			this->gdv_hojatipo->Name = L"gdv_hojatipo";
-			this->gdv_hojatipo->Width = 60;
+			this->gdv_hojatipo->Width = 70;
 			// 
 			// dgv_tamano
 			// 
@@ -535,7 +564,7 @@ namespace AutoPrintView {
 			this->dgv_tamano->HeaderText = L"Tamaño";
 			this->dgv_tamano->MinimumWidth = 6;
 			this->dgv_tamano->Name = L"dgv_tamano";
-			this->dgv_tamano->Width = 125;
+			this->dgv_tamano->Width = 65;
 			// 
 			// dgv_tinta
 			// 
@@ -550,7 +579,7 @@ namespace AutoPrintView {
 			this->dgv_copias->HeaderText = L"Número de Copias";
 			this->dgv_copias->MinimumWidth = 6;
 			this->dgv_copias->Name = L"dgv_copias";
-			this->dgv_copias->Width = 125;
+			this->dgv_copias->Width = 60;
 			// 
 			// dgv_local
 			// 
@@ -564,7 +593,7 @@ namespace AutoPrintView {
 			this->dgv_precio->HeaderText = L"Precio";
 			this->dgv_precio->MinimumWidth = 6;
 			this->dgv_precio->Name = L"dgv_precio";
-			this->dgv_precio->Width = 125;
+			this->dgv_precio->Width = 60;
 			// 
 			// PrintForm
 			// 
