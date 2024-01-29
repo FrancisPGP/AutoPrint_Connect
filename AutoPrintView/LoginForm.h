@@ -118,6 +118,7 @@ namespace AutoPrintView {
 			this->txtDNI->Name = L"txtDNI";
 			this->txtDNI->Size = System::Drawing::Size(209, 28);
 			this->txtDNI->TabIndex = 3;
+			this->txtDNI->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &LoginForm::txtDNI_KeyDown);
 			// 
 			// txtPassword
 			// 
@@ -203,7 +204,6 @@ namespace AutoPrintView {
 			// 
 			// LoginForm
 			// 
-			this->AcceptButton = this->btnEntrar;
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
@@ -234,8 +234,8 @@ namespace AutoPrintView {
     //INTENTO DE LOGIN
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Antes debemos ver si los items están llenos:
-		if ( (txtDNI->Text == "") && (txtPassword->Text == "") ) {
-			MessageBox::Show("No ingreso Usuario o contraseña");
+		if ( (txtDNI->Text == "") || (txtPassword->Text == "") ) {
+			MessageBox::Show("No ingreso usuario o contraseña");
 			return;
 		}
 
@@ -256,6 +256,10 @@ namespace AutoPrintView {
 	}
 	private: System::Void txtPassword_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		if(e->KeyData == Keys::Enter)
+			btnEntrar->PerformClick();
+	}
+	private: System::Void txtDNI_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyData == Keys::Enter)
 			btnEntrar->PerformClick();
 	}
 	private: System::Void btnSalir_log_Click(System::Object^ sender, System::EventArgs^ e) {
