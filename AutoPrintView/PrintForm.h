@@ -667,7 +667,6 @@ namespace AutoPrintView {
 	}
 
 		   bool NotEmpty() {
-			   //siempre dara true, excepto si:
 			   if (PB_PDF_imprimir == nullptr || PB_PDF_imprimir->Image == nullptr) {
 				   MessageBox::Show("Suba su PDF");
 				   return false;
@@ -675,6 +674,9 @@ namespace AutoPrintView {
 			   if ((cmbTipoHoja->Text == "") || (cmbTamaHoja->Text == "") || (cmbTinta->Text == "") || (cmbNUMcopias->Text == "") || (cmbLocal->Text == "")) {
 				   MessageBox::Show("Debe llenar todas las casillas");
 				   return false;
+			   }
+			   else {
+				   return true;
 			   }
 		   }
 		   void UpOrder() {
