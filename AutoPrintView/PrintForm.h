@@ -562,6 +562,7 @@ namespace AutoPrintView {
 			});
 			this->dgvHistorial_Files->Location = System::Drawing::Point(6, 66);
 			this->dgvHistorial_Files->Name = L"dgvHistorial_Files";
+			this->dgvHistorial_Files->ReadOnly = true;
 			this->dgvHistorial_Files->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->dgvHistorial_Files->RowHeadersVisible = false;
 			this->dgvHistorial_Files->RowHeadersWidth = 51;
@@ -576,6 +577,7 @@ namespace AutoPrintView {
 			this->dgv_orderId->HeaderText = L"Código";
 			this->dgv_orderId->MinimumWidth = 8;
 			this->dgv_orderId->Name = L"dgv_orderId";
+			this->dgv_orderId->ReadOnly = true;
 			this->dgv_orderId->Width = 50;
 			// 
 			// gdv_hojatipo
@@ -584,6 +586,7 @@ namespace AutoPrintView {
 			this->gdv_hojatipo->HeaderText = L"Tipo de Hoja";
 			this->gdv_hojatipo->MinimumWidth = 8;
 			this->gdv_hojatipo->Name = L"gdv_hojatipo";
+			this->gdv_hojatipo->ReadOnly = true;
 			this->gdv_hojatipo->Width = 70;
 			// 
 			// dgv_tamano
@@ -592,6 +595,7 @@ namespace AutoPrintView {
 			this->dgv_tamano->HeaderText = L"Tamaño";
 			this->dgv_tamano->MinimumWidth = 8;
 			this->dgv_tamano->Name = L"dgv_tamano";
+			this->dgv_tamano->ReadOnly = true;
 			this->dgv_tamano->Width = 65;
 			// 
 			// dgv_tinta
@@ -600,6 +604,7 @@ namespace AutoPrintView {
 			this->dgv_tinta->HeaderText = L"Tinta";
 			this->dgv_tinta->MinimumWidth = 8;
 			this->dgv_tinta->Name = L"dgv_tinta";
+			this->dgv_tinta->ReadOnly = true;
 			this->dgv_tinta->Width = 65;
 			// 
 			// dgv_copias
@@ -607,6 +612,7 @@ namespace AutoPrintView {
 			this->dgv_copias->HeaderText = L"Número de Copias";
 			this->dgv_copias->MinimumWidth = 8;
 			this->dgv_copias->Name = L"dgv_copias";
+			this->dgv_copias->ReadOnly = true;
 			this->dgv_copias->Width = 60;
 			// 
 			// dgv_local
@@ -614,6 +620,7 @@ namespace AutoPrintView {
 			this->dgv_local->HeaderText = L"Local de recojo";
 			this->dgv_local->MinimumWidth = 8;
 			this->dgv_local->Name = L"dgv_local";
+			this->dgv_local->ReadOnly = true;
 			this->dgv_local->Width = 125;
 			// 
 			// dgv_precio
@@ -621,6 +628,7 @@ namespace AutoPrintView {
 			this->dgv_precio->HeaderText = L"Precio (S/)";
 			this->dgv_precio->MinimumWidth = 8;
 			this->dgv_precio->Name = L"dgv_precio";
+			this->dgv_precio->ReadOnly = true;
 			this->dgv_precio->Width = 50;
 			// 
 			// PrintForm
@@ -630,6 +638,7 @@ namespace AutoPrintView {
 			this->ClientSize = System::Drawing::Size(877, 499);
 			this->Controls->Add(this->tabControl1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->MaximizeBox = false;
 			this->Name = L"PrintForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"Documentos";
@@ -654,7 +663,8 @@ namespace AutoPrintView {
 			ShowOrderFiles();
 			//if(el usuario paga)
 			CardVISAForm^ cardVISAForm = gcnew CardVISAForm();
-			cardVISAForm->Show();
+			cardVISAForm->ControlBox = false;
+			cardVISAForm->ShowDialog();
 		}
 		
 	}

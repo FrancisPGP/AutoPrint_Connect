@@ -312,6 +312,7 @@ namespace AutoPrintView {
 			this->dgvUserTable->Location = System::Drawing::Point(19, 242);
 			this->dgvUserTable->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->dgvUserTable->Name = L"dgvUserTable";
+			this->dgvUserTable->ReadOnly = true;
 			this->dgvUserTable->RowHeadersVisible = false;
 			this->dgvUserTable->RowHeadersWidth = 82;
 			this->dgvUserTable->RowTemplate->Height = 33;
@@ -324,6 +325,7 @@ namespace AutoPrintView {
 			this->UT_id->HeaderText = L"Id";
 			this->UT_id->MinimumWidth = 10;
 			this->UT_id->Name = L"UT_id";
+			this->UT_id->ReadOnly = true;
 			this->UT_id->Width = 50;
 			// 
 			// UT_nombre
@@ -331,6 +333,7 @@ namespace AutoPrintView {
 			this->UT_nombre->HeaderText = L"Nombre";
 			this->UT_nombre->MinimumWidth = 10;
 			this->UT_nombre->Name = L"UT_nombre";
+			this->UT_nombre->ReadOnly = true;
 			this->UT_nombre->Width = 200;
 			// 
 			// UT_apellido
@@ -338,6 +341,7 @@ namespace AutoPrintView {
 			this->UT_apellido->HeaderText = L"Apellidos";
 			this->UT_apellido->MinimumWidth = 10;
 			this->UT_apellido->Name = L"UT_apellido";
+			this->UT_apellido->ReadOnly = true;
 			this->UT_apellido->Width = 200;
 			// 
 			// UT_dni
@@ -345,6 +349,7 @@ namespace AutoPrintView {
 			this->UT_dni->HeaderText = L"DNI";
 			this->UT_dni->MinimumWidth = 10;
 			this->UT_dni->Name = L"UT_dni";
+			this->UT_dni->ReadOnly = true;
 			this->UT_dni->Width = 90;
 			// 
 			// UT_correo
@@ -352,6 +357,7 @@ namespace AutoPrintView {
 			this->UT_correo->HeaderText = L"Correo";
 			this->UT_correo->MinimumWidth = 10;
 			this->UT_correo->Name = L"UT_correo";
+			this->UT_correo->ReadOnly = true;
 			this->UT_correo->Width = 300;
 			// 
 			// TB_dni
