@@ -70,10 +70,14 @@ namespace AutoPrintView {
 	private: System::Windows::Forms::Label^ lblCVV;
 	private: System::Windows::Forms::Label^ lblMonthYear;
 	private: System::Windows::Forms::Label^ lblCardNumber;
-	private: System::Windows::Forms::DataGridView^ dgvUserTable;
+	private: System::Windows::Forms::DataGridView^ dgvWallet;
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Card_id;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Card_Titular;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Card_NumCard;
+	private: System::Windows::Forms::Button^ btnSave;
+	private: System::Windows::Forms::Button^ btnDelete;
+
 
 
 	protected:
@@ -106,11 +110,13 @@ namespace AutoPrintView {
 			this->lblCVV = (gcnew System::Windows::Forms::Label());
 			this->lblMonthYear = (gcnew System::Windows::Forms::Label());
 			this->lblCardNumber = (gcnew System::Windows::Forms::Label());
-			this->dgvUserTable = (gcnew System::Windows::Forms::DataGridView());
+			this->dgvWallet = (gcnew System::Windows::Forms::DataGridView());
 			this->Card_id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Card_Titular = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Card_NumCard = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvUserTable))->BeginInit();
+			this->btnSave = (gcnew System::Windows::Forms::Button());
+			this->btnDelete = (gcnew System::Windows::Forms::Button());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvWallet))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// txtAmountToRechange
@@ -122,6 +128,7 @@ namespace AutoPrintView {
 			this->txtAmountToRechange->Size = System::Drawing::Size(185, 28);
 			this->txtAmountToRechange->TabIndex = 32;
 			this->txtAmountToRechange->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->txtAmountToRechange->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &WalletForm::txtAmountToRechange_MouseClick);
 			// 
 			// lblOpctionBalance
 			// 
@@ -164,7 +171,7 @@ namespace AutoPrintView {
 			// 
 			this->btnRecharge->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnRecharge->Location = System::Drawing::Point(281, 439);
+			this->btnRecharge->Location = System::Drawing::Point(518, 442);
 			this->btnRecharge->Name = L"btnRecharge";
 			this->btnRecharge->Size = System::Drawing::Size(113, 37);
 			this->btnRecharge->TabIndex = 26;
@@ -179,10 +186,11 @@ namespace AutoPrintView {
 			this->txtOwnerWallet->Location = System::Drawing::Point(33, 300);
 			this->txtOwnerWallet->MaxLength = 40;
 			this->txtOwnerWallet->Name = L"txtOwnerWallet";
-			this->txtOwnerWallet->Size = System::Drawing::Size(185, 28);
+			this->txtOwnerWallet->Size = System::Drawing::Size(215, 28);
 			this->txtOwnerWallet->TabIndex = 42;
 			this->txtOwnerWallet->Text = L"NOMBRE APELLIDO";
 			this->txtOwnerWallet->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->txtOwnerWallet->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &WalletForm::txtOwnerWallet_MouseClick);
 			// 
 			// txtCVVWallet
 			// 
@@ -195,6 +203,7 @@ namespace AutoPrintView {
 			this->txtCVVWallet->TabIndex = 41;
 			this->txtCVVWallet->Text = L"XXX";
 			this->txtCVVWallet->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->txtCVVWallet->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &WalletForm::txtCVVWallet_MouseClick);
 			// 
 			// txtMMAAWallet
 			// 
@@ -207,6 +216,7 @@ namespace AutoPrintView {
 			this->txtMMAAWallet->TabIndex = 40;
 			this->txtMMAAWallet->Text = L"MM/AA";
 			this->txtMMAAWallet->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->txtMMAAWallet->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &WalletForm::txtMMAAWallet_MouseClick);
 			// 
 			// txtCardNumberWallet
 			// 
@@ -219,6 +229,7 @@ namespace AutoPrintView {
 			this->txtCardNumberWallet->TabIndex = 39;
 			this->txtCardNumberWallet->Text = L"XXXX-XXXX-XXXX-XXXX";
 			this->txtCardNumberWallet->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->txtCardNumberWallet->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &WalletForm::txtCardNumberWallet_MouseClick);
 			// 
 			// lblPropietor
 			// 
@@ -268,29 +279,31 @@ namespace AutoPrintView {
 			this->lblCardNumber->Text = L"Número de tarjeta";
 			this->lblCardNumber->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			// 
-			// dgvUserTable
+			// dgvWallet
 			// 
-			this->dgvUserTable->AllowUserToAddRows = false;
-			this->dgvUserTable->AllowUserToResizeRows = false;
-			this->dgvUserTable->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvUserTable->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
-				this->Card_id,
-					this->Card_Titular, this->Card_NumCard
+			this->dgvWallet->AllowUserToAddRows = false;
+			this->dgvWallet->AllowUserToResizeRows = false;
+			this->dgvWallet->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvWallet->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				this->Card_id, this->Card_Titular,
+					this->Card_NumCard
 			});
-			this->dgvUserTable->Location = System::Drawing::Point(298, 119);
-			this->dgvUserTable->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->dgvUserTable->Name = L"dgvUserTable";
-			this->dgvUserTable->RowHeadersVisible = false;
-			this->dgvUserTable->RowHeadersWidth = 82;
-			this->dgvUserTable->RowTemplate->Height = 33;
-			this->dgvUserTable->Size = System::Drawing::Size(372, 254);
-			this->dgvUserTable->TabIndex = 43;
+			this->dgvWallet->Location = System::Drawing::Point(298, 119);
+			this->dgvWallet->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->dgvWallet->Name = L"dgvWallet";
+			this->dgvWallet->ReadOnly = true;
+			this->dgvWallet->RowHeadersVisible = false;
+			this->dgvWallet->RowHeadersWidth = 82;
+			this->dgvWallet->RowTemplate->Height = 33;
+			this->dgvWallet->Size = System::Drawing::Size(372, 254);
+			this->dgvWallet->TabIndex = 43;
 			// 
 			// Card_id
 			// 
 			this->Card_id->HeaderText = L"Id";
 			this->Card_id->MinimumWidth = 10;
 			this->Card_id->Name = L"Card_id";
+			this->Card_id->ReadOnly = true;
 			this->Card_id->Visible = false;
 			this->Card_id->Width = 50;
 			// 
@@ -299,6 +312,7 @@ namespace AutoPrintView {
 			this->Card_Titular->HeaderText = L"Titular";
 			this->Card_Titular->MinimumWidth = 10;
 			this->Card_Titular->Name = L"Card_Titular";
+			this->Card_Titular->ReadOnly = true;
 			this->Card_Titular->Width = 200;
 			// 
 			// Card_NumCard
@@ -306,7 +320,30 @@ namespace AutoPrintView {
 			this->Card_NumCard->HeaderText = L"Número de tarjeta";
 			this->Card_NumCard->MinimumWidth = 10;
 			this->Card_NumCard->Name = L"Card_NumCard";
+			this->Card_NumCard->ReadOnly = true;
 			this->Card_NumCard->Width = 200;
+			// 
+			// btnSave
+			// 
+			this->btnSave->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnSave->Location = System::Drawing::Point(81, 442);
+			this->btnSave->Name = L"btnSave";
+			this->btnSave->Size = System::Drawing::Size(113, 37);
+			this->btnSave->TabIndex = 44;
+			this->btnSave->Text = L"Guardar";
+			this->btnSave->UseVisualStyleBackColor = true;
+			// 
+			// btnDelete
+			// 
+			this->btnDelete->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnDelete->Location = System::Drawing::Point(298, 442);
+			this->btnDelete->Name = L"btnDelete";
+			this->btnDelete->Size = System::Drawing::Size(113, 37);
+			this->btnDelete->TabIndex = 45;
+			this->btnDelete->Text = L"Eliminar";
+			this->btnDelete->UseVisualStyleBackColor = true;
 			// 
 			// WalletForm
 			// 
@@ -314,7 +351,9 @@ namespace AutoPrintView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(710, 512);
-			this->Controls->Add(this->dgvUserTable);
+			this->Controls->Add(this->btnDelete);
+			this->Controls->Add(this->btnSave);
+			this->Controls->Add(this->dgvWallet);
 			this->Controls->Add(this->txtOwnerWallet);
 			this->Controls->Add(this->txtCVVWallet);
 			this->Controls->Add(this->txtMMAAWallet);
@@ -328,16 +367,19 @@ namespace AutoPrintView {
 			this->Controls->Add(this->btnRecharge);
 			this->Controls->Add(this->lblOpctionBalance);
 			this->Controls->Add(this->lblBalanceUser);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->MaximizeBox = false;
 			this->Name = L"WalletForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"Billetera";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvUserTable))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvWallet))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-
+		int checkFill = 0;
+		double total;
 
 	private: System::Void btnRecharge_Click(System::Object^ sender, System::EventArgs^ e) {
 		Card^ newCardWallet = gcnew Card(); //instanciamos la nueva tarjeta a emplear
@@ -346,12 +388,71 @@ namespace AutoPrintView {
 		newCardWallet->cvv = txtCVVWallet->Text;
 		newCardWallet->dueDate = txtMMAAWallet->Text;
 
-		int a = Int32::Parse(lblBalance->Text);
-		int b = Int32::Parse(txtAmountToRechange->Text);
-		int total = a + b;
-
+		if (txtAmountToRechange->Text != "") {
+			double a = Double::Parse(lblBalance->Text);
+			double b = Double::Parse(txtAmountToRechange->Text);
+			
+			total = a + b;
+		}
+		else {
+			total = Double::Parse(lblBalance->Text);
+		}
 		lblBalance->Text = total.ToString();
 
+		txtAmountToRechange->Text = "";
 	}
-	};
+
+		   void FillOut() {
+			   if (txtCardNumberWallet->Text == "" && checkFill != 1) {
+				   txtCardNumberWallet->Text = "XXXX-XXXX-XXXX-XXXX";
+			   }
+			   if (txtMMAAWallet->Text == "" && checkFill != 2) {
+				   txtMMAAWallet->Text = "MM/AA";
+			   }
+			   if (txtOwnerWallet->Text == "" && checkFill != 3) {
+				   txtOwnerWallet->Text = "NOMBRE APELLIDO";
+			   }
+			   if (txtCVVWallet->Text == "" && checkFill != 4) {
+				   txtCVVWallet->Text = "XXX";
+			   }
+		   }
+
+	private: System::Void txtCardNumberWallet_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if (txtCardNumberWallet->Text == "XXXX-XXXX-XXXX-XXXX") {
+			txtCardNumberWallet->Text = "";
+		}
+		checkFill = 1;
+		FillOut();
+		checkFill = 0;
+	}
+	private: System::Void txtMMAAWallet_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if (txtMMAAWallet->Text == "MM/AA") {
+			txtMMAAWallet->Text = "";
+		}
+		checkFill = 2;
+		FillOut();
+		checkFill = 0;
+	}
+	private: System::Void txtOwnerWallet_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if (txtOwnerWallet->Text == "NOMBRE APELLIDO") {
+			txtOwnerWallet->Text = "";
+		}
+		checkFill = 3;
+		FillOut();
+		checkFill = 0;
+	}
+	private: System::Void txtCVVWallet_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if (txtCVVWallet->Text == "XXX") {
+			txtCVVWallet->Text = "";
+		}
+		checkFill = 4;
+		FillOut();
+		checkFill = 0;
+	}
+	private: System::Void txtAmountToRechange_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		checkFill = 5;
+		FillOut();
+		checkFill = 0;
+	}
+};
 }
