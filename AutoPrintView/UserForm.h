@@ -53,7 +53,7 @@ namespace AutoPrintView {
 
 
 	private: System::Windows::Forms::TextBox^ txtSurname;
-	private: System::Windows::Forms::TextBox^ txtGender;
+
 	private: System::Windows::Forms::TextBox^ txtDateOfBirth;
 	private: System::Windows::Forms::TextBox^ txtDNI;
 
@@ -71,6 +71,8 @@ namespace AutoPrintView {
 
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::ComboBox^ txtGender;
+
 
 
 
@@ -100,7 +102,6 @@ namespace AutoPrintView {
 			this->txtName = (gcnew System::Windows::Forms::TextBox());
 			this->txtMail = (gcnew System::Windows::Forms::TextBox());
 			this->txtSurname = (gcnew System::Windows::Forms::TextBox());
-			this->txtGender = (gcnew System::Windows::Forms::TextBox());
 			this->txtDateOfBirth = (gcnew System::Windows::Forms::TextBox());
 			this->txtDNI = (gcnew System::Windows::Forms::TextBox());
 			this->txtCellphoneNumber = (gcnew System::Windows::Forms::TextBox());
@@ -109,6 +110,7 @@ namespace AutoPrintView {
 			this->btnContinue = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->txtGender = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -233,7 +235,7 @@ namespace AutoPrintView {
 			// 
 			this->txtName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->txtName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->txtName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtName->ForeColor = System::Drawing::SystemColors::MenuText;
 			this->txtName->Location = System::Drawing::Point(50, 75);
@@ -246,7 +248,7 @@ namespace AutoPrintView {
 			// 
 			this->txtMail->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->txtMail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->txtMail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtMail->Location = System::Drawing::Point(50, 515);
 			this->txtMail->Margin = System::Windows::Forms::Padding(4);
@@ -258,7 +260,7 @@ namespace AutoPrintView {
 			// 
 			this->txtSurname->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->txtSurname->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->txtSurname->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtSurname->Location = System::Drawing::Point(50, 185);
 			this->txtSurname->Margin = System::Windows::Forms::Padding(4);
@@ -266,23 +268,11 @@ namespace AutoPrintView {
 			this->txtSurname->Size = System::Drawing::Size(172, 30);
 			this->txtSurname->TabIndex = 12;
 			// 
-			// txtGender
-			// 
-			this->txtGender->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->txtGender->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->txtGender->Location = System::Drawing::Point(50, 295);
-			this->txtGender->Margin = System::Windows::Forms::Padding(4);
-			this->txtGender->Name = L"txtGender";
-			this->txtGender->Size = System::Drawing::Size(172, 30);
-			this->txtGender->TabIndex = 13;
-			// 
 			// txtDateOfBirth
 			// 
 			this->txtDateOfBirth->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->txtDateOfBirth->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->txtDateOfBirth->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtDateOfBirth->Location = System::Drawing::Point(50, 405);
 			this->txtDateOfBirth->Margin = System::Windows::Forms::Padding(4);
@@ -294,10 +284,11 @@ namespace AutoPrintView {
 			// 
 			this->txtDNI->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->txtDNI->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->txtDNI->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtDNI->Location = System::Drawing::Point(404, 185);
 			this->txtDNI->Margin = System::Windows::Forms::Padding(4);
+			this->txtDNI->MaxLength = 8;
 			this->txtDNI->Name = L"txtDNI";
 			this->txtDNI->Size = System::Drawing::Size(172, 30);
 			this->txtDNI->TabIndex = 15;
@@ -306,7 +297,7 @@ namespace AutoPrintView {
 			// 
 			this->txtCellphoneNumber->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->txtCellphoneNumber->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->txtCellphoneNumber->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtCellphoneNumber->Location = System::Drawing::Point(404, 75);
 			this->txtCellphoneNumber->Margin = System::Windows::Forms::Padding(4);
@@ -318,7 +309,7 @@ namespace AutoPrintView {
 			// 
 			this->txtPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->txtPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->txtPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtPassword->Location = System::Drawing::Point(404, 295);
 			this->txtPassword->Margin = System::Windows::Forms::Padding(4);
@@ -330,7 +321,7 @@ namespace AutoPrintView {
 			// 
 			this->txtConfirmPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->txtConfirmPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->txtConfirmPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtConfirmPassword->Location = System::Drawing::Point(404, 405);
 			this->txtConfirmPassword->Margin = System::Windows::Forms::Padding(4);
@@ -384,6 +375,20 @@ namespace AutoPrintView {
 			this->label11->Text = L"AUTOPRINT\r\nCONNECT";
 			this->label11->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
+			// txtGender
+			// 
+			this->txtGender->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->txtGender->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->txtGender->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtGender->FormattingEnabled = true;
+			this->txtGender->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Femenino", L"Maculino", L"Indefinido" });
+			this->txtGender->Location = System::Drawing::Point(50, 295);
+			this->txtGender->Name = L"txtGender";
+			this->txtGender->Size = System::Drawing::Size(172, 33);
+			this->txtGender->TabIndex = 36;
+			// 
 			// UserForm
 			// 
 			this->AcceptButton = this->btnContinue;
@@ -391,6 +396,7 @@ namespace AutoPrintView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(1163, 633);
+			this->Controls->Add(this->txtGender);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->btnContinue);
@@ -399,7 +405,6 @@ namespace AutoPrintView {
 			this->Controls->Add(this->txtCellphoneNumber);
 			this->Controls->Add(this->txtDNI);
 			this->Controls->Add(this->txtDateOfBirth);
-			this->Controls->Add(this->txtGender);
 			this->Controls->Add(this->txtSurname);
 			this->Controls->Add(this->txtMail);
 			this->Controls->Add(this->txtName);
