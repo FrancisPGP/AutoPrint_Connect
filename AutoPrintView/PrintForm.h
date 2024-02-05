@@ -264,10 +264,11 @@ namespace AutoPrintView {
 			this->tabControl1->Controls->Add(this->TPage_impre);
 			this->tabControl1->Controls->Add(this->TPage_historial);
 			this->tabControl1->Controls->Add(this->tabPage1);
-			this->tabControl1->Location = System::Drawing::Point(3, 3);
+			this->tabControl1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tabControl1->Location = System::Drawing::Point(0, 0);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(873, 495);
+			this->tabControl1->Size = System::Drawing::Size(877, 499);
 			this->tabControl1->TabIndex = 0;
 			this->tabControl1->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &PrintForm::tabControl1_MouseMove);
 			// 
@@ -294,7 +295,7 @@ namespace AutoPrintView {
 			this->TPage_impre->Location = System::Drawing::Point(4, 25);
 			this->TPage_impre->Name = L"TPage_impre";
 			this->TPage_impre->Padding = System::Windows::Forms::Padding(3);
-			this->TPage_impre->Size = System::Drawing::Size(865, 466);
+			this->TPage_impre->Size = System::Drawing::Size(869, 470);
 			this->TPage_impre->TabIndex = 0;
 			this->TPage_impre->Text = L"Imprimir";
 			this->TPage_impre->UseVisualStyleBackColor = true;
