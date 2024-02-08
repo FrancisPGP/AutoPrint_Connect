@@ -9,6 +9,7 @@
 using namespace System;
 
 namespace AutoPrintModel {
+    [Serializable]
     public ref class User {
     public:
 
@@ -20,7 +21,7 @@ namespace AutoPrintModel {
         String^ name;
         String^ lastName;
         String^ phone_number;
-        String^ dni;
+        int dni;
         String^ gender;
         String^ password;
         String^ email;
@@ -28,10 +29,10 @@ namespace AutoPrintModel {
         array<Byte>^ photo;
 
     public: 
-        property int User_Id {
+        property int User_Id; /* {
             int get() { return user_Id; }
             void set(int value) { user_Id = value; }
-        }
+        }*/
         property String^ Name {//------------------------------------------MODIFICACIONES DE LUIS------------------
             String^ get() { return name; }
             void set(String^ value) { name = value; }
@@ -44,9 +45,9 @@ namespace AutoPrintModel {
             String^ get() { return phone_number; }
             void set(String^ value) { phone_number = value; }
         }
-        property String^ Dni {
-            String^ get() { return dni; }
-            void set(String^ value) { dni = value; }
+        property int Dni {
+            int get() { return dni; }
+            void set(int value) { dni = value; }
         }
         property String^ Gender {
             String^ get() { return gender; }
