@@ -2,13 +2,15 @@
 
 #include "AutoPrintPersistance.h"
 
+using namespace System;
 using namespace System::IO;
+using namespace System::Collections::Generic;
+using namespace AutoPrintModel;
 using namespace AutoPrintPersistance;
 using namespace System::Xml::Serialization;
 using namespace System::Runtime::Serialization::Formatters::Binary;
 
 /*Ricardo y Luis*/
-
 void AutoPrintPersistance::Persistance::PersistTextFile(String^ fileName, Object^ persistObject)
 {
     FileStream^ file;
@@ -19,12 +21,13 @@ void AutoPrintPersistance::Persistance::PersistTextFile(String^ fileName, Object
         List<User^>^ users = (List<User^>^) persistObject;
         for (int i = 0; i < users->Count; i++) {
             User^ u = users[i];
-            u->User_Id++;
+            u->User_Id = costumerid;
 
             writer->WriteLine(u->User_Id + "," + u->Name + ","
                 + u->LastName + "," + u->Email + ","+ u->Dni+ "," + u->Password);
 
         }
+        
     }
     if (writer != nullptr) writer->Close();
     if (file != nullptr) file->Close();
@@ -49,7 +52,7 @@ Object^ AutoPrintPersistance::Persistance::LoadTextFile(String^ fileName)
                 user->Name = record[1];
                 user->LastName = record[2];
                 user->Email = record[3];
-                user->Dni = record[4];
+                user->Dni = Int32::Parse(record[4]);
                 user->Password = record[5];
 
 
@@ -62,58 +65,135 @@ Object^ AutoPrintPersistance::Persistance::LoadTextFile(String^ fileName)
     return result;
 }
 
+void AutoPrintPersistance::Persistance::PersistXMLFile(String^ fileName, Object^ persistObject)
+{
+    StreamWriter^ writer;
+    try {
+        writer = gcnew  StreamWriter(fileName);
+        if (persistObject->GetType() == List<User^>::typeid) {
+            XmlSerializer^ xmlSerializer = gcnew XmlSerializer(List<User^>::typeid);
+            xmlSerializer->Serialize(writer, persistObject);
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally { //Es el más importante
+        if (writer != nullptr) writer->Close();
+    }
+}
+
+Object^ AutoPrintPersistance::Persistance::LoadXMLFile(String^ fileName)
+{
+    StreamReader^ reader;
+    Object^ result;
+    XmlSerializer^ xmlSerializer;
+    try {
+        if (System::IO::File::Exists(fileName)) {
+            reader = gcnew StreamReader(fileName);
+            if (fileName->Equals(USER_XML_FILE_NAME)) {
+                xmlSerializer = gcnew XmlSerializer(List<User^>::typeid);
+                result = (List<User^>^)xmlSerializer->Deserialize(reader);
+            }
+         
+            if (reader != nullptr) reader->Close();
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (reader != nullptr) reader->Close();
+    }
+    return result;
+}
+
 int AutoPrintPersistance::Persistance::AddCustomer(User^ user)
 {
+    CustomerListDB = (List<User^>^)Persistance::LoadXMLFile(USER_XML_FILE_NAME);
+
+    if (CustomerListDB == nullptr) {
+        CustomerListDB = gcnew List<User^>();
+    }
     CustomerListDB->Add(user);
-    PersistTextFile(USER_FILE_NAME, CustomerListDB);
+    //PersistTextFile(USER_FILE_NAME, CustomerListDB);
+    PersistXMLFile(USER_XML_FILE_NAME, CustomerListDB);
     return 1;
+    /*if (orderList == nullptr) {
+        // Inicializar orderList si es nulo
+        orderList = gcnew List<Order^>();
+    }
+    orderList->Add(file);
+    PersistBinaryFile(Lista_Order_BIN, orderList);*/
 }
 
 void AutoPrintPersistance::Persistance::UpdateCustomer(User^ user)
 {
     for (int i = 0; i < CustomerListDB->Count; i++) {
-        if (CustomerListDB[i]->User_Id == user->User_Id) {
+        if (CustomerListDB[i]->Dni == user->Dni) {
             CustomerListDB[i] = user;
-            PersistTextFile(USER_FILE_NAME, CustomerListDB);
+            //PersistTextFile(USER_FILE_NAME, CustomerListDB);
+            PersistXMLFile(USER_XML_FILE_NAME, CustomerListDB);
+
             return;
         }
     }
 }
 
-void AutoPrintPersistance::Persistance::DeleteCustomer(int CustomerId)
+void AutoPrintPersistance::Persistance::DeleteCustomer(int userDNI)
 {
-    for (int i = 0; i < CustomerListDB->Count; i++) {
-        if (CustomerListDB[i]->User_Id == CustomerId) {
+   /* for (int i = 0; i < CustomerListDB->Count; i++) {
+        if (CustomerListDB[i]->Name == Nameid) {
             CustomerListDB->RemoveAt(i);
             return;
         }
+    }*/
+   //PersistXMLFile(USER_XML_FILE_NAME, CustomerListDB);
+    CustomerListDB = (List<User^>^)Persistance::LoadXMLFile(USER_XML_FILE_NAME);
+
+    // Verificar si el archivo binario contiene datos
+    if (CustomerListDB != nullptr) {
+        for (int i = CustomerListDB->Count - 1; i >= 0; i--) {
+            if (userDNI == CustomerListDB[i]->Dni) {
+                CustomerListDB->RemoveAt(i);
+            }
+        }
+        // Guardar la lista actualizada en el archivo binario
+        PersistXMLFile(USER_XML_FILE_NAME, CustomerListDB);
     }
+
+
 }
 
-User^ AutoPrintPersistance::Persistance::QueryCustomerById(int CustomerId)
+User^ AutoPrintPersistance::Persistance::QueryCustomerByDNI(int CustomerDNI)
 {
-    CustomerListDB = (List<User^>^) LoadTextFile (USER_FILE_NAME);
+   // CustomerListDB = (List<User^>^) LoadTextFile (USER_FILE_NAME);
+    CustomerListDB = (List<User^>^) LoadXMLFile(USER_XML_FILE_NAME);
+
     User^ user = nullptr;
     for (int i = 0; i < CustomerListDB->Count; i++) {
-        if (CustomerListDB[i]->User_Id == CustomerId) {
+        if (CustomerListDB[i]->Dni == CustomerDNI) {
             user = CustomerListDB[i];
             return user;
 
         }
-        return user;
 
     }
+    return user;
+
 }
 
 List<User^>^ AutoPrintPersistance::Persistance::QueryAllCustomers()
 {
-    CustomerListDB = (List<User^>^) LoadTextFile(USER_FILE_NAME );
+    //CustomerListDB = (List<User^>^) LoadTextFile(USER_FILE_NAME );
+    CustomerListDB = (List<User^>^) LoadXMLFile(USER_XML_FILE_NAME);
+
     if (CustomerListDB == nullptr)
         CustomerListDB = gcnew List<User^>();
     return CustomerListDB;
 }
 //intento para login
-bool AutoPrintPersistance::Persistance::Login(String^ dni, String^ password) {
+bool AutoPrintPersistance::Persistance::Login(int dni, String^ password) {
     List<User^>^ userList = QueryAllCustomers();
     for each (User ^ u  in userList) {
         if (u->Dni == dni && u->Password == password) {

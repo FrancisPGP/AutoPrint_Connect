@@ -16,13 +16,13 @@ void AutoPrintController::Controller::UpdateCustomer(User^ user) {
     return ::Persistance::UpdateCustomer(user);
 }
 
-void AutoPrintController::Controller::DeleteCustomer(int CustomerId) {
-    return ::Persistance::DeleteCustomer(CustomerId);
+void AutoPrintController::Controller::DeleteCustomer(int userDNI) {
+    return ::Persistance::DeleteCustomer(userDNI);
 
 }
 
-User^ AutoPrintController::Controller::QueryCustomerById(int CustomerId) {
-    return Persistance::QueryCustomerById(CustomerId);
+User^ AutoPrintController::Controller::QueryCustomerByDNI(int CustomerDNI) {
+    return Persistance::QueryCustomerByDNI(CustomerDNI);
 
 }
 
@@ -31,7 +31,7 @@ List<User^>^ AutoPrintController::Controller::QueryAllCustomers() {
 }
 
 //intento para login
-bool AutoPrintController::Controller::Login(String^ dni, String^ password) {
+bool AutoPrintController::Controller::Login(int dni, String^ password) {
     return Persistance::Login(dni,password);
 }
 

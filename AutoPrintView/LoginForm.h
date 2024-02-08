@@ -239,15 +239,21 @@ namespace AutoPrintView {
 			return;
 		}
 
-		String^ enteredDni = txtDNI->Text;
+		int enteredDni = Int32::Parse(txtDNI->Text);
 		String^ enteredPassword = txtPassword->Text;
 
-		if (enteredDni == "admin" && enteredPassword == "admin") {
+		if (enteredDni == 123 && enteredPassword == "admin") {
 			//CAMBIO PARA QUE DE LOGIN VAYA AL AUTOPRINT
+		/*PrintMainForm^ print = gcnew PrintMainForm();
+			print->MdiParent = this;
+			print->Show();*/
 			Close();
 		}
 		else if ((Controller::Login(enteredDni, enteredPassword)) == true) {
 			//CAMBIO PARA QUE DE LOGIN VAYA AL AUTOPRINT
+			/*PrintMainForm^ print = gcnew PrintMainForm();
+			print->MdiParent = this;
+			print->Show();*/
 			Close();
 		}
 		else {

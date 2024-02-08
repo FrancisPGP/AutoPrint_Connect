@@ -50,6 +50,9 @@
     <ClInclude Include="CardVISAForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="MyProfile.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AutoPrintView.cpp">
@@ -83,6 +86,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="CardVISAForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="MyProfile.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
