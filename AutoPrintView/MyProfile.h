@@ -1,5 +1,5 @@
 #pragma once
-
+#include "LoginForm.h"
 namespace AutoPrintView {
 
 	using namespace System;
@@ -8,7 +8,7 @@ namespace AutoPrintView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::Xml::Serialization;
 	using namespace AutoPrintModel;
 	using namespace AutoPrintController;
 	using namespace System::Collections::Generic;
@@ -297,22 +297,29 @@ private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 		private: System::Void MyProfile_Load(System::Object^ sender, System::EventArgs^ e) {
-			
-			User^ currentUser = Session::CurrentUser;
+			int dniP = Dni_Ahora;
+			User^ currentUser =Controller::QueryCustomerByDNI(dniP);
 			if (currentUser != nullptr) {
 				FillTextBoxes(currentUser);
 			}
 		}
 	private: System::Void btn_modificar_perfil_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		User^ currentUser = Session::CurrentUser;
+		User^ currentUser = gcnew User();
+		//Para que no se borre lo que no se modifica se requiere de dnic
+		int dnic=Dni_Ahora;
+		User^ actUser = Controller::QueryCustomerByDNI(dnic);
 
-		currentUser->Name =txtNameP->Text;
-		currentUser->LastName = txtlastP->Text;
-		currentUser->Dni = Int32::Parse(txtDNIP->Text);
 		currentUser->Email = txtCorreoP->Text;
 		currentUser->Phone_number = txtNUMP->Text;
 		currentUser->Password = txtConP->Text;
+
+		currentUser->Name = actUser->Name;
+		currentUser->LastName = actUser->LastName;
+		currentUser->Dni = actUser->Dni;
+		currentUser->Birthdate = actUser->Birthdate;
+		currentUser->Photo = actUser->Photo;
+		currentUser->Gender = actUser->Gender;
 
 
 
