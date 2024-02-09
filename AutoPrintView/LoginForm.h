@@ -118,6 +118,7 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->txtDNI->Location = System::Drawing::Point(339, 230);
 			this->txtDNI->Margin = System::Windows::Forms::Padding(4);
+			this->txtDNI->MaxLength = 8;
 			this->txtDNI->Name = L"txtDNI";
 			this->txtDNI->Size = System::Drawing::Size(209, 28);
 			this->txtDNI->TabIndex = 3;
