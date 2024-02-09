@@ -40,7 +40,8 @@ namespace AutoPrintView {
 			}
 		}
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pbPhoto;
+
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
@@ -78,7 +79,7 @@ namespace AutoPrintView {
 		void InitializeComponent(void)
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pbPhoto = (gcnew System::Windows::Forms::PictureBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -93,7 +94,7 @@ namespace AutoPrintView {
 			this->txtNameP = (gcnew System::Windows::Forms::TextBox());
 			this->btn_modificar_perfil = (gcnew System::Windows::Forms::Button());
 			this->btn_foto_perfil = (gcnew System::Windows::Forms::Button());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -108,14 +109,16 @@ namespace AutoPrintView {
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"My Profile";
 			// 
-			// pictureBox1
+			// pbPhoto
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(433, 156);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(156, 154);
-			this->pictureBox1->TabIndex = 1;
-			this->pictureBox1->TabStop = false;
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyProfile::pictureBox1_Click);
+			this->pbPhoto->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->pbPhoto->Location = System::Drawing::Point(433, 156);
+			this->pbPhoto->Name = L"pbPhoto";
+			this->pbPhoto->Size = System::Drawing::Size(156, 154);
+			this->pbPhoto->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pbPhoto->TabIndex = 1;
+			this->pbPhoto->TabStop = false;
+			this->pbPhoto->Click += gcnew System::EventHandler(this, &MyProfile::pictureBox1_Click);
 			// 
 			// label2
 			// 
@@ -249,6 +252,7 @@ namespace AutoPrintView {
 			this->btn_foto_perfil->TabIndex = 15;
 			this->btn_foto_perfil->Text = L"Agregar foto";
 			this->btn_foto_perfil->UseVisualStyleBackColor = true;
+			this->btn_foto_perfil->Click += gcnew System::EventHandler(this, &MyProfile::btn_foto_perfil_Click);
 			// 
 			// MyProfile
 			// 
@@ -270,12 +274,12 @@ namespace AutoPrintView {
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->pbPhoto);
 			this->Controls->Add(this->label1);
 			this->Name = L"MyProfile";
 			this->Text = L"MyProfile";
 			this->Load += gcnew System::EventHandler(this, &MyProfile::MyProfile_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -289,6 +293,14 @@ namespace AutoPrintView {
 			txtCorreoP->Text = u->Email;
 			txtNUMP->Text = u->Phone_number;
 			txtConP->Text = u->Password;
+			if (u->Photo != nullptr) {
+				System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(u->Photo);
+				pbPhoto->Image = Image::FromStream(ms);
+			}
+			else {
+				pbPhoto->Image = nullptr;
+				pbPhoto->Invalidate();
+			}
 		}
 	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -321,11 +333,22 @@ private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArg
 		currentUser->Photo = actUser->Photo;
 		currentUser->Gender = actUser->Gender;
 
-
+		if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+			pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+			currentUser->Photo = ms->ToArray();
+		}
 
 		Controller::UpdateCustomer(currentUser);
 		FillTextBoxes(currentUser);
 
 	}
+private: System::Void btn_foto_perfil_Click(System::Object^ sender, System::EventArgs^ e) {
+	OpenFileDialog^ ofd = gcnew OpenFileDialog();
+	ofd->Filter = "Image File (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
+	if (ofd->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+		pbPhoto->Image = gcnew Bitmap(ofd->FileName);
+	}
+}
 };
 }
