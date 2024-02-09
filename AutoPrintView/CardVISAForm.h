@@ -84,6 +84,7 @@ namespace AutoPrintView {
 	private: System::Windows::Forms::Label^ lblMonthYear;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ btnPrintCardVisa;
+	private: System::Windows::Forms::PictureBox^ pbGuideCard;
 
 
 
@@ -116,6 +117,7 @@ namespace AutoPrintView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(CardVISAForm::typeid));
 			this->dgvCardVisa = (gcnew System::Windows::Forms::DataGridView());
 			this->Card_id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Card_Titular = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -129,7 +131,9 @@ namespace AutoPrintView {
 			this->lblMonthYear = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->btnPrintCardVisa = (gcnew System::Windows::Forms::Button());
+			this->pbGuideCard = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCardVisa))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbGuideCard))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dgvCardVisa
@@ -282,6 +286,17 @@ namespace AutoPrintView {
 			this->btnPrintCardVisa->TabIndex = 44;
 			this->btnPrintCardVisa->Text = L"Pagar";
 			this->btnPrintCardVisa->UseVisualStyleBackColor = true;
+			this->btnPrintCardVisa->Click += gcnew System::EventHandler(this, &CardVISAForm::btnPrintCardVisa_Click_1);
+			// 
+			// pbGuideCard
+			// 
+			this->pbGuideCard->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pbGuideCard.Image")));
+			this->pbGuideCard->Location = System::Drawing::Point(265, 21);
+			this->pbGuideCard->Name = L"pbGuideCard";
+			this->pbGuideCard->Size = System::Drawing::Size(396, 278);
+			this->pbGuideCard->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pbGuideCard->TabIndex = 54;
+			this->pbGuideCard->TabStop = false;
 			// 
 			// CardVISAForm
 			// 
@@ -289,6 +304,7 @@ namespace AutoPrintView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(668, 397);
+			this->Controls->Add(this->pbGuideCard);
 			this->Controls->Add(this->dgvCardVisa);
 			this->Controls->Add(this->txtCardOwnerVisa);
 			this->Controls->Add(this->txtCardCVVvisa);
@@ -305,6 +321,7 @@ namespace AutoPrintView {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Pagar con VISA";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCardVisa))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbGuideCard))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -319,5 +336,8 @@ namespace AutoPrintView {
 
 		Close();
 	}
+private: System::Void btnPrintCardVisa_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	Close();
+}
 };
 }

@@ -760,7 +760,7 @@ namespace AutoPrintView {
 		newUser->Dni = Int32::Parse(TB_dni_reg->Text);
 		newUser->Email = TB_correo_reg->Text;
 		newUser->Password = TB_contraseña_reg->Text;
-		newUser->Birthdate = Int32::Parse(TB_Fecha_re->Text);
+		newUser->Birthdate = TB_Fecha_re->Text;
 		newUser->Gender = TB_gender_registro->Text;
 		newUser->Phone_number = TB_Num_reg->Text;
 		newUser->Password = TB_Contra_reg->Text;

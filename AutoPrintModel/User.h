@@ -25,8 +25,10 @@ namespace AutoPrintModel {
         String^ gender;
         String^ password;
         String^ email;
-        int birthdate;
+        String^ birthdate;
         array<Byte>^ photo;
+        //atributo creado por comodidad en el walletForm y otros que se necesite en el futuro ;v
+        double money_in_wallet;
 
     public: 
         property int User_Id; /* {
@@ -61,13 +63,17 @@ namespace AutoPrintModel {
             String^ get() { return email; }
             void set(String^ value) { email = value; }
         }
-        property int Birthdate {
-            int get() { return birthdate; }
-            void set(int value) { birthdate = value; }
+        property String^ Birthdate {
+            String^ get() { return birthdate; }
+            void set(String^ value) { birthdate = value; }
         }
         property array<Byte>^ Photo {
             array<Byte>^ get() { return photo; }
             void set(array<Byte>^ value) { photo = value; }
+        }
+        property double Money_in_wallet {
+            double get() { return money_in_wallet; }
+            void set(double value) { money_in_wallet = value; }
         }
     };
 }
