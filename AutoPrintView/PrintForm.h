@@ -330,7 +330,7 @@ namespace AutoPrintView {
 			this->BT_SubirPDF->Name = L"BT_SubirPDF";
 			this->BT_SubirPDF->Size = System::Drawing::Size(218, 44);
 			this->BT_SubirPDF->TabIndex = 38;
-			this->BT_SubirPDF->Text = L"Suba aquí su pdf";
+			this->BT_SubirPDF->Text = L"Suba aquí su PDF";
 			this->BT_SubirPDF->UseVisualStyleBackColor = true;
 			this->BT_SubirPDF->Click += gcnew System::EventHandler(this, &PrintForm::BT_SubirPDF_Click);
 			// 
