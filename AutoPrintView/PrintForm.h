@@ -856,10 +856,12 @@ namespace AutoPrintView {
 			WB_PDF_imprimir->DocumentCompleted += gcnew System::Windows::Forms::WebBrowserDocumentCompletedEventHandler(this, &PrintForm::DocumentCompletedHandler);
 		}
 	}
+
 		   private: System::Void DocumentCompletedHandler(System::Object^ sender, System::Windows::Forms::WebBrowserDocumentCompletedEventArgs^ e) {
 			   // Llama a la función JavaScript para cargar el PDF y ocultar las herramientas
 			   WB_PDF_imprimir->Document->InvokeScript("cargarPDF", gcnew array<Object^> { WB_PDF_imprimir->Url->LocalPath });
 		   }
+
 	private: System::Void BT_Enviar_Click(System::Object^ sender, System::EventArgs^ e) {
 		
 	}
