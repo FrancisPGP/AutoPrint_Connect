@@ -308,7 +308,7 @@ namespace AutoPrintView {
 			// 
 			this->BT_SubirPDF->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->BT_SubirPDF->Location = System::Drawing::Point(13, 14);
+			this->BT_SubirPDF->Location = System::Drawing::Point(17, 15);
 			this->BT_SubirPDF->Name = L"BT_SubirPDF";
 			this->BT_SubirPDF->Size = System::Drawing::Size(218, 44);
 			this->BT_SubirPDF->TabIndex = 38;
@@ -323,7 +323,7 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->cmbNUMcopias->FormattingEnabled = true;
 			this->cmbNUMcopias->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L"1", L"2", L"3", L"4", L"5" });
-			this->cmbNUMcopias->Location = System::Drawing::Point(242, 233);
+			this->cmbNUMcopias->Location = System::Drawing::Point(246, 234);
 			this->cmbNUMcopias->Name = L"cmbNUMcopias";
 			this->cmbNUMcopias->Size = System::Drawing::Size(163, 33);
 			this->cmbNUMcopias->TabIndex = 37;
@@ -335,7 +335,7 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->cmbLocal->FormattingEnabled = true;
 			this->cmbLocal->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Ciencias Sociales", L"E.E.G.G.L.L." });
-			this->cmbLocal->Location = System::Drawing::Point(13, 343);
+			this->cmbLocal->Location = System::Drawing::Point(17, 344);
 			this->cmbLocal->Name = L"cmbLocal";
 			this->cmbLocal->Size = System::Drawing::Size(163, 33);
 			this->cmbLocal->TabIndex = 36;
@@ -347,7 +347,7 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->cmbTinta->FormattingEnabled = true;
 			this->cmbTinta->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Color", L"Blanco y negro" });
-			this->cmbTinta->Location = System::Drawing::Point(13, 233);
+			this->cmbTinta->Location = System::Drawing::Point(17, 234);
 			this->cmbTinta->Name = L"cmbTinta";
 			this->cmbTinta->Size = System::Drawing::Size(163, 33);
 			this->cmbTinta->TabIndex = 35;
@@ -359,7 +359,7 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->cmbTamaHoja->FormattingEnabled = true;
 			this->cmbTamaHoja->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"A4", L"A3", L"A2", L"Carta" });
-			this->cmbTamaHoja->Location = System::Drawing::Point(242, 123);
+			this->cmbTamaHoja->Location = System::Drawing::Point(246, 124);
 			this->cmbTamaHoja->Name = L"cmbTamaHoja";
 			this->cmbTamaHoja->Size = System::Drawing::Size(163, 33);
 			this->cmbTamaHoja->TabIndex = 34;
@@ -372,7 +372,7 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->cmbTipoHoja->FormattingEnabled = true;
 			this->cmbTipoHoja->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Hoja Bond", L"Papel Fotográfico" });
-			this->cmbTipoHoja->Location = System::Drawing::Point(13, 123);
+			this->cmbTipoHoja->Location = System::Drawing::Point(17, 124);
 			this->cmbTipoHoja->Name = L"cmbTipoHoja";
 			this->cmbTipoHoja->Size = System::Drawing::Size(163, 33);
 			this->cmbTipoHoja->TabIndex = 33;
@@ -382,7 +382,7 @@ namespace AutoPrintView {
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(242, 346);
+			this->label10->Location = System::Drawing::Point(246, 347);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(32, 25);
 			this->label10->TabIndex = 32;
@@ -396,7 +396,7 @@ namespace AutoPrintView {
 			this->MontoPago->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->MontoPago->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MontoPago->Location = System::Drawing::Point(280, 346);
+			this->MontoPago->Location = System::Drawing::Point(284, 347);
 			this->MontoPago->Name = L"MontoPago";
 			this->MontoPago->Size = System::Drawing::Size(58, 27);
 			this->MontoPago->TabIndex = 31;
@@ -409,7 +409,7 @@ namespace AutoPrintView {
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(244, 14);
+			this->label8->Location = System::Drawing::Point(248, 15);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(168, 36);
 			this->label8->TabIndex = 30;
@@ -420,7 +420,7 @@ namespace AutoPrintView {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(237, 298);
+			this->label7->Location = System::Drawing::Point(241, 299);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(189, 29);
 			this->label7->TabIndex = 29;
@@ -431,7 +431,7 @@ namespace AutoPrintView {
 			// 
 			this->BT_pagarTARJ->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->BT_pagarTARJ->Location = System::Drawing::Point(22, 421);
+			this->BT_pagarTARJ->Location = System::Drawing::Point(26, 422);
 			this->BT_pagarTARJ->Name = L"BT_pagarTARJ";
 			this->BT_pagarTARJ->Size = System::Drawing::Size(154, 74);
 			this->BT_pagarTARJ->TabIndex = 27;
@@ -443,7 +443,7 @@ namespace AutoPrintView {
 			// 
 			this->BT_pagarBILL->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->BT_pagarBILL->Location = System::Drawing::Point(242, 421);
+			this->BT_pagarBILL->Location = System::Drawing::Point(246, 422);
 			this->BT_pagarBILL->Name = L"BT_pagarBILL";
 			this->BT_pagarBILL->Size = System::Drawing::Size(154, 74);
 			this->BT_pagarBILL->TabIndex = 26;
@@ -457,7 +457,7 @@ namespace AutoPrintView {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(8, 298);
+			this->label5->Location = System::Drawing::Point(12, 299);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(201, 29);
 			this->label5->TabIndex = 19;
@@ -469,7 +469,7 @@ namespace AutoPrintView {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(237, 188);
+			this->label4->Location = System::Drawing::Point(241, 189);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(234, 29);
 			this->label4->TabIndex = 18;
@@ -480,7 +480,7 @@ namespace AutoPrintView {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(237, 78);
+			this->label3->Location = System::Drawing::Point(241, 79);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(209, 29);
 			this->label3->TabIndex = 17;
@@ -491,7 +491,7 @@ namespace AutoPrintView {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(8, 178);
+			this->label2->Location = System::Drawing::Point(12, 179);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(79, 29);
 			this->label2->TabIndex = 16;
@@ -502,7 +502,7 @@ namespace AutoPrintView {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(8, 78);
+			this->label1->Location = System::Drawing::Point(12, 79);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(168, 29);
 			this->label1->TabIndex = 15;
