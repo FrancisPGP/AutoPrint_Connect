@@ -16,6 +16,9 @@ namespace AutoPrintView {
 	using namespace System::Collections::Generic;
 	using namespace AutoPrintModel;
 
+	//Agregamos variable universal para tener el monto a pagar en otra pestaña
+	static double Total_a_apagar;
+
 	/// <summary>
 	/// Resumen de PrintForm
 	/// </summary>
@@ -684,21 +687,34 @@ namespace AutoPrintView {
 		double numpage = 1;
 
 	private: System::Void BT_pagarTARJ_Click(System::Object^ sender, System::EventArgs^ e) {
+		
 		if (NotEmpty()) {
 			UpOrder();
 			ShowOrderFiles();
 			//if(el usuario paga)
 			CardVISAForm^ cardVISAForm = gcnew CardVISAForm();
-			cardVISAForm->ControlBox = false;
+			cardVISAForm->ControlBox = true;
 			cardVISAForm->ShowDialog();
 		}
-		
+
 	}
 	private: System::Void BT_pagarBILL_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (NotEmpty()) {
-			//if(billetera con dinero suficiente)
+
+		double monto = Convert::ToDouble(MontoPago->Text);
+		int dni_wallet = Dni_Ahora;
+		User^ user_wallet = AutoPrintController::Controller::QueryCustomerByDNI(dni_wallet);
+		if (user_wallet->Money_in_wallet >= monto) {
 			UpOrder();
 			ShowOrderFiles();
+			user_wallet->Money_in_wallet = user_wallet->Money_in_wallet - monto;
+			Controller::UpdateCustomer(user_wallet);
+			MessageBox::Show("Operación exitosa. El documento ya se encuentra en fila de impresión");
+			Close();
+		}
+		else {
+			MessageBox::Show("Saldo insuficiente. Se le redirigirá a la pestaña de recarga.");
+			WalletForm^ walletForm = gcnew WalletForm();
+			walletForm->Show();
 		}
 	}
 

@@ -24,8 +24,7 @@ void AutoPrintPersistance::Persistance::PersistTextFile(String^ fileName, Object
             u->User_Id = costumerid;
 
             writer->WriteLine(u->User_Id + "," + u->Name + ","
-                + u->LastName + "," + u->Email + ","+ u->Dni+ "," + u->Password);
-
+                + u->LastName + "," + u->Email + ","+ u->Dni+ "," + u->Password + "," + u->Money_in_wallet);
         }
         
     }
@@ -54,6 +53,7 @@ Object^ AutoPrintPersistance::Persistance::LoadTextFile(String^ fileName)
                 user->Email = record[3];
                 user->Dni = Int32::Parse(record[4]);
                 user->Password = record[5];
+                user->Money_in_wallet = Double::Parse(record[6]);
 
 
                 ((List<User^>^)result)->Add(user);
