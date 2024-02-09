@@ -89,8 +89,8 @@ namespace AutoPrintView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(699, 24);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(1032, 28);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -101,19 +101,19 @@ namespace AutoPrintView {
 					this->cerrarSesiónToolStripMenuItem
 			});
 			this->miCuentaToolStripMenuItem->Name = L"miCuentaToolStripMenuItem";
-			this->miCuentaToolStripMenuItem->Size = System::Drawing::Size(72, 20);
+			this->miCuentaToolStripMenuItem->Size = System::Drawing::Size(88, 24);
 			this->miCuentaToolStripMenuItem->Text = L"Mi cuenta";
 			// 
 			// actualizarDatosToolStripMenuItem
 			// 
 			this->actualizarDatosToolStripMenuItem->Name = L"actualizarDatosToolStripMenuItem";
-			this->actualizarDatosToolStripMenuItem->Size = System::Drawing::Size(158, 22);
+			this->actualizarDatosToolStripMenuItem->Size = System::Drawing::Size(199, 26);
 			this->actualizarDatosToolStripMenuItem->Text = L"Actualizar datos";
 			// 
 			// cerrarSesiónToolStripMenuItem
 			// 
 			this->cerrarSesiónToolStripMenuItem->Name = L"cerrarSesiónToolStripMenuItem";
-			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(158, 22);
+			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(199, 26);
 			this->cerrarSesiónToolStripMenuItem->Text = L"Cerrar sesión";
 			this->cerrarSesiónToolStripMenuItem->Click += gcnew System::EventHandler(this, &PrintMainForm::cerrarSesiónToolStripMenuItem_Click);
 			// 
@@ -122,46 +122,46 @@ namespace AutoPrintView {
 			this->impresiónToolStripMenuItem->Checked = true;
 			this->impresiónToolStripMenuItem->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->impresiónToolStripMenuItem->Name = L"impresiónToolStripMenuItem";
-			this->impresiónToolStripMenuItem->Size = System::Drawing::Size(87, 20);
+			this->impresiónToolStripMenuItem->Size = System::Drawing::Size(107, 24);
 			this->impresiónToolStripMenuItem->Text = L"Documentos";
 			this->impresiónToolStripMenuItem->Click += gcnew System::EventHandler(this, &PrintMainForm::impresiónToolStripMenuItem_Click);
 			// 
 			// billeteraToolStripMenuItem
 			// 
 			this->billeteraToolStripMenuItem->Name = L"billeteraToolStripMenuItem";
-			this->billeteraToolStripMenuItem->Size = System::Drawing::Size(61, 20);
+			this->billeteraToolStripMenuItem->Size = System::Drawing::Size(78, 24);
 			this->billeteraToolStripMenuItem->Text = L"Billetera";
 			this->billeteraToolStripMenuItem->Click += gcnew System::EventHandler(this, &PrintMainForm::billeteraToolStripMenuItem_Click);
 			// 
 			// ordenesToolStripMenuItem
 			// 
 			this->ordenesToolStripMenuItem->Name = L"ordenesToolStripMenuItem";
-			this->ordenesToolStripMenuItem->Size = System::Drawing::Size(63, 20);
+			this->ordenesToolStripMenuItem->Size = System::Drawing::Size(78, 24);
 			this->ordenesToolStripMenuItem->Text = L"Ordenes";
 			// 
 			// usuariosToolStripMenuItem
 			// 
 			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
-			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(64, 20);
+			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(79, 24);
 			this->usuariosToolStripMenuItem->Text = L"Usuarios";
 			this->usuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &PrintMainForm::usuariosToolStripMenuItem_Click);
 			// 
 			// miPerfilToolStripMenuItem
 			// 
 			this->miPerfilToolStripMenuItem->Name = L"miPerfilToolStripMenuItem";
-			this->miPerfilToolStripMenuItem->Size = System::Drawing::Size(60, 20);
+			this->miPerfilToolStripMenuItem->Size = System::Drawing::Size(73, 24);
 			this->miPerfilToolStripMenuItem->Text = L"MiPerfil";
 			this->miPerfilToolStripMenuItem->Click += gcnew System::EventHandler(this, &PrintMainForm::miPerfilToolStripMenuItem_Click);
 			// 
 			// PrintMainForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(699, 531);
+			this->ClientSize = System::Drawing::Size(1032, 793);
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"PrintMainForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Bienvenido a AutoPrint Connect";
