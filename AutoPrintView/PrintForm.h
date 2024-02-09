@@ -549,6 +549,7 @@ namespace AutoPrintView {
 			this->PB_PDF_imprimir->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->PB_PDF_imprimir->TabIndex = 29;
 			this->PB_PDF_imprimir->TabStop = false;
+			this->PB_PDF_imprimir->Click += gcnew System::EventHandler(this, &PrintForm::PB_PDF_imprimir_Click_1);
 			// 
 			// tabPage1
 			// 
@@ -821,7 +822,7 @@ namespace AutoPrintView {
 	private: System::Void tabControl1_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 		ShowOrderFiles();
 	}
-	private: System::Void PB_PDF_imprimir_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void PB_PDF_imprimir_Click_1(System::Object^ sender, System::EventArgs^ e) {
 		//Precargado
 		OpenFileDialog^ opfd = gcnew OpenFileDialog();
 		opfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";

@@ -225,10 +225,10 @@ namespace AutoPrintView {
 			this->PB_imageREGIS->Controls->Add(this->tabPage1);
 			this->PB_imageREGIS->Controls->Add(this->tabPage2);
 			this->PB_imageREGIS->Location = System::Drawing::Point(1, 1);
-			this->PB_imageREGIS->Margin = System::Windows::Forms::Padding(2);
+			this->PB_imageREGIS->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->PB_imageREGIS->Name = L"PB_imageREGIS";
 			this->PB_imageREGIS->SelectedIndex = 0;
-			this->PB_imageREGIS->Size = System::Drawing::Size(590, 444);
+			this->PB_imageREGIS->Size = System::Drawing::Size(787, 546);
 			this->PB_imageREGIS->TabIndex = 0;
 			// 
 			// tabPage1
@@ -247,27 +247,29 @@ namespace AutoPrintView {
 			this->tabPage1->Controls->Add(this->label3);
 			this->tabPage1->Controls->Add(this->label2);
 			this->tabPage1->Controls->Add(this->label1);
-			this->tabPage1->Location = System::Drawing::Point(4, 22);
-			this->tabPage1->Margin = System::Windows::Forms::Padding(2);
+			this->tabPage1->Location = System::Drawing::Point(4, 25);
+			this->tabPage1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Padding = System::Windows::Forms::Padding(2);
-			this->tabPage1->Size = System::Drawing::Size(582, 418);
+			this->tabPage1->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tabPage1->Size = System::Drawing::Size(779, 517);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Usuarios";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
 			// TB_userID
 			// 
-			this->TB_userID->Location = System::Drawing::Point(141, 17);
+			this->TB_userID->Location = System::Drawing::Point(188, 21);
+			this->TB_userID->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->TB_userID->Name = L"TB_userID";
-			this->TB_userID->Size = System::Drawing::Size(50, 20);
+			this->TB_userID->Size = System::Drawing::Size(65, 22);
 			this->TB_userID->TabIndex = 48;
 			// 
 			// bmodificar
 			// 
-			this->bmodificar->Location = System::Drawing::Point(125, 159);
+			this->bmodificar->Location = System::Drawing::Point(167, 196);
+			this->bmodificar->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->bmodificar->Name = L"bmodificar";
-			this->bmodificar->Size = System::Drawing::Size(90, 21);
+			this->bmodificar->Size = System::Drawing::Size(120, 26);
 			this->bmodificar->TabIndex = 47;
 			this->bmodificar->Text = L"Modificar";
 			this->bmodificar->UseVisualStyleBackColor = true;
@@ -275,9 +277,10 @@ namespace AutoPrintView {
 			// 
 			// beliminar
 			// 
-			this->beliminar->Location = System::Drawing::Point(250, 157);
+			this->beliminar->Location = System::Drawing::Point(333, 193);
+			this->beliminar->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->beliminar->Name = L"beliminar";
-			this->beliminar->Size = System::Drawing::Size(75, 23);
+			this->beliminar->Size = System::Drawing::Size(100, 28);
 			this->beliminar->TabIndex = 46;
 			this->beliminar->Text = L"Eliminar";
 			this->beliminar->UseVisualStyleBackColor = true;
@@ -287,10 +290,10 @@ namespace AutoPrintView {
 			// 
 			this->TB_correo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TB_correo->Location = System::Drawing::Point(140, 112);
-			this->TB_correo->Margin = System::Windows::Forms::Padding(2);
+			this->TB_correo->Location = System::Drawing::Point(187, 138);
+			this->TB_correo->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->TB_correo->Name = L"TB_correo";
-			this->TB_correo->Size = System::Drawing::Size(185, 21);
+			this->TB_correo->Size = System::Drawing::Size(245, 24);
 			this->TB_correo->TabIndex = 45;
 			// 
 			// label5
@@ -298,10 +301,9 @@ namespace AutoPrintView {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(46, 115);
-			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label5->Location = System::Drawing::Point(61, 142);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(44, 15);
+			this->label5->Size = System::Drawing::Size(55, 18);
 			this->label5->TabIndex = 44;
 			this->label5->Text = L"Correo";
 			// 
@@ -310,10 +312,10 @@ namespace AutoPrintView {
 			this->PB_imageUSER->BackColor = System::Drawing::SystemColors::Control;
 			this->PB_imageUSER->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->PB_imageUSER->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"PB_imageUSER.Image")));
-			this->PB_imageUSER->Location = System::Drawing::Point(371, 15);
-			this->PB_imageUSER->Margin = System::Windows::Forms::Padding(2);
+			this->PB_imageUSER->Location = System::Drawing::Point(495, 18);
+			this->PB_imageUSER->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->PB_imageUSER->Name = L"PB_imageUSER";
-			this->PB_imageUSER->Size = System::Drawing::Size(150, 163);
+			this->PB_imageUSER->Size = System::Drawing::Size(200, 200);
 			this->PB_imageUSER->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->PB_imageUSER->TabIndex = 42;
 			this->PB_imageUSER->TabStop = false;
@@ -327,14 +329,14 @@ namespace AutoPrintView {
 				this->UT_dni,
 					this->UT_nombre, this->UT_apellido, this->UT_correo
 			});
-			this->dgvUserTable->Location = System::Drawing::Point(14, 197);
-			this->dgvUserTable->Margin = System::Windows::Forms::Padding(2);
+			this->dgvUserTable->Location = System::Drawing::Point(19, 242);
+			this->dgvUserTable->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->dgvUserTable->Name = L"dgvUserTable";
 			this->dgvUserTable->ReadOnly = true;
 			this->dgvUserTable->RowHeadersVisible = false;
 			this->dgvUserTable->RowHeadersWidth = 82;
 			this->dgvUserTable->RowTemplate->Height = 33;
-			this->dgvUserTable->Size = System::Drawing::Size(553, 206);
+			this->dgvUserTable->Size = System::Drawing::Size(737, 254);
 			this->dgvUserTable->TabIndex = 41;
 			this->dgvUserTable->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserTableForm::dgvUserTable_CellClick);
 			this->dgvUserTable->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserTableForm::dgvUserTable_CellContentClick);
@@ -375,30 +377,30 @@ namespace AutoPrintView {
 			// 
 			this->TB_dni->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TB_dni->Location = System::Drawing::Point(140, 88);
-			this->TB_dni->Margin = System::Windows::Forms::Padding(2);
+			this->TB_dni->Location = System::Drawing::Point(187, 108);
+			this->TB_dni->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->TB_dni->Name = L"TB_dni";
-			this->TB_dni->Size = System::Drawing::Size(126, 21);
+			this->TB_dni->Size = System::Drawing::Size(167, 24);
 			this->TB_dni->TabIndex = 38;
 			// 
 			// TB_lastname
 			// 
 			this->TB_lastname->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TB_lastname->Location = System::Drawing::Point(140, 63);
-			this->TB_lastname->Margin = System::Windows::Forms::Padding(2);
+			this->TB_lastname->Location = System::Drawing::Point(187, 78);
+			this->TB_lastname->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->TB_lastname->Name = L"TB_lastname";
-			this->TB_lastname->Size = System::Drawing::Size(153, 21);
+			this->TB_lastname->Size = System::Drawing::Size(203, 24);
 			this->TB_lastname->TabIndex = 37;
 			// 
 			// TB_name
 			// 
 			this->TB_name->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TB_name->Location = System::Drawing::Point(140, 39);
-			this->TB_name->Margin = System::Windows::Forms::Padding(2);
+			this->TB_name->Location = System::Drawing::Point(187, 48);
+			this->TB_name->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->TB_name->Name = L"TB_name";
-			this->TB_name->Size = System::Drawing::Size(153, 21);
+			this->TB_name->Size = System::Drawing::Size(203, 24);
 			this->TB_name->TabIndex = 36;
 			// 
 			// label4
@@ -406,10 +408,9 @@ namespace AutoPrintView {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(46, 90);
-			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label4->Location = System::Drawing::Point(61, 111);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(28, 15);
+			this->label4->Size = System::Drawing::Size(33, 18);
 			this->label4->TabIndex = 35;
 			this->label4->Text = L"DNI";
 			// 
@@ -418,10 +419,9 @@ namespace AutoPrintView {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(46, 66);
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label3->Location = System::Drawing::Point(61, 81);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(57, 15);
+			this->label3->Size = System::Drawing::Size(67, 18);
 			this->label3->TabIndex = 34;
 			this->label3->Text = L"Apellidos";
 			// 
@@ -430,10 +430,9 @@ namespace AutoPrintView {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(46, 41);
-			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label2->Location = System::Drawing::Point(61, 50);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(52, 15);
+			this->label2->Size = System::Drawing::Size(62, 18);
 			this->label2->TabIndex = 33;
 			this->label2->Text = L"Nombre";
 			// 
@@ -442,10 +441,9 @@ namespace AutoPrintView {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(46, 17);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->Location = System::Drawing::Point(61, 21);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(17, 15);
+			this->label1->Size = System::Drawing::Size(19, 18);
 			this->label1->TabIndex = 32;
 			this->label1->Text = L"Id";
 			// 
@@ -472,84 +470,93 @@ namespace AutoPrintView {
 			this->tabPage2->Controls->Add(this->label8);
 			this->tabPage2->Controls->Add(this->label9);
 			this->tabPage2->Controls->Add(this->label10);
-			this->tabPage2->Location = System::Drawing::Point(4, 22);
-			this->tabPage2->Margin = System::Windows::Forms::Padding(2);
+			this->tabPage2->Location = System::Drawing::Point(4, 25);
+			this->tabPage2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Padding = System::Windows::Forms::Padding(2);
-			this->tabPage2->Size = System::Drawing::Size(582, 418);
+			this->tabPage2->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tabPage2->Size = System::Drawing::Size(779, 517);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Registrar";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
 			// TB_Contra_reg
 			// 
-			this->TB_Contra_reg->Location = System::Drawing::Point(426, 187);
+			this->TB_Contra_reg->Location = System::Drawing::Point(568, 230);
+			this->TB_Contra_reg->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->TB_Contra_reg->Name = L"TB_Contra_reg";
-			this->TB_Contra_reg->Size = System::Drawing::Size(100, 20);
+			this->TB_Contra_reg->Size = System::Drawing::Size(132, 22);
 			this->TB_Contra_reg->TabIndex = 70;
 			// 
 			// TB_Num_reg
 			// 
-			this->TB_Num_reg->Location = System::Drawing::Point(399, 126);
+			this->TB_Num_reg->Location = System::Drawing::Point(532, 155);
+			this->TB_Num_reg->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->TB_Num_reg->Name = L"TB_Num_reg";
-			this->TB_Num_reg->Size = System::Drawing::Size(100, 20);
+			this->TB_Num_reg->Size = System::Drawing::Size(132, 22);
 			this->TB_Num_reg->TabIndex = 69;
 			// 
 			// TB_Fecha_re
 			// 
-			this->TB_Fecha_re->Location = System::Drawing::Point(423, 85);
+			this->TB_Fecha_re->Location = System::Drawing::Point(564, 105);
+			this->TB_Fecha_re->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->TB_Fecha_re->Name = L"TB_Fecha_re";
-			this->TB_Fecha_re->Size = System::Drawing::Size(100, 20);
+			this->TB_Fecha_re->Size = System::Drawing::Size(132, 22);
 			this->TB_Fecha_re->TabIndex = 68;
 			// 
 			// TB_gender_registro
 			// 
-			this->TB_gender_registro->Location = System::Drawing::Point(399, 49);
+			this->TB_gender_registro->Location = System::Drawing::Point(532, 60);
+			this->TB_gender_registro->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->TB_gender_registro->Name = L"TB_gender_registro";
-			this->TB_gender_registro->Size = System::Drawing::Size(100, 20);
+			this->TB_gender_registro->Size = System::Drawing::Size(132, 22);
 			this->TB_gender_registro->TabIndex = 67;
 			// 
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(313, 129);
+			this->label16->Location = System::Drawing::Point(417, 159);
+			this->label16->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(44, 13);
+			this->label16->Size = System::Drawing::Size(55, 16);
 			this->label16->TabIndex = 66;
 			this->label16->Text = L"Numero";
 			// 
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(313, 190);
+			this->label15->Location = System::Drawing::Point(417, 234);
+			this->label15->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(107, 13);
+			this->label15->Size = System::Drawing::Size(134, 16);
 			this->label15->TabIndex = 65;
 			this->label15->Text = L"Confirmar contraseña";
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(313, 92);
+			this->label13->Location = System::Drawing::Point(417, 113);
+			this->label13->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(104, 13);
+			this->label13->Size = System::Drawing::Size(129, 16);
 			this->label13->TabIndex = 63;
 			this->label13->Text = L"Fecha de nacimento";
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(313, 56);
+			this->label12->Location = System::Drawing::Point(417, 69);
+			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(42, 13);
+			this->label12->Size = System::Drawing::Size(52, 16);
 			this->label12->TabIndex = 62;
 			this->label12->Text = L"Genero";
 			// 
 			// bregistro
 			// 
-			this->bregistro->Location = System::Drawing::Point(242, 284);
+			this->bregistro->Location = System::Drawing::Point(323, 350);
+			this->bregistro->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->bregistro->Name = L"bregistro";
-			this->bregistro->Size = System::Drawing::Size(75, 23);
+			this->bregistro->Size = System::Drawing::Size(100, 28);
 			this->bregistro->TabIndex = 61;
 			this->bregistro->Text = L"registro";
 			this->bregistro->UseVisualStyleBackColor = true;
@@ -559,10 +566,10 @@ namespace AutoPrintView {
 			// 
 			this->TB_contraseña_reg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->TB_contraseña_reg->Location = System::Drawing::Point(115, 217);
-			this->TB_contraseña_reg->Margin = System::Windows::Forms::Padding(2);
+			this->TB_contraseña_reg->Location = System::Drawing::Point(153, 267);
+			this->TB_contraseña_reg->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->TB_contraseña_reg->Name = L"TB_contraseña_reg";
-			this->TB_contraseña_reg->Size = System::Drawing::Size(153, 23);
+			this->TB_contraseña_reg->Size = System::Drawing::Size(203, 27);
 			this->TB_contraseña_reg->TabIndex = 60;
 			// 
 			// label11
@@ -570,10 +577,9 @@ namespace AutoPrintView {
 			this->label11->AutoSize = true;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(21, 219);
-			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label11->Location = System::Drawing::Point(28, 270);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(81, 17);
+			this->label11->Size = System::Drawing::Size(95, 20);
 			this->label11->TabIndex = 59;
 			this->label11->Text = L"Contraseña";
 			// 
@@ -581,10 +587,10 @@ namespace AutoPrintView {
 			// 
 			this->TB_correo_reg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TB_correo_reg->Location = System::Drawing::Point(115, 184);
-			this->TB_correo_reg->Margin = System::Windows::Forms::Padding(2);
+			this->TB_correo_reg->Location = System::Drawing::Point(153, 226);
+			this->TB_correo_reg->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->TB_correo_reg->Name = L"TB_correo_reg";
-			this->TB_correo_reg->Size = System::Drawing::Size(185, 23);
+			this->TB_correo_reg->Size = System::Drawing::Size(245, 27);
 			this->TB_correo_reg->TabIndex = 58;
 			// 
 			// label6
@@ -592,10 +598,9 @@ namespace AutoPrintView {
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(21, 186);
-			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label6->Location = System::Drawing::Point(28, 229);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(51, 17);
+			this->label6->Size = System::Drawing::Size(60, 20);
 			this->label6->TabIndex = 57;
 			this->label6->Text = L"Correo";
 			// 
@@ -603,40 +608,40 @@ namespace AutoPrintView {
 			// 
 			this->TB_userID_reg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TB_userID_reg->Location = System::Drawing::Point(115, 54);
-			this->TB_userID_reg->Margin = System::Windows::Forms::Padding(2);
+			this->TB_userID_reg->Location = System::Drawing::Point(153, 66);
+			this->TB_userID_reg->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->TB_userID_reg->Name = L"TB_userID_reg";
-			this->TB_userID_reg->Size = System::Drawing::Size(94, 23);
+			this->TB_userID_reg->Size = System::Drawing::Size(124, 27);
 			this->TB_userID_reg->TabIndex = 56;
 			// 
 			// TB_dni_reg
 			// 
 			this->TB_dni_reg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TB_dni_reg->Location = System::Drawing::Point(115, 152);
-			this->TB_dni_reg->Margin = System::Windows::Forms::Padding(2);
+			this->TB_dni_reg->Location = System::Drawing::Point(153, 187);
+			this->TB_dni_reg->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->TB_dni_reg->Name = L"TB_dni_reg";
-			this->TB_dni_reg->Size = System::Drawing::Size(94, 23);
+			this->TB_dni_reg->Size = System::Drawing::Size(124, 27);
 			this->TB_dni_reg->TabIndex = 52;
 			// 
 			// TB_lastname_reg
 			// 
 			this->TB_lastname_reg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TB_lastname_reg->Location = System::Drawing::Point(115, 119);
-			this->TB_lastname_reg->Margin = System::Windows::Forms::Padding(2);
+			this->TB_lastname_reg->Location = System::Drawing::Point(153, 146);
+			this->TB_lastname_reg->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->TB_lastname_reg->Name = L"TB_lastname_reg";
-			this->TB_lastname_reg->Size = System::Drawing::Size(153, 23);
+			this->TB_lastname_reg->Size = System::Drawing::Size(203, 27);
 			this->TB_lastname_reg->TabIndex = 51;
 			// 
 			// TB_name_reg
 			// 
 			this->TB_name_reg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TB_name_reg->Location = System::Drawing::Point(115, 87);
-			this->TB_name_reg->Margin = System::Windows::Forms::Padding(2);
+			this->TB_name_reg->Location = System::Drawing::Point(153, 107);
+			this->TB_name_reg->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->TB_name_reg->Name = L"TB_name_reg";
-			this->TB_name_reg->Size = System::Drawing::Size(153, 23);
+			this->TB_name_reg->Size = System::Drawing::Size(203, 27);
 			this->TB_name_reg->TabIndex = 50;
 			// 
 			// label7
@@ -644,10 +649,9 @@ namespace AutoPrintView {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(21, 154);
-			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label7->Location = System::Drawing::Point(28, 190);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(31, 17);
+			this->label7->Size = System::Drawing::Size(38, 20);
 			this->label7->TabIndex = 49;
 			this->label7->Text = L"DNI";
 			// 
@@ -656,10 +660,9 @@ namespace AutoPrintView {
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(21, 122);
-			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label8->Location = System::Drawing::Point(28, 150);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(65, 17);
+			this->label8->Size = System::Drawing::Size(77, 20);
 			this->label8->TabIndex = 48;
 			this->label8->Text = L"Apellidos";
 			// 
@@ -668,10 +671,9 @@ namespace AutoPrintView {
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(21, 89);
-			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label9->Location = System::Drawing::Point(28, 110);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(58, 17);
+			this->label9->Size = System::Drawing::Size(68, 20);
 			this->label9->TabIndex = 47;
 			this->label9->Text = L"Nombre";
 			// 
@@ -680,21 +682,20 @@ namespace AutoPrintView {
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(21, 56);
-			this->label10->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label10->Location = System::Drawing::Point(28, 69);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(19, 17);
+			this->label10->Size = System::Drawing::Size(22, 20);
 			this->label10->TabIndex = 46;
 			this->label10->Text = L"Id";
 			// 
 			// UserTableForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(590, 443);
+			this->ClientSize = System::Drawing::Size(787, 545);
 			this->Controls->Add(this->PB_imageREGIS);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"UserTableForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"Usuarios";

@@ -51,7 +51,7 @@ namespace AutoPrintView {
 	private: System::Windows::Forms::ToolStripMenuItem^ billeteraToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ ordenesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ usuariosToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ miPerfilToolStripMenuItem;
+
 
 
 	private:
@@ -75,17 +75,15 @@ namespace AutoPrintView {
 			this->billeteraToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ordenesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->usuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->miPerfilToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->miCuentaToolStripMenuItem,
-					this->impresiónToolStripMenuItem, this->billeteraToolStripMenuItem, this->ordenesToolStripMenuItem, this->usuariosToolStripMenuItem,
-					this->miPerfilToolStripMenuItem
+					this->impresiónToolStripMenuItem, this->billeteraToolStripMenuItem, this->ordenesToolStripMenuItem, this->usuariosToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -107,13 +105,14 @@ namespace AutoPrintView {
 			// actualizarDatosToolStripMenuItem
 			// 
 			this->actualizarDatosToolStripMenuItem->Name = L"actualizarDatosToolStripMenuItem";
-			this->actualizarDatosToolStripMenuItem->Size = System::Drawing::Size(199, 26);
+			this->actualizarDatosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->actualizarDatosToolStripMenuItem->Text = L"Actualizar datos";
+			this->actualizarDatosToolStripMenuItem->Click += gcnew System::EventHandler(this, &PrintMainForm::actualizarDatosToolStripMenuItem_Click);
 			// 
 			// cerrarSesiónToolStripMenuItem
 			// 
 			this->cerrarSesiónToolStripMenuItem->Name = L"cerrarSesiónToolStripMenuItem";
-			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(199, 26);
+			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->cerrarSesiónToolStripMenuItem->Text = L"Cerrar sesión";
 			this->cerrarSesiónToolStripMenuItem->Click += gcnew System::EventHandler(this, &PrintMainForm::cerrarSesiónToolStripMenuItem_Click);
 			// 
@@ -145,13 +144,6 @@ namespace AutoPrintView {
 			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(79, 24);
 			this->usuariosToolStripMenuItem->Text = L"Usuarios";
 			this->usuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &PrintMainForm::usuariosToolStripMenuItem_Click);
-			// 
-			// miPerfilToolStripMenuItem
-			// 
-			this->miPerfilToolStripMenuItem->Name = L"miPerfilToolStripMenuItem";
-			this->miPerfilToolStripMenuItem->Size = System::Drawing::Size(73, 24);
-			this->miPerfilToolStripMenuItem->Text = L"MiPerfil";
-			this->miPerfilToolStripMenuItem->Click += gcnew System::EventHandler(this, &PrintMainForm::miPerfilToolStripMenuItem_Click);
 			// 
 			// PrintMainForm
 			// 
@@ -197,10 +189,10 @@ namespace AutoPrintView {
 		walletForm->MdiParent = this;
 		walletForm->Show();
 	}
-private: System::Void miPerfilToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	MyProfile^ myperfil = gcnew MyProfile();
-	myperfil->MdiParent = this;
-	myperfil->Show();
-}
+	private: System::Void actualizarDatosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		MyProfile^ myperfil = gcnew MyProfile();
+		myperfil->MdiParent = this;
+		myperfil->Show();
+	}
 };
 }
