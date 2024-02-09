@@ -102,6 +102,7 @@ namespace AutoPrintView {
 	private: System::Windows::Forms::Button^ BT_SubirPDF;
 
 	private: System::Windows::Forms::PictureBox^ PB_PDF_imprimir;
+	private: AxAcroPDFLib::AxAcroPDF^ axAcroPDF1;
 
 
 
@@ -223,6 +224,7 @@ namespace AutoPrintView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(PrintForm::typeid));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->TPage_impre = (gcnew System::Windows::Forms::TabPage());
 			this->BT_SubirPDF = (gcnew System::Windows::Forms::Button());
@@ -254,6 +256,7 @@ namespace AutoPrintView {
 			this->dgv_copias = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgv_local = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgv_precio = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->axAcroPDF1 = (gcnew AxAcroPDFLib::AxAcroPDF());
 			this->tabControl1->SuspendLayout();
 			this->TPage_impre->SuspendLayout();
 			this->TPage_historial->SuspendLayout();
@@ -261,6 +264,7 @@ namespace AutoPrintView {
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_historial))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvHistorial_Files))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->axAcroPDF1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -278,6 +282,7 @@ namespace AutoPrintView {
 			// 
 			// TPage_impre
 			// 
+			this->TPage_impre->Controls->Add(this->axAcroPDF1);
 			this->TPage_impre->Controls->Add(this->BT_SubirPDF);
 			this->TPage_impre->Controls->Add(this->cmbNUMcopias);
 			this->TPage_impre->Controls->Add(this->cmbLocal);
@@ -431,7 +436,7 @@ namespace AutoPrintView {
 			// 
 			this->BT_pagarTARJ->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->BT_pagarTARJ->Location = System::Drawing::Point(26, 422);
+			this->BT_pagarTARJ->Location = System::Drawing::Point(37, 422);
 			this->BT_pagarTARJ->Name = L"BT_pagarTARJ";
 			this->BT_pagarTARJ->Size = System::Drawing::Size(154, 74);
 			this->BT_pagarTARJ->TabIndex = 27;
@@ -636,6 +641,16 @@ namespace AutoPrintView {
 			this->dgv_precio->ReadOnly = true;
 			this->dgv_precio->Width = 50;
 			// 
+			// axAcroPDF1
+			// 
+			this->axAcroPDF1->Dock = System::Windows::Forms::DockStyle::Right;
+			this->axAcroPDF1->Enabled = true;
+			this->axAcroPDF1->Location = System::Drawing::Point(584, 3);
+			this->axAcroPDF1->Name = L"axAcroPDF1";
+			this->axAcroPDF1->OcxState = (cli::safe_cast<System::Windows::Forms::AxHost::State^>(resources->GetObject(L"axAcroPDF1.OcxState")));
+			this->axAcroPDF1->Size = System::Drawing::Size(330, 509);
+			this->axAcroPDF1->TabIndex = 39;
+			// 
 			// PrintForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -656,6 +671,7 @@ namespace AutoPrintView {
 			this->tabPage1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_historial))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvHistorial_Files))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->axAcroPDF1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
