@@ -180,6 +180,9 @@
     <Image Include="app.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AxInterop.AcroPDFLib.1.0">
+      <HintPath>..\x64\Debug\AxInterop.AcroPDFLib.1.0.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
