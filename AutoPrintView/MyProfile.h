@@ -106,16 +106,17 @@ namespace AutoPrintView {
 			this->label1->Location = System::Drawing::Point(237, 49);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(274, 54);
+			this->label1->Size = System::Drawing::Size(235, 54);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"My Profile";
+			this->label1->Text = L"Mi Perfil";
+			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// pbPhoto
 			// 
 			this->pbPhoto->BackColor = System::Drawing::Color::Transparent;
 			this->pbPhoto->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->pbPhoto->Location = System::Drawing::Point(517, 150);
-			this->pbPhoto->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->pbPhoto->Margin = System::Windows::Forms::Padding(4);
 			this->pbPhoto->Name = L"pbPhoto";
 			this->pbPhoto->Size = System::Drawing::Size(210, 210);
 			this->pbPhoto->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -202,7 +203,7 @@ namespace AutoPrintView {
 			this->txtCorreoP->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtCorreoP->Location = System::Drawing::Point(245, 300);
-			this->txtCorreoP->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtCorreoP->Margin = System::Windows::Forms::Padding(4);
 			this->txtCorreoP->Name = L"txtCorreoP";
 			this->txtCorreoP->Size = System::Drawing::Size(197, 30);
 			this->txtCorreoP->TabIndex = 8;
@@ -212,7 +213,7 @@ namespace AutoPrintView {
 			this->txtNUMP->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtNUMP->Location = System::Drawing::Point(245, 350);
-			this->txtNUMP->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtNUMP->Margin = System::Windows::Forms::Padding(4);
 			this->txtNUMP->Name = L"txtNUMP";
 			this->txtNUMP->Size = System::Drawing::Size(197, 30);
 			this->txtNUMP->TabIndex = 9;
@@ -222,7 +223,7 @@ namespace AutoPrintView {
 			this->txtConP->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtConP->Location = System::Drawing::Point(245, 400);
-			this->txtConP->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtConP->Margin = System::Windows::Forms::Padding(4);
 			this->txtConP->Name = L"txtConP";
 			this->txtConP->Size = System::Drawing::Size(197, 30);
 			this->txtConP->TabIndex = 10;
@@ -232,7 +233,7 @@ namespace AutoPrintView {
 			this->txtDNIP->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtDNIP->Location = System::Drawing::Point(246, 250);
-			this->txtDNIP->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtDNIP->Margin = System::Windows::Forms::Padding(4);
 			this->txtDNIP->Name = L"txtDNIP";
 			this->txtDNIP->Size = System::Drawing::Size(196, 30);
 			this->txtDNIP->TabIndex = 11;
@@ -242,7 +243,7 @@ namespace AutoPrintView {
 			this->txtlastP->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtlastP->Location = System::Drawing::Point(246, 200);
-			this->txtlastP->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtlastP->Margin = System::Windows::Forms::Padding(4);
 			this->txtlastP->Name = L"txtlastP";
 			this->txtlastP->Size = System::Drawing::Size(196, 30);
 			this->txtlastP->TabIndex = 12;
@@ -252,7 +253,7 @@ namespace AutoPrintView {
 			this->txtNameP->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtNameP->Location = System::Drawing::Point(246, 150);
-			this->txtNameP->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtNameP->Margin = System::Windows::Forms::Padding(4);
 			this->txtNameP->Name = L"txtNameP";
 			this->txtNameP->Size = System::Drawing::Size(196, 30);
 			this->txtNameP->TabIndex = 13;
@@ -262,7 +263,7 @@ namespace AutoPrintView {
 			this->btn_modificar_perfil->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->btn_modificar_perfil->Location = System::Drawing::Point(296, 479);
-			this->btn_modificar_perfil->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btn_modificar_perfil->Margin = System::Windows::Forms::Padding(4);
 			this->btn_modificar_perfil->Name = L"btn_modificar_perfil";
 			this->btn_modificar_perfil->Size = System::Drawing::Size(125, 46);
 			this->btn_modificar_perfil->TabIndex = 14;
@@ -275,7 +276,7 @@ namespace AutoPrintView {
 			this->btn_foto_perfil->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btn_foto_perfil->Location = System::Drawing::Point(548, 381);
-			this->btn_foto_perfil->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btn_foto_perfil->Margin = System::Windows::Forms::Padding(4);
 			this->btn_foto_perfil->Name = L"btn_foto_perfil";
 			this->btn_foto_perfil->Size = System::Drawing::Size(147, 49);
 			this->btn_foto_perfil->TabIndex = 15;
@@ -306,9 +307,9 @@ namespace AutoPrintView {
 			this->Controls->Add(this->pbPhoto);
 			this->Controls->Add(this->label1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"MyProfile";
-			this->Text = L"MyProfile";
+			this->Text = L"Actualizar datos";
 			this->Load += gcnew System::EventHandler(this, &MyProfile::MyProfile_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->EndInit();
 			this->ResumeLayout(false);

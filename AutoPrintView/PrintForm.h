@@ -102,7 +102,14 @@ namespace AutoPrintView {
 	private: System::Windows::Forms::Button^ BT_SubirPDF;
 
 	private: System::Windows::Forms::PictureBox^ PB_PDF_imprimir;
-	private: AxAcroPDFLib::AxAcroPDF^ axAcroPDF_imprimir;
+
+
+	private: System::Windows::Forms::Button^ BT_Enviar;
+	private: System::Windows::Forms::WebBrowser^ WB_PDF_imprimir;
+
+
+
+
 
 
 
@@ -227,10 +234,10 @@ namespace AutoPrintView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(PrintForm::typeid));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->TPage_impre = (gcnew System::Windows::Forms::TabPage());
-			this->axAcroPDF_imprimir = (gcnew AxAcroPDFLib::AxAcroPDF());
+			this->WB_PDF_imprimir = (gcnew System::Windows::Forms::WebBrowser());
+			this->BT_Enviar = (gcnew System::Windows::Forms::Button());
 			this->BT_SubirPDF = (gcnew System::Windows::Forms::Button());
 			this->cmbNUMcopias = (gcnew System::Windows::Forms::ComboBox());
 			this->cmbLocal = (gcnew System::Windows::Forms::ComboBox());
@@ -262,7 +269,6 @@ namespace AutoPrintView {
 			this->dgv_precio = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabControl1->SuspendLayout();
 			this->TPage_impre->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->axAcroPDF_imprimir))->BeginInit();
 			this->TPage_historial->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_imprimir))->BeginInit();
 			this->tabPage1->SuspendLayout();
@@ -285,7 +291,8 @@ namespace AutoPrintView {
 			// 
 			// TPage_impre
 			// 
-			this->TPage_impre->Controls->Add(this->axAcroPDF_imprimir);
+			this->TPage_impre->Controls->Add(this->WB_PDF_imprimir);
+			this->TPage_impre->Controls->Add(this->BT_Enviar);
 			this->TPage_impre->Controls->Add(this->BT_SubirPDF);
 			this->TPage_impre->Controls->Add(this->cmbNUMcopias);
 			this->TPage_impre->Controls->Add(this->cmbLocal);
@@ -312,15 +319,28 @@ namespace AutoPrintView {
 			this->TPage_impre->UseVisualStyleBackColor = true;
 			this->TPage_impre->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &PrintForm::TPage_impre_MouseMove);
 			// 
-			// axAcroPDF_imprimir
+			// WB_PDF_imprimir
 			// 
-			this->axAcroPDF_imprimir->Dock = System::Windows::Forms::DockStyle::Right;
-			this->axAcroPDF_imprimir->Enabled = true;
-			this->axAcroPDF_imprimir->Location = System::Drawing::Point(601, 3);
-			this->axAcroPDF_imprimir->Name = L"axAcroPDF_imprimir";
-			this->axAcroPDF_imprimir->OcxState = (cli::safe_cast<System::Windows::Forms::AxHost::State^>(resources->GetObject(L"axAcroPDF_imprimir.OcxState")));
-			this->axAcroPDF_imprimir->Size = System::Drawing::Size(320, 508);
-			this->axAcroPDF_imprimir->TabIndex = 39;
+			this->WB_PDF_imprimir->AllowNavigation = false;
+			this->WB_PDF_imprimir->Dock = System::Windows::Forms::DockStyle::Right;
+			this->WB_PDF_imprimir->IsWebBrowserContextMenuEnabled = false;
+			this->WB_PDF_imprimir->Location = System::Drawing::Point(497, 3);
+			this->WB_PDF_imprimir->MinimumSize = System::Drawing::Size(20, 20);
+			this->WB_PDF_imprimir->Name = L"WB_PDF_imprimir";
+			this->WB_PDF_imprimir->Size = System::Drawing::Size(424, 508);
+			this->WB_PDF_imprimir->TabIndex = 41;
+			// 
+			// BT_Enviar
+			// 
+			this->BT_Enviar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->BT_Enviar->Location = System::Drawing::Point(367, 348);
+			this->BT_Enviar->Name = L"BT_Enviar";
+			this->BT_Enviar->Size = System::Drawing::Size(95, 58);
+			this->BT_Enviar->TabIndex = 40;
+			this->BT_Enviar->Text = L"Imprimir";
+			this->BT_Enviar->UseVisualStyleBackColor = true;
+			this->BT_Enviar->Click += gcnew System::EventHandler(this, &PrintForm::BT_Enviar_Click);
 			// 
 			// BT_SubirPDF
 			// 
@@ -328,7 +348,7 @@ namespace AutoPrintView {
 				static_cast<System::Byte>(0)));
 			this->BT_SubirPDF->Location = System::Drawing::Point(17, 15);
 			this->BT_SubirPDF->Name = L"BT_SubirPDF";
-			this->BT_SubirPDF->Size = System::Drawing::Size(218, 44);
+			this->BT_SubirPDF->Size = System::Drawing::Size(234, 44);
 			this->BT_SubirPDF->TabIndex = 38;
 			this->BT_SubirPDF->Text = L"Suba aquí su PDF";
 			this->BT_SubirPDF->UseVisualStyleBackColor = true;
@@ -427,11 +447,12 @@ namespace AutoPrintView {
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(248, 15);
+			this->label8->Location = System::Drawing::Point(262, 15);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(168, 36);
 			this->label8->TabIndex = 30;
 			this->label8->Text = L"Color:   S/0.50\r\nBlanco y Negro:   S/0.30";
+			this->label8->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			// 
 			// label7
 			// 
@@ -567,9 +588,9 @@ namespace AutoPrintView {
 			// 
 			this->PB_PDF_historial->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->PB_PDF_historial->Cursor = System::Windows::Forms::Cursors::Arrow;
-			this->PB_PDF_historial->Location = System::Drawing::Point(574, 54);
+			this->PB_PDF_historial->Location = System::Drawing::Point(86, 363);
 			this->PB_PDF_historial->Name = L"PB_PDF_historial";
-			this->PB_PDF_historial->Size = System::Drawing::Size(284, 356);
+			this->PB_PDF_historial->Size = System::Drawing::Size(284, 114);
 			this->PB_PDF_historial->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->PB_PDF_historial->TabIndex = 29;
 			this->PB_PDF_historial->TabStop = false;
@@ -584,7 +605,7 @@ namespace AutoPrintView {
 				this->dgv_orderId,
 					this->gdv_hojatipo, this->dgv_tamano, this->dgv_tinta, this->dgv_copias, this->dgv_local, this->dgv_precio
 			});
-			this->dgvHistorial_Files->Location = System::Drawing::Point(6, 66);
+			this->dgvHistorial_Files->Location = System::Drawing::Point(6, 6);
 			this->dgvHistorial_Files->Name = L"dgvHistorial_Files";
 			this->dgvHistorial_Files->ReadOnly = true;
 			this->dgvHistorial_Files->RightToLeft = System::Windows::Forms::RightToLeft::No;
@@ -670,7 +691,6 @@ namespace AutoPrintView {
 			this->tabControl1->ResumeLayout(false);
 			this->TPage_impre->ResumeLayout(false);
 			this->TPage_impre->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->axAcroPDF_imprimir))->EndInit();
 			this->TPage_historial->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_imprimir))->EndInit();
 			this->tabPage1->ResumeLayout(false);
@@ -813,8 +833,6 @@ namespace AutoPrintView {
 		}
 	}
 
-
-
 	private: System::Void TPage_impre_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 		//Actualiza el monto
 		ShowPrice();
@@ -831,11 +849,19 @@ namespace AutoPrintView {
 		}
 	}
 	private: System::Void BT_SubirPDF_Click(System::Object^ sender, System::EventArgs^ e) {
-		OpenFileDialog^ opfd = gcnew OpenFileDialog();
-		opfd->Filter = "Archivos PDF|*.pdf";
-		if (opfd->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
-			axAcroPDF_imprimir->src = opfd->FileName;
+		OpenFileDialog^ dialogoPDF = gcnew OpenFileDialog();
+		dialogoPDF->Filter = "Archivos PDF|*.pdf";
+		if (dialogoPDF->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			WB_PDF_imprimir->Url = gcnew Uri(dialogoPDF->FileName);
+			WB_PDF_imprimir->DocumentCompleted += gcnew System::Windows::Forms::WebBrowserDocumentCompletedEventHandler(this, &PrintForm::DocumentCompletedHandler);
 		}
+	}
+		   private: System::Void DocumentCompletedHandler(System::Object^ sender, System::Windows::Forms::WebBrowserDocumentCompletedEventArgs^ e) {
+			   // Llama a la función JavaScript para cargar el PDF y ocultar las herramientas
+			   WB_PDF_imprimir->Document->InvokeScript("cargarPDF", gcnew array<Object^> { WB_PDF_imprimir->Url->LocalPath });
+		   }
+	private: System::Void BT_Enviar_Click(System::Object^ sender, System::EventArgs^ e) {
+		
 	}
 };
 }
