@@ -735,6 +735,14 @@ namespace AutoPrintView {
 			TB_name->Text = newUser->Name;
 			TB_lastname->Text = newUser->LastName;
 			TB_correo->Text = newUser->Email;
+			if (newUser->Photo != nullptr) { // Siempre valida que la foto exista
+				System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(newUser->Photo);
+				PB_imageUSER->Image = Image::FromStream(ms);
+			}
+			else {
+				PB_imageUSER->Image = nullptr;
+				PB_imageUSER->Invalidate();
+			}
 		//}
 	
 	}
@@ -785,6 +793,12 @@ namespace AutoPrintView {
 		newUser->Phone_number=actUser->Phone_number;
 		newUser->Photo=actUser->Photo;
 		newUser->Birthdate=actUser->Birthdate;
+
+		if (PB_imageUSER != nullptr && PB_imageUSER->Image != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+			PB_imageUSER->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+			newUser->Photo = ms->ToArray();
+		}
 
 		Controller::UpdateCustomer(newUser);
 		RefreshGrid();
