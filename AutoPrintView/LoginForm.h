@@ -13,6 +13,9 @@ namespace AutoPrintView {
 	using namespace AutoPrintModel;
 	using namespace AutoPrintController;
 
+	static int Dni_Ahora;
+
+
 	/// <summary>
 	/// Resumen de LoginForm
 	/// </summary>
@@ -232,6 +235,8 @@ namespace AutoPrintView {
 		}
 #pragma endregion
     //INTENTO DE LOGIN
+		
+
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Antes debemos ver si los items están llenos:
 		if ( (txtDNI->Text == "") || (txtPassword->Text == "") ) {
@@ -241,6 +246,7 @@ namespace AutoPrintView {
 
 		int enteredDni = Int32::Parse(txtDNI->Text);
 		String^ enteredPassword = txtPassword->Text;
+		Dni_Ahora = enteredDni;
 
 		if (enteredDni == 123 && enteredPassword == "admin") {
 			//CAMBIO PARA QUE DE LOGIN VAYA AL AUTOPRINT

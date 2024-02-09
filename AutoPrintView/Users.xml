@@ -2,35 +2,24 @@
 <ArrayOfUser xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <User>
     <Birthdate>123</Birthdate>
-    <Email>3121</Email>
-    <Password>123</Password>
-    <Gender>123</Gender>
-    <Dni>78945612</Dni>
-    <Phone_number>123</Phone_number>
-    <LastName>eqw</LastName>
-    <Name>eqw</Name>
-    <User_Id>0</User_Id>
-  </User>
-  <User>
-    <Birthdate>12345</Birthdate>
-    <Email>3121</Email>
-    <Password>12345</Password>
-    <Gender>12345</Gender>
-    <Dni>99999999</Dni>
-    <Phone_number>12345</Phone_number>
-    <LastName>eqw21312</LastName>
-    <Name>eqw3123</Name>
-    <User_Id>0</User_Id>
-  </User>
-  <User>
-    <Birthdate>123</Birthdate>
-    <Email>123</Email>
-    <Password>123</Password>
+    <Email>123@pucp.edu.pe</Email>
+    <Password>1234</Password>
     <Gender>Masculino</Gender>
     <Dni>123</Dni>
-    <Phone_number>123</Phone_number>
-    <LastName>Alarako</LastName>
-    <Name>Luis</Name>
+    <Phone_number>1234</Phone_number>
+    <LastName>AyudamePorfabot</LastName>
+    <Name>Diosito</Name>
+    <User_Id>0</User_Id>
+  </User>
+  <User>
+    <Birthdate>34</Birthdate>
+    <Email>34@pucp.edu.pe</Email>
+    <Password>345</Password>
+    <Gender>Masculino</Gender>
+    <Dni>345</Dni>
+    <Phone_number>34</Phone_number>
+    <LastName>aaa</LastName>
+    <Name>aaaa</Name>
     <User_Id>0</User_Id>
   </User>
 </ArrayOfUser>

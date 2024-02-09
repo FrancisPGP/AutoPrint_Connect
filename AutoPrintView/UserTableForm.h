@@ -771,12 +771,20 @@ namespace AutoPrintView {
 
 	private: System::Void bmodificar_Click(System::Object^ sender, System::EventArgs^ e) {
 		User^ newUser = gcnew User();
+		//Para que no se borre lo que se va a modificar se requiere del actUser
+		int UserDNI = Int32::Parse(dgvUserTable->Rows[dgvUserTable->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+		User^ actUser = Controller::QueryCustomerByDNI(UserDNI);
 		//newUser->User_Id = Int32::Parse(TB_userID->Text);
 		newUser->Name = TB_name->Text;
 		newUser->LastName = TB_lastname->Text;
 		newUser->Dni = Int32::Parse(TB_dni->Text);
 		newUser->Email = TB_correo->Text;
 
+		newUser->Gender = actUser->Gender;
+		newUser->Password=actUser->Password;
+		newUser->Phone_number=actUser->Phone_number;
+		newUser->Photo=actUser->Photo;
+		newUser->Birthdate=actUser->Birthdate;
 
 		Controller::UpdateCustomer(newUser);
 		RefreshGrid();
