@@ -102,7 +102,10 @@ namespace AutoPrintView {
 	private: System::Windows::Forms::Button^ BT_SubirPDF;
 
 	private: System::Windows::Forms::PictureBox^ PB_PDF_imprimir;
-	private: AxAcroPDFLib::AxAcroPDF^ axAcroPDF1;
+	private: AxAcroPDFLib::AxAcroPDF^ axAcroPDF_imprimir;
+
+
+
 
 
 
@@ -227,6 +230,7 @@ namespace AutoPrintView {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(PrintForm::typeid));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->TPage_impre = (gcnew System::Windows::Forms::TabPage());
+			this->axAcroPDF_imprimir = (gcnew AxAcroPDFLib::AxAcroPDF());
 			this->BT_SubirPDF = (gcnew System::Windows::Forms::Button());
 			this->cmbNUMcopias = (gcnew System::Windows::Forms::ComboBox());
 			this->cmbLocal = (gcnew System::Windows::Forms::ComboBox());
@@ -256,15 +260,14 @@ namespace AutoPrintView {
 			this->dgv_copias = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgv_local = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgv_precio = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->axAcroPDF1 = (gcnew AxAcroPDFLib::AxAcroPDF());
 			this->tabControl1->SuspendLayout();
 			this->TPage_impre->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->axAcroPDF_imprimir))->BeginInit();
 			this->TPage_historial->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_imprimir))->BeginInit();
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_historial))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvHistorial_Files))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->axAcroPDF1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -276,13 +279,13 @@ namespace AutoPrintView {
 			this->tabControl1->Location = System::Drawing::Point(0, 0);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(925, 544);
+			this->tabControl1->Size = System::Drawing::Size(932, 543);
 			this->tabControl1->TabIndex = 0;
 			this->tabControl1->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &PrintForm::tabControl1_MouseMove);
 			// 
 			// TPage_impre
 			// 
-			this->TPage_impre->Controls->Add(this->axAcroPDF1);
+			this->TPage_impre->Controls->Add(this->axAcroPDF_imprimir);
 			this->TPage_impre->Controls->Add(this->BT_SubirPDF);
 			this->TPage_impre->Controls->Add(this->cmbNUMcopias);
 			this->TPage_impre->Controls->Add(this->cmbLocal);
@@ -303,11 +306,21 @@ namespace AutoPrintView {
 			this->TPage_impre->Location = System::Drawing::Point(4, 25);
 			this->TPage_impre->Name = L"TPage_impre";
 			this->TPage_impre->Padding = System::Windows::Forms::Padding(3);
-			this->TPage_impre->Size = System::Drawing::Size(917, 515);
+			this->TPage_impre->Size = System::Drawing::Size(924, 514);
 			this->TPage_impre->TabIndex = 0;
 			this->TPage_impre->Text = L"Imprimir";
 			this->TPage_impre->UseVisualStyleBackColor = true;
 			this->TPage_impre->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &PrintForm::TPage_impre_MouseMove);
+			// 
+			// axAcroPDF_imprimir
+			// 
+			this->axAcroPDF_imprimir->Dock = System::Windows::Forms::DockStyle::Right;
+			this->axAcroPDF_imprimir->Enabled = true;
+			this->axAcroPDF_imprimir->Location = System::Drawing::Point(601, 3);
+			this->axAcroPDF_imprimir->Name = L"axAcroPDF_imprimir";
+			this->axAcroPDF_imprimir->OcxState = (cli::safe_cast<System::Windows::Forms::AxHost::State^>(resources->GetObject(L"axAcroPDF_imprimir.OcxState")));
+			this->axAcroPDF_imprimir->Size = System::Drawing::Size(320, 508);
+			this->axAcroPDF_imprimir->TabIndex = 39;
 			// 
 			// BT_SubirPDF
 			// 
@@ -641,21 +654,11 @@ namespace AutoPrintView {
 			this->dgv_precio->ReadOnly = true;
 			this->dgv_precio->Width = 50;
 			// 
-			// axAcroPDF1
-			// 
-			this->axAcroPDF1->Dock = System::Windows::Forms::DockStyle::Right;
-			this->axAcroPDF1->Enabled = true;
-			this->axAcroPDF1->Location = System::Drawing::Point(584, 3);
-			this->axAcroPDF1->Name = L"axAcroPDF1";
-			this->axAcroPDF1->OcxState = (cli::safe_cast<System::Windows::Forms::AxHost::State^>(resources->GetObject(L"axAcroPDF1.OcxState")));
-			this->axAcroPDF1->Size = System::Drawing::Size(330, 509);
-			this->axAcroPDF1->TabIndex = 39;
-			// 
 			// PrintForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(925, 544);
+			this->ClientSize = System::Drawing::Size(932, 543);
 			this->Controls->Add(this->tabControl1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
@@ -666,12 +669,12 @@ namespace AutoPrintView {
 			this->tabControl1->ResumeLayout(false);
 			this->TPage_impre->ResumeLayout(false);
 			this->TPage_impre->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->axAcroPDF_imprimir))->EndInit();
 			this->TPage_historial->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_imprimir))->EndInit();
 			this->tabPage1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PB_PDF_historial))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvHistorial_Files))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->axAcroPDF1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -827,7 +830,11 @@ namespace AutoPrintView {
 		}
 	}
 	private: System::Void BT_SubirPDF_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		OpenFileDialog^ opfd = gcnew OpenFileDialog();
+		opfd->Filter = "Archivos PDF|*.pdf";
+		if (opfd->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			axAcroPDF_imprimir->src = opfd->FileName;
+		}
 	}
 };
 }
