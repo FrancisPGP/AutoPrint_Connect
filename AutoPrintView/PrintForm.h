@@ -532,7 +532,7 @@ namespace AutoPrintView {
 			this->TPage_historial->Location = System::Drawing::Point(4, 25);
 			this->TPage_historial->Name = L"TPage_historial";
 			this->TPage_historial->Padding = System::Windows::Forms::Padding(3);
-			this->TPage_historial->Size = System::Drawing::Size(917, 515);
+			this->TPage_historial->Size = System::Drawing::Size(924, 514);
 			this->TPage_historial->TabIndex = 1;
 			this->TPage_historial->Text = L"Cola";
 			this->TPage_historial->UseVisualStyleBackColor = true;
@@ -557,7 +557,7 @@ namespace AutoPrintView {
 			this->tabPage1->Location = System::Drawing::Point(4, 25);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(917, 515);
+			this->tabPage1->Size = System::Drawing::Size(924, 514);
 			this->tabPage1->TabIndex = 2;
 			this->tabPage1->Text = L"Historial";
 			this->tabPage1->UseVisualStyleBackColor = true;
