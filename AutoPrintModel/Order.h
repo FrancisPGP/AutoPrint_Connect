@@ -20,9 +20,9 @@ namespace AutoPrintModel {
         property String^ sheet_size;
         property String^ status_order;
         property  double price; //fuiste usado
-
         property String^ Location;
-        property array<Byte>^ File;
+        property String^ PDF_URL;
+        property array<Byte>^ PDF;
 
         
         void PrintDocument();
