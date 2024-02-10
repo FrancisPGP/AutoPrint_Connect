@@ -683,8 +683,8 @@ namespace AutoPrintView {
 			cardVISAForm->ControlBox = true;
 			cardVISAForm->ShowDialog();
 			//RefreshPage();
-			Close();
 			PrintPDF();
+			Close();
 		}
 
 	}
@@ -700,8 +700,8 @@ namespace AutoPrintView {
 				Controller::UpdateCustomer(user_wallet);
 				MessageBox::Show("Operación exitosa. El documento se encuentra en cola.");
 				//RefreshPage();
-				Close();
 				PrintPDF();
+				Close();
 			}
 			else {
 				MessageBox::Show("Saldo insuficiente. Se le redirigirá a la pestaña de recarga.");
@@ -877,7 +877,7 @@ namespace AutoPrintView {
 				//MessageBox::Show(File_order->PDF_URL);
 			}
 			else {
-				WB_PDF_historial->Navigate("about:blank");
+				WB_PDF_historial->Navigate("");
 				WB_PDF_historial->Invalidate();
 			}
 		}
