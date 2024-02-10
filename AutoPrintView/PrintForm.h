@@ -16,6 +16,9 @@ namespace AutoPrintView {
 	using namespace System::Collections::Generic;
 	using namespace AutoPrintModel;
 
+	using namespace System::Diagnostics;
+	using namespace System::Threading;
+
 	//Agregamos variable universal para tener el monto a pagar en otra pestaña
 	static double Total_a_apagar;
 
@@ -320,7 +323,6 @@ namespace AutoPrintView {
 			// 
 			// WB_PDF_imprimir
 			// 
-			this->WB_PDF_imprimir->AllowNavigation = false;
 			this->WB_PDF_imprimir->Dock = System::Windows::Forms::DockStyle::Right;
 			this->WB_PDF_imprimir->Location = System::Drawing::Point(497, 3);
 			this->WB_PDF_imprimir->MinimumSize = System::Drawing::Size(20, 20);
@@ -560,11 +562,11 @@ namespace AutoPrintView {
 			// 
 			this->WB_PDF_historial->AllowNavigation = false;
 			this->WB_PDF_historial->Dock = System::Windows::Forms::DockStyle::Right;
-			this->WB_PDF_historial->Location = System::Drawing::Point(619, 3);
+			this->WB_PDF_historial->Location = System::Drawing::Point(543, 3);
 			this->WB_PDF_historial->MinimumSize = System::Drawing::Size(20, 20);
 			this->WB_PDF_historial->Name = L"WB_PDF_historial";
 			this->WB_PDF_historial->ScrollBarsEnabled = false;
-			this->WB_PDF_historial->Size = System::Drawing::Size(302, 508);
+			this->WB_PDF_historial->Size = System::Drawing::Size(378, 508);
 			this->WB_PDF_historial->TabIndex = 42;
 			// 
 			// dgvHistorial_Files
@@ -584,7 +586,7 @@ namespace AutoPrintView {
 			this->dgvHistorial_Files->RowHeadersVisible = false;
 			this->dgvHistorial_Files->RowHeadersWidth = 51;
 			this->dgvHistorial_Files->RowTemplate->Height = 24;
-			this->dgvHistorial_Files->Size = System::Drawing::Size(562, 330);
+			this->dgvHistorial_Files->Size = System::Drawing::Size(481, 330);
 			this->dgvHistorial_Files->TabIndex = 2;
 			this->dgvHistorial_Files->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PrintForm::dgvHistorial_Files_CellClick);
 			// 
@@ -680,6 +682,9 @@ namespace AutoPrintView {
 			CardVISAForm^ cardVISAForm = gcnew CardVISAForm();
 			cardVISAForm->ControlBox = true;
 			cardVISAForm->ShowDialog();
+			//RefreshPage();
+			Close();
+			PrintPDF();
 		}
 
 	}
@@ -693,8 +698,10 @@ namespace AutoPrintView {
 				ShowOrderFiles();
 				user_wallet->Money_in_wallet = user_wallet->Money_in_wallet - monto;
 				Controller::UpdateCustomer(user_wallet);
-				MessageBox::Show("Operación exitosa. El documento ya se encuentra en fila de impresión");
+				MessageBox::Show("Operación exitosa. El documento se encuentra en cola.");
+				//RefreshPage();
 				Close();
+				PrintPDF();
 			}
 			else {
 				MessageBox::Show("Saldo insuficiente. Se le redirigirá a la pestaña de recarga.");
@@ -752,13 +759,20 @@ namespace AutoPrintView {
 				   PB_PDF_imprimir->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
 				   File_order->File = ms->ToArray();
 			   }*/
+			   // Verificar si hay algún documento en el WebBrowser
 			   if (WB_PDF_imprimir->Url != nullptr) {
-				   System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
-				   // Copiar el contenido del DocumentStream al MemoryStream
-				   WB_PDF_imprimir->DocumentStream->CopyTo(ms);
-				   // Obtener el array de bytes desde el MemoryStream y asignarlo al atributo DocumentFile
-				   File_order->Order::File = ms->ToArray();
+				   // Obtener la URL del PDF
+				   File_order->PDF_URL = WB_PDF_imprimir->Url->ToString();
+				   // Obtener la ruta local del archivo PDF
+				   String^ pdfPath = WB_PDF_imprimir->Url->LocalPath;
+
+				   // Verificar si el archivo PDF existe antes de intentar guardarlo
+				   if (System::IO::File::Exists(pdfPath)) {
+					   // Leer el contenido del archivo PDF en un array de bytes y Asignar el array de bytes al atributo PDF
+					   File_order->PDF = System::IO::File::ReadAllBytes(pdfPath);
+				   }
 			   }
+
 
 			   AutoPrintController::Controller::AddOrder(File_order);
 		   }
@@ -796,6 +810,56 @@ namespace AutoPrintView {
 				   MontoPago->Text = (monto).ToString();
 			   }
 		   }
+		   Void PrintPDF() {
+			   try {
+				   // Verifica si la propiedad Url no es nula
+				   if (WB_PDF_imprimir->Url != nullptr) {
+					   // Obtiene la ruta del archivo desde la propiedad AbsolutePath de la Url
+					   String^ pdfFilePath = WB_PDF_imprimir->Url->AbsolutePath;
+
+					   /*// Abre la ventana de "Dispositivos e impresoras"
+					   Process::Start("control", "/name Microsoft.DevicesAndPrinters");
+					   // Espera un momento para que la ventana se abra completamente (ajusta según sea necesario)
+					   System::Threading::Thread::Sleep(2000);
+					   // Imprime el archivo PDF utilizando el visor de PDF predeterminado en Windows
+					   Process::Start("print", pdfFilePath);*/
+
+					   PrintDialog^ dialog = gcnew PrintDialog();
+					   dialog->ShowDialog();
+
+					   ProcessStartInfo^ printProcessInfo = gcnew ProcessStartInfo();
+					   printProcessInfo->Verb = "print";
+					   printProcessInfo->CreateNoWindow = true;
+					   printProcessInfo->FileName = pdfFilePath;
+					   printProcessInfo->WindowStyle = ProcessWindowStyle::Hidden;
+
+					   Process^ printProcess = gcnew Process();
+					   printProcess->StartInfo = printProcessInfo;
+					   printProcess->Start();
+					   printProcess->WaitForInputIdle();
+					   Thread::Sleep(3000);
+
+					   if (!printProcess->CloseMainWindow()) {
+						   printProcess->Kill();
+					   }
+				   }
+			   }
+			   catch (Exception^ ex) {
+				   MessageBox::Show("La utilidad no está disponible en su sistema operativo");
+			   }
+		   }
+		   /*void RefreshPage() {
+			   // Limpiar valores de ComboBox
+			   cmbTipoHoja->SelectedIndex = -1;
+			   cmbTamaHoja->SelectedIndex = -1;
+			   cmbTinta->SelectedIndex = -1;
+			   cmbNUMcopias->SelectedIndex = -1;
+			   cmbLocal->SelectedIndex = -1;
+			   MontoPago->Text = "0";
+
+			   // Limpiar el WebBrowser
+			   WB_PDF_imprimir->();
+		   }*/
 
 	private: System::Void dgvHistorial_Files_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		if (dgvHistorial_Files->SelectedCells->Count > 0 &&
@@ -808,16 +872,12 @@ namespace AutoPrintView {
 
 			Order^ File_order = Controller::QueryFileById(orderId);
 
-			/*if (File_order->Order::File != nullptr) {
-				System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(File_order->Order::File);
-				PB_PDF_historial->Image = Image::FromStream(ms);
-			}*/
-			if (File_order->Order::File != nullptr) {
-				System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(File_order->Order::File);
-				WB_PDF_historial->DocumentStream = ms;
+			if (File_order->PDF_URL != nullptr) {
+				WB_PDF_historial->Navigate(File_order->PDF_URL);
+				//MessageBox::Show(File_order->PDF_URL);
 			}
 			else {
-				WB_PDF_historial->DocumentStream = nullptr;
+				WB_PDF_historial->Navigate("about:blank");
 				WB_PDF_historial->Invalidate();
 			}
 		}
@@ -849,18 +909,6 @@ namespace AutoPrintView {
 			// Configurar la ruta del archivo PDF en el control WebBrowser
 			WB_PDF_imprimir->Navigate(dialogoPDF->FileName);
 		}
-		/*// Obtener la ruta del archivo PDF seleccionado
-			String^ rutaPDF = dialogoPDF->FileName;
-			// Crear un FileStream para leer el archivo PDF
-			System::IO::FileStream^ fileStream = gcnew System::IO::FileStream(rutaPDF, System::IO::FileMode::Open);
-			// Crear un MemoryStream para almacenar el contenido del archivo PDF
-			System::IO::MemoryStream^ memoryStream = gcnew System::IO::MemoryStream();
-			// Copiar el contenido del FileStream al MemoryStream
-			fileStream->CopyTo(memoryStream);
-			// Cerrar el FileStream
-			fileStream->Close();
-			// Establecer el DocumentStream del WebBrowser con el MemoryStream
-			WB_PDF_imprimir->DocumentStream = gcnew System::IO::MemoryStream(memoryStream->ToArray());*/
 	}
 };
 }
