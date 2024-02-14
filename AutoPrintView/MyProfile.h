@@ -342,37 +342,99 @@ private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArg
 }
 		private: System::Void MyProfile_Load(System::Object^ sender, System::EventArgs^ e) {
 			int dniP = Dni_Ahora;
-			User^ currentUser =Controller::QueryCustomerByDNI(dniP);
+			Customer^ currentUser =Controller::QueryCustomerByDNI(dniP);
+			Employee^ currentEmployee = Controller::QueryEmployeeByDNI(dniP);
+			Boss^ currentBoss = Controller::QueryBossByDNI(dniP);
 			if (currentUser != nullptr) {
 				FillTextBoxes(currentUser);
 			}
+			if (currentEmployee != nullptr) {
+				FillTextBoxes(currentEmployee);
+			}
+			if (currentBoss != nullptr) {
+				FillTextBoxes(currentBoss);
+			}
+
 		}
 	private: System::Void btn_modificar_perfil_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		User^ currentUser = gcnew User();
 		//Para que no se borre lo que no se modifica se requiere de dnic
 		int dnic=Dni_Ahora;
-		User^ actUser = Controller::QueryCustomerByDNI(dnic);
+		Customer^ actUser = Controller::QueryCustomerByDNI(dnic);
+		Employee^ actEmp = Controller::QueryEmployeeByDNI(dnic);
+		Boss^ actBos = Controller::QueryBossByDNI(dnic);
+		if (actUser != nullptr) {
+			Customer^ currentUser = gcnew Customer();
+			currentUser->Email = txtCorreoP->Text;
+			currentUser->Phone_number = txtNUMP->Text;
+			currentUser->Password = txtConP->Text;
 
-		currentUser->Email = txtCorreoP->Text;
-		currentUser->Phone_number = txtNUMP->Text;
-		currentUser->Password = txtConP->Text;
+			currentUser->Name = actUser->Name;
+			currentUser->LastName = actUser->LastName;
+			currentUser->Dni = actUser->Dni;
+			currentUser->Birthdate = actUser->Birthdate;
+			currentUser->Photo = actUser->Photo;
+			currentUser->Gender = actUser->Gender;
 
-		currentUser->Name = actUser->Name;
-		currentUser->LastName = actUser->LastName;
-		currentUser->Dni = actUser->Dni;
-		currentUser->Birthdate = actUser->Birthdate;
-		currentUser->Photo = actUser->Photo;
-		currentUser->Gender = actUser->Gender;
+			if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
+				System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+				pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+				currentUser->Photo = ms->ToArray();
+			}
+			Controller::UpdateCostumer(currentUser);
+			FillTextBoxes(currentUser);
 
-		if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
-			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
-			pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
-			currentUser->Photo = ms->ToArray();
+
+		}
+		if (actEmp != nullptr) {
+			Employee^ currentUser = gcnew Employee();
+			currentUser->Email = txtCorreoP->Text;
+			currentUser->Phone_number = txtNUMP->Text;
+			currentUser->Password = txtConP->Text;
+
+			currentUser->Name = actUser->Name;
+			currentUser->LastName = actUser->LastName;
+			currentUser->Dni = actUser->Dni;
+			currentUser->Birthdate = actUser->Birthdate;
+			currentUser->Photo = actUser->Photo;
+			currentUser->Gender = actUser->Gender;
+
+			if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
+				System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+				pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+				currentUser->Photo = ms->ToArray();
+			}
+			Controller::UpdateEmployee(currentUser);
+			FillTextBoxes(currentUser);
+
+
+		}
+		if (actBos != nullptr) {
+			Boss^ currentUser = gcnew Boss();
+			currentUser->Email = txtCorreoP->Text;
+			currentUser->Phone_number = txtNUMP->Text;
+			currentUser->Password = txtConP->Text;
+
+			currentUser->Name = actUser->Name;
+			currentUser->LastName = actUser->LastName;
+			currentUser->Dni = actUser->Dni;
+			currentUser->Birthdate = actUser->Birthdate;
+			currentUser->Photo = actUser->Photo;
+			currentUser->Gender = actUser->Gender;
+
+			if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
+				System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+				pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+				currentUser->Photo = ms->ToArray();
+			}
+			Controller::UpdateBoss(currentUser);
+			FillTextBoxes(currentUser);
+
+
 		}
 
-		Controller::UpdateCustomer(currentUser);
-		FillTextBoxes(currentUser);
+		
+		
 
 	}
 private: System::Void btn_foto_perfil_Click(System::Object^ sender, System::EventArgs^ e) {

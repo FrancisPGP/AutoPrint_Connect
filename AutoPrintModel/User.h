@@ -17,7 +17,6 @@ namespace AutoPrintModel {
 
         void Login();
     private:
-        int user_Id;
         String^ name;
         String^ lastName;
         String^ phone_number;
@@ -28,13 +27,10 @@ namespace AutoPrintModel {
         String^ birthdate;
         array<Byte>^ photo;
         //atributo creado por comodidad en el walletForm y otros que se necesite en el futuro ;v
-        double money_in_wallet;
+        
 
     public: 
-        property int User_Id; /* {
-            int get() { return user_Id; }
-            void set(int value) { user_Id = value; }
-        }*/
+      
         property String^ Name {//------------------------------------------MODIFICACIONES DE LUIS------------------
             String^ get() { return name; }
             void set(String^ value) { name = value; }
@@ -71,9 +67,22 @@ namespace AutoPrintModel {
             array<Byte>^ get() { return photo; }
             void set(array<Byte>^ value) { photo = value; }
         }
-        property double Money_in_wallet {
-            double get() { return money_in_wallet; }
-            void set(double value) { money_in_wallet = value; }
+        property double Money_in_wallet;
+
+     
+        User(){}
+
+        User(String^ Name, String^ LastName, String^ Phonenumber, int Dni, String^ Gender, String^ Password, String^ Email, String^ Birthdate, array<Byte>^ Photo, double Money_in_wallet) {
+            this->Name = Name;
+            this->LastName = LastName;
+            this->Phone_number=Phonenumber;
+            this->Dni = Dni;
+            this->Gender = Gender;
+            this->Password = Password;
+            this->Email = Email;
+            this->Birthdate = Birthdate;
+            this->Photo = Photo;
+            this->Money_in_wallet = Money_in_wallet;
         }
     };
 }

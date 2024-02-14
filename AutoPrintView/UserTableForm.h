@@ -713,7 +713,7 @@ namespace AutoPrintView {
 
 
 		   void RefreshGrid() {
-			   List<User^>^ userList = Controller::QueryAllCustomers(); ///
+			   List<Customer^>^ userList = Controller::QueryAllCustomers(); ///
 
 			   dgvUserTable->Rows->Clear();
 			   for (int i = 0; i < userList->Count; i++) {
@@ -753,7 +753,7 @@ namespace AutoPrintView {
 	private: System::Void bregistro_Click(System::Object^ sender, System::EventArgs^ e) {
 				
 
-		User^ newUser = gcnew User(); //instanciamos al nuevo usuario
+		Customer^ newUser = gcnew Customer(); //instanciamos al nuevo usuario
 		//newUser->User_Id = Int32::Parse(TB_userID_reg->Text);
 		newUser->Name = TB_name_reg->Text;
 		newUser->LastName = TB_lastname_reg->Text;
@@ -766,7 +766,7 @@ namespace AutoPrintView {
 		newUser->Password = TB_Contra_reg->Text;
 
 		//Ya cargados los datos, lo pasamos como parámetro al método AddCustomer
-		Controller::AddCustomer(newUser); //Añadimos al usuario
+		Controller::AddCostumer(newUser); //Añadimos al usuario
 
 		RefreshGrid();
 
@@ -779,7 +779,7 @@ namespace AutoPrintView {
 	}
 
 	private: System::Void bmodificar_Click(System::Object^ sender, System::EventArgs^ e) {
-		User^ newUser = gcnew User();
+		Customer^ newUser = gcnew Customer();
 		//Para que no se borre lo que se va a modificar se requiere del actUser
 		int UserDNI = Int32::Parse(dgvUserTable->Rows[dgvUserTable->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
 		User^ actUser = Controller::QueryCustomerByDNI(UserDNI);
@@ -801,7 +801,7 @@ namespace AutoPrintView {
 			newUser->Photo = ms->ToArray();
 		}
 
-		Controller::UpdateCustomer(newUser);
+		Controller::UpdateCostumer(newUser);
 		RefreshGrid();
 
 	}
@@ -812,8 +812,7 @@ private: System::Void brnRegistro_Click(System::Object^ sender, System::EventArg
 		int DNI = Int32::Parse(TB_dni->Text);
 		String^ correo = TB_correo->Text;
 
-		User^ newUser = gcnew User();
-		newUser->User_Id = userId;
+		Customer^ newUser = gcnew Customer();
 		newUser->Name = nombre;
 		newUser->LastName = apellido;
 		newUser->Dni = DNI;

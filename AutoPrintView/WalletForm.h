@@ -407,7 +407,7 @@ namespace AutoPrintView {
 		newCardWallet->dueDate = txtMMAAWallet->Text;
 
 		int dni_wallet = Dni_Ahora;
-		User^ user_wallet = AutoPrintController::Controller::QueryCustomerByDNI(dni_wallet);
+		Customer^ user_wallet = AutoPrintController::Controller::QueryCustomerByDNI(dni_wallet);
 
 		if ((txtAmountToRechange->Text == "") || (txtCardNumberWallet->Text == "") || (txtMMAAWallet->Text == "") || (txtCVVWallet->Text == "") || (txtOwnerWallet->Text == "") ||
 			(txtCardNumberWallet->Text == "XXXX-XXXX-XXXX-XXXX") || (txtMMAAWallet->Text == "MM/AA") || (txtCVVWallet->Text == "XXX") || (txtOwnerWallet->Text == "NOMBRE APELLIDO")) {
@@ -416,7 +416,7 @@ namespace AutoPrintView {
 		else {
 			user_wallet->Money_in_wallet = user_wallet->Money_in_wallet + Convert::ToDouble(txtAmountToRechange->Text);
 			lblBalance->Text = Convert::ToString(user_wallet->Money_in_wallet);
-			Controller::UpdateCustomer(user_wallet);
+			Controller::UpdateCostumer(user_wallet);
 			txtAmountToRechange->Text = "";
 			txtCardNumberWallet->Text = "XXXX-XXXX-XXXX-XXXX";
 			txtMMAAWallet->Text = "MM/AA";
@@ -479,7 +479,7 @@ namespace AutoPrintView {
 	}
 	private: System::Void WalletForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		int dni_wallet = Dni_Ahora;
-		User^ user_wallet = AutoPrintController::Controller::QueryCustomerByDNI(dni_wallet);
+		Customer^ user_wallet = AutoPrintController::Controller::QueryCustomerByDNI(dni_wallet);
 		lblBalance->Text = Convert::ToString(user_wallet->Money_in_wallet);
 	}
 	};
