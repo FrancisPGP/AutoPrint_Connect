@@ -432,7 +432,7 @@ namespace AutoPrintView {
 		newUser->Password = txtConfirmPassword->Text; //Acá no estoy seguro si deberíamos colocar otro atributo que almacene la misma contraseña para comparar y asegurar que sea la misma
 		newUser->Money_in_wallet = 0;
 		//Ya cargados los datos, lo pasamos como parámetro al método AddCustomer
-		Controller::AddCustomer(newUser); //Añadimos al usuario
+		Controller::AddUser(newUser); //Añadimos al usuario
 		Close(); //Una vez añadido el nuevo usario, cerramos esa pestaña
 
 	}

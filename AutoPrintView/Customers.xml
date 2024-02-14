@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCustomer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Customer>
+    <Money_in_wallet>19.4</Money_in_wallet>
+    <Birthdate>07/07/07</Birthdate>
+    <Email>juancito123@gmail.com</Email>
+    <Password>123</Password>
+    <Gender>Masculino</Gender>
+    <Dni>45612378</Dni>
+    <Phone_number>999888776</Phone_number>
+    <LastName>Alimaña</LastName>
+    <Name>Juancito2</Name>
+    <record />
+  </Customer>
+</ArrayOfCustomer>

@@ -692,12 +692,12 @@ namespace AutoPrintView {
 		if (NotEmpty()) {
 			double monto = Convert::ToDouble(MontoPago->Text);
 			int dni_wallet = Dni_Ahora;
-			User^ user_wallet = AutoPrintController::Controller::QueryCustomerByDNI(dni_wallet);
+			Customer^ user_wallet = AutoPrintController::Controller::QueryCustomerByDNI(dni_wallet);
 			if (user_wallet->Money_in_wallet >= monto) {
 				UpOrder();
 				ShowOrderFiles();
 				user_wallet->Money_in_wallet = user_wallet->Money_in_wallet - monto;
-				Controller::UpdateCustomer(user_wallet);
+				Controller::UpdateCostumer(user_wallet);
 				MessageBox::Show("Operación exitosa. El documento se encuentra en cola.");
 				//RefreshPage();
 				PrintPDF();

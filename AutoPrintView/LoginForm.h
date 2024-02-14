@@ -21,7 +21,9 @@ namespace AutoPrintView {
 	/// </summary>
 	public ref class LoginForm : public System::Windows::Forms::Form
 	{
+	
 	public:
+
 		LoginForm(void)
 		{
 			InitializeComponent();
@@ -238,8 +240,8 @@ namespace AutoPrintView {
     //INTENTO DE LOGIN
 		
 
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		//Antes debemos ver si los items están llenos:
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e); //{
+		/*//Antes debemos ver si los items están llenos:
 		if ( (txtDNI->Text == "") || (txtPassword->Text == "") ) {
 			MessageBox::Show("No ingreso usuario o contraseña");
 			return;
@@ -249,24 +251,16 @@ namespace AutoPrintView {
 		String^ enteredPassword = txtPassword->Text;
 		Dni_Ahora = enteredDni;
 
-		if (enteredDni == 123 && enteredPassword == "admin") {
-			//CAMBIO PARA QUE DE LOGIN VAYA AL AUTOPRINT
-		/*PrintMainForm^ print = gcnew PrintMainForm();
-			print->MdiParent = this;
-			print->Show();*/
-			Close();
-		}
-		else if ((Controller::Login(enteredDni, enteredPassword)) == true) {
-			//CAMBIO PARA QUE DE LOGIN VAYA AL AUTOPRINT
-			/*PrintMainForm^ print = gcnew PrintMainForm();
-			print->MdiParent = this;
-			print->Show();*/
+		User^ us = Controller::Login(enteredDni, enteredPassword);
+		if (us != nullptr) {
+		
 			Close();
 		}
 		else {
 			MessageBox::Show("Usuario o contraseña incorrectos.");
-		}
-	}
+		}*/
+	//}
+	
 	private: System::Void txtPassword_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		if(e->KeyData == Keys::Enter)
 			btnEntrar->PerformClick();
